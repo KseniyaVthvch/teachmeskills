@@ -1,0 +1,257 @@
+/*--------------------
+--------reset--------
+--------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*-----------------------*/
+
+:root {
+    font-family: 'Mulish', sans-serif;
+    letter-spacing: 0.005em;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1em;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 1264px;
+}
+
+/*--------------------
+-------employee-------
+--------------------*/
+
+.employee {
+    margin: 0 15px;
+    padding: 54px 0 126px;
+}
+
+.employee__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.employee__title {
+    margin-top: 5px;
+    font-size: 1.5rem;
+    line-height: 1.2em;
+}
+
+.employee__header-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    width: 140px;
+    height: 40px;
+    background-color: #5541D7;
+    border-radius: 8px;
+    transition: .2s;
+}
+
+.employee__header-btn:hover {
+    background-color: #4029d1;
+}
+
+.employee__panel {
+    margin-top: 38px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px -10px #000;
+    padding: 43px 32px 100px 16px;
+}
+
+.employee__controls {
+    display: flex;
+    justify-content: end;
+}
+
+.link-control:first-child {
+    margin-right: 16px;
+}
+
+.link-control path {
+    transition: .2s;
+}
+
+.link-control svg:hover path{
+    fill: #454545;
+}
+
+.employee__items {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 32px;
+}
+
+.employee__item {
+    display: flex;
+    padding: 16px;
+    min-width: 320px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #E1E1FB;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.emloyee__item-ava {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color:#E1E1FB;
+    margin-right: 16px;
+}
+
+.employe__name {
+    margin-top: 10px;
+    font-size: 1rem;
+    line-height: 1.2em;
+}
+
+.employee__role {
+    display: flex;
+    margin-top: 11px;
+}
+
+.employee__role p {
+    padding: 5.5px 8px;
+    border-radius: 4px;
+    margin-right: 16px;
+    font-size: 0.75rem;
+line-height: 1.1em;
+letter-spacing: 0.008em;
+}
+
+.employee__role_admin {
+    color: #9a9ab0;
+    background-color: #f1f1f6;
+}
+
+.employee__role_cashier {
+    color: #3caa91;
+    background-color: #d9f2ec;
+}
+
+.employee__role_chef {
+    color: #eeaf22;
+    background-color: #fce7cf;
+}
+
+.employee__role_waitress {
+    color: #2a23c2;
+    background-color: #dbd7f4;
+}
+
+.employee__role_dishwasher {
+    color: #2a23c2;
+    border: 1px solid #5541D7;
+}
+
+.employee__details {
+    color: #5541d7;
+    margin-top: 5px;
+    font-size: 0.875rem;
+    line-height: 1.2em;
+    transition: .2s;
+}
+
+.kebab-menu-wrapper {
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    right: 34px;
+    top: 25px;
+    border-radius: 4px;
+    transition: .2s;
+}
+
+.kebab-menu-wrapper:hover {
+    background-color: #e3e3e3;
+}
+
+.kebab-menu, .kebab-menu:before, .kebab-menu:after {
+    position: absolute;
+    left: 8px;
+    top: 13px;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: #9a9ab0;
+}
+
+.kebab-menu:before {
+    top: -6px;
+    left: 0;
+    content: '';
+}
+
+.kebab-menu:after {
+    top: 6px;
+    left: 0;
+    content: '';
+}
+
+/*--------------------
+--------media---------
+--------------------*/
+
+@media screen and (max-width: 1100px) {
+    .employee__items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .employee__items {
+        grid-template-columns: 1fr;
+    }
+}
