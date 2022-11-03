@@ -1,0 +1,270 @@
+@font-face {
+   
+    font-family: 'mulish_bold';
+    src: url(../src/fonts/Mulish-Bold.ttf);
+}
+@font-face {
+    
+        font-family: 'mulish_medium';
+        src: url(../src/fonts/Mulish-Medium.ttf);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 0 25px;
+    
+}
+.page{
+    background-color: #F5F5F5;
+   padding-bottom: 100px;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.title__text{
+    font-size: 24px;
+    font-weight: 700;
+    font-family: 'mulish_medium';
+}
+
+.title__btn{
+    text-decoration: none;
+    width: 139px;
+    height: 40px;
+    background-color: #5541D7;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: 0.5s;
+    
+}
+
+.title__btn:hover{
+ background-color: #381C7A;
+ transition: 0.7s;
+}
+
+.wrapper{
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding: 45px 0px 0px 16px;
+}
+
+.pen{
+    background-image:url(./icon/pencil.svg) ;
+    width: 24px;
+    height: 24px;
+    margin-right: 35px;
+    margin-bottom: 23px;
+    transition: 0.4s;
+}
+.pen:hover{
+    scale: 1.15;
+    transition: 0.3s;
+}
+.plus{
+    background-image: url(./icon/Group\ 18.svg);
+    width: 24px;
+    height: 24px;
+    margin-right: 43px;
+    transition: 0.4s;
+}
+.plus:hover{
+    scale: 1.15;
+    transition: 0.3s;
+}
+
+.icon{
+    display: flex;
+    justify-content:flex-end;
+}
+
+.admin,.cashier,.chef,.waitress,.dishwasher{
+    width: 384px;
+    height: 96px;
+    border: 1px solid #E1E1FB;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.admin,.cashier,.waitress,.dishwasher{
+    margin: 0 32px 32px 0;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.column_one,.column_two,.column_three,.column_four{
+    display: flex;
+    flex-direction: row;
+    
+}
+.photo{
+    background-color: #E2E2EA;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin : 16px
+}
+
+.name{
+    font-weight: 700;
+    font-size: 16px;
+    font-family: 'mulish_medium';
+    margin-top: auto;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+.admin_details{
+    display: flex;
+    align-items:center;
+}
+
+.admin_on{
+    text-decoration: none;
+    width: 54px;
+    height: 24px;
+    font-family: 'mulish_medium';
+    font-size: 12px;
+    text-align: center;
+    color: #9A9AB0;
+    border: 1px solid #E1E1FB;
+    background-color: #F1F1F6;
+    border-radius: 4px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-right: 16px;
+    font-weight: 600;
+}
+
+.admin_on:hover{
+    filter: drop-shadow(0px 4px 10px rgba(51, 51, 51, 0.2));
+    
+}
+
+.details{
+    text-decoration: none;
+    width: 168px;
+    height: 17px;
+    font-family: 'mulish_medium';
+    font-size: 14px;
+    color: #5541D7;
+    font-weight: 700;
+   
+}
+
+
+
+.down{
+    background-image: url(./icon/Button.svg);
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    margin-left: 338px;
+    margin-top: -40px;
+}
+
+.cahier_on{
+    text-decoration: none;
+    width: 63px;
+    height: 24px;
+    font-family: 'mulish_medium';
+    font-size: 12px;
+    text-align: center;
+    color: #3CAA91;
+    background-color: #D9F2EC;
+    border-radius: 4px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-right: 16px;
+    font-weight: 600;
+}
+
+.cahier_on:hover{
+    filter: drop-shadow(0px 4px 10px rgba(51, 51, 51, 0.2));
+}
+
+.chef_on{
+    text-decoration: none;
+    width: 45px;
+    height: 24px;
+    font-family: 'mulish_medium';
+    font-size: 12px;
+    text-align: center;
+    color: #EEAF22;
+    background-color: #FCE7CF;
+    border-radius: 4px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-right: 16px;
+    font-weight: 600;
+}
+
+.chef_on:hover{
+    filter: drop-shadow(0px 4px 10px rgba(51, 51, 51, 0.2));
+}
+.waitress_on{
+    text-decoration: none;
+    width: 71px;
+    height: 24px;
+    font-family: 'mulish_medium';
+    font-size: 12px;
+    text-align: center;
+    color: #2A23C2;
+    background-color: #DBD7F4;
+    border-radius: 4px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-right: 16px;
+    font-weight: 600;
+
+}
+.waitress_on:hover{
+    filter: drop-shadow(0px 4px 10px rgba(51, 51, 51, 0.2));
+}
+
+.dishwasher_off{
+    text-decoration: none;
+    width: 82px;
+    height: 24px;
+    font-family: 'mulish_medium';
+    font-size: 12px;
+    text-align: center;
+    color: #2A23C2;
+    background-color: #fff;
+    border-radius: 4px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-right: 16px;
+    font-weight: 600;
+    border: 1px solid #5541D7;
+
+}
+
+.dishwasher_off:hover{
+    filter: drop-shadow(0px 4px 10px rgba(51, 51, 51, 0.2));
+}
