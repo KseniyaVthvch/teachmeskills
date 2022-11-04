@@ -7,14 +7,17 @@
 
 body {
     font-family: Mulish;
-    padding: 45px 88px 126px;
+    /* padding: 45px 159px 126px; */
     background: #F5F5F5;
 }
 
 .wraper {
+    padding: 45px 159px 0;
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 
 .Employee_Shift {
@@ -45,119 +48,192 @@ body {
     text-decoration: none;
 }
 
-.botton {
+
+.container {
+    width: 1217px;
+    margin: 0 auto;
+    border-radius: 8px;
+    background: #FFFFFF;
+    padding: 0 32px 100px 16px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.btn {
     display: flex;
     flex-direction: row;
-    display: flex;
     justify-content: end;
+    column-gap: 32px;
+    padding: 45px 0 25px 0;
 }
 
-.pencil {
+.pansl {
     width: 21px;
     height: 21px;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-image: url(./penciloutline_79904.png);
-}
-
-.plus { 
-    width: 21px;
-    height: 21px;
-    position: absolute;
     background-repeat: no-repeat;
     background-image: url(./icon.png);
 }
 
-.container {
+.plys {
+    width: 21px;
+    height: 21px;
+    background-repeat: no-repeat;
+    background-image: url(./icon.png)
+}
+
+.wraper-grid {
+    display: grid;
+    grid-template-columns: repeat(3,384px);
+    grid-template-rows: repeat(4,96px);
+   
+    gap: 32px;
+}
+
+.box {
+ 
     background: #FFFFFF;
-    padding: 88px 16px 100px;
-}
-
-.wrap {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.employee {
-    width: 384px;
-    height: 96px;
     border: 1px solid #E1E1FB;
     border-radius: 8px;
     display: flex;
     flex-direction: row;
 }
 
-.employee__img {
+.img {
+    margin: 16px;
     width: 64px;
     height: 64px;
-    border-radius: 150px;
-    background: #E2E2EA;
-    margin:  16px;
+    background-image: url(./Container.png);
 }
 
-.employee__wrap {
+.object {
     display: flex;
     flex-direction: column;
-    
 }
 
-.employee__section {
+.name-navigator {
     display: flex;
-    justify-content: space-between;
     flex-direction: row;
-    margin-top: 26px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
 }
 
-.employee__name  {
+.name {
     font-weight: 700;
     font-size: 16px;
     line-height: 120%;
     letter-spacing: 0.005em;
     color: #11142D;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 120%;
-    margin-right: 121px;
+    margin: 26px 82px 11px 0;
+    width: 168px;
 }
 
-.employee__restangle {
+.navigator {
     width: 4px;
     height: 16px;
     background-image: url(./🔹\ Icon\ Color.png);
 }
 
-.employee__btn {
+.tab-detail {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 5px 0 0;
+    column-gap: 16px;
 }
 
 .tab {
     width: 54px;
     height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 3px 8px;
+    left: 200px;
+    top: 270px;
     background: #F1F1F6;
     border-radius: 4px;
     font-weight: 700;
     font-size: 12px;
-    margin-right: 16px;
-    text-decoration: none;
+    line-height: 110%;
+    text-align: center;
+    letter-spacing: 0.008em;
     color: #9A9AB0;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
-.info {
-    width: 168px;
-    height: 17px;
+.detail {
     font-weight: 700;
     font-size: 14px;
     line-height: 120%;
     letter-spacing: 0.005em;
     color: #5541D7;
     text-decoration: none;
+}
 
+.tab2 {
+    background: #D9F2EC;
+    color: #3CAA91;
+    width: 63px;
+}
+
+.tab3 {
+    background: #FCE7CF;
+    color: #EEAF22;
+    width: 45px;
+}
+.tab4 {
+    background: #DBD7F4;
+    color: #2A23C2;
+    width: 71px;
+}
+.tab5 {
+    color: #2A23C2;
+    background: #FFFFFF;
+    border: 1px solid #E1E1FB;
+    width: 82px;
+}
+.tab6 {
+    color: #EEAF22;
+    background: #FCE7CF;
+    width: 45px;
+}
+
+.tab8 {
+    background: #D9F2EC;
+    color: #3CAA91;
+    width: 63px;
+}
+.tab9 {
+    background: #FCE7CF;
+    color: #EEAF22;
+    width: 45px;
+}
+.tab10 {
+    background: #DBD7F4;
+    color: #2A23C2;
+    width: 71px;
+}
+
+.tab11 {
+    color: #2A23C2;
+    background: #FFFFFF;
+    border: 1px solid #E1E1FB;
+    width: 82px;
+}
+
+.tab12 {
+    background: #FCE7CF;
+    color: #EEAF22;
+    width: 45px;
+   
+    
+}
+
+@media screen and (max-width: 1200px) and (min-width: 1000px) {
+    .wraper-grid {
+        display: grid;
+        grid-template-columns: repeat(2,384px);
+        grid-template-rows: repeat(4,96px);
+       
+    
 }
