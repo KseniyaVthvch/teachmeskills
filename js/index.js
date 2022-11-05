@@ -23,7 +23,8 @@ let a = 1
 let b = 2
 let c = "белых медведей"
 
-console.log(String(a)+String(b)+String(' ')+String(c))
+let bears = `${a}${b} ${c}`
+console.log(bears)
 
 //task 5
 
@@ -38,13 +39,13 @@ console.log(lengthWords)
 
 //task 6???
 
-let test1 = 12 
-let test2 = '12'
-let test3 = false
+let variable1 = 12 
+let variable2 = '12'
+let variable3 = false
 
-// console.log('Variable: test1 have type:' typeof test1)
-// console.log('Variable: test2 have type:' typeof test2)
-// console.log('Variable: test3 have type:' typeof test3)
+console.log(`Variable: ${variable1} have type: ${typeof variable1}`)
+console.log(`Variable: ${variable2} have type: ${typeof variable2}`)
+console.log(`Variable: ${variable3} have type: ${typeof variable3}`)
 
 //task 7
 
@@ -61,4 +62,6 @@ let codeWord3 = "огурцы";
 let codeWord4 = "липкие";
 let codeWord5 = "?!";
 
-let cipher = (codeWord1[1],codeWord2[1],codeWord3[1],codeWord4[1],codeWord5[1])
+let cipher = codeWord1[1] + codeWord2[1] + codeWord3[1] + codeWord4[1] + codeWord5[1]
+
+console.log(cipher)
