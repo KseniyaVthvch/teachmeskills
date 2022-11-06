@@ -51,22 +51,19 @@ console.log(lengthWords)
 
 // TASK 6
 const myName = 'Alexandra'
-console.log(myName)
-console.log(typeof myName)
+console.log(`myName have type: ${typeof myName}`);
 
 let mySymbol = Symbol('id')
-console.log(mySymbol)
-console.log(typeof mySymbol)
+console.log(`mySymbol have type: ${typeof mySymbol}`);
 
 let myAge = 27
-console.log(myAge)
-console.log(typeof myAge)
+console.log(`myAge have type: ${typeof myAge}`);
 
 
 // TASK 7
-
-prompt('Name')
-prompt('Age')
+let name1 = prompt("Name");
+let userAge = prompt('Age');
+console.log(name1, userAge)
 
 
 // TASK 8
