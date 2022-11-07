@@ -56,9 +56,10 @@ console.log(typeof boolean)
 //Task 7
 
 alert(`Hello`);
-let name = prompt("NAME"),
-age = prompt('age?', 18);
-const info = `name:${name},age:${age}`
+let name = prompt("NAME");
+let age = prompt('age?', 18);
+const info = `name:${name}
+age:${age}`
 console.log(info)
 
 //ADVANCED level
