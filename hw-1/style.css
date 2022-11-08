@@ -1,0 +1,215 @@
+* {
+   padding: 0;
+   margin: 0;
+   border: 0;
+}
+*,*:before,*:after{
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+}
+:focus,:active {outline: none;}
+a:focus, a:active {outline: none;}
+
+nav,footer,header,aside {display:block}
+
+html,body {
+   height: 100%;
+   width: 100%;
+   font-size: 100%;
+   line-height: 1;
+   font-size: 14px;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear {display: none;}
+button {cursor: pointer;}
+button::-moz-focus-inner {padding: 0;border: 0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul,li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+
+body{
+   font-family: 'Mulish';
+   font-weight: 700;   
+   background-color: #F5F5F5;
+}
+.employee {
+}
+.employee__container {
+   max-width: 1294px;
+   margin: 0 auto;
+   padding: 0 15px;
+}
+.employee__header {
+   display: flex;
+   min-height: 126px;
+   align-items: center;
+   justify-content: space-between;
+}
+h1{
+   font-size: 24px;
+   line-height: 120%;
+   letter-spacing: 0.005em;
+   color: #11142D;
+   padding-right: 10px;
+}
+.employee__bth-new {
+   font-size: 16px;
+   line-height: 120%;
+   text-align: center;
+   letter-spacing: 0.005em;
+   color: #FFFFFF;
+   padding: 11px 24px;
+   background: #5541D7;
+   border-radius: 8px;
+   transition: all 0.3s ease;
+   white-space: nowrap;
+}
+.employee__bth-new:hover {
+   background: #332685;  
+}
+.employee__body {
+   background: #FFFFFF;
+   border-radius: 8px;
+   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+.employee__icons {
+   display: flex;
+   justify-content: flex-end;
+}
+.employee__icon{
+   padding: 44px 30px 24px 0px;
+   transition: all 0.3s ease;
+}
+.employee__icon:hover{
+   transform: scale(1.2);
+   }
+.employee__blocks {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   flex-wrap: wrap;
+   padding-bottom: 84px;
+}
+.employee__block {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   flex: 1 1 29%;
+   border: 1px solid #E1E1FB;
+   border-radius: 8px;
+   margin: 16px;
+}
+.employee__foto{
+   margin: 16px;
+   width: 64px;
+   height: 64px;
+   border-radius: 50%;
+   background: #E2E2EA;
+}
+.employee__card {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: flex-start;
+}
+.employee__name {
+   font-size: 16px;
+   line-height: 120%;
+   letter-spacing: 0.005em;
+   color: #11142D;
+   padding: 26px 15px 10px 0;
+   white-space: nowrap;
+}
+.employee__icon-points{
+   margin: 28px 34px 0 0;
+}
+.employee__links {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+}
+.employee__bth {
+   font-size: 12px;
+   line-height: 110%;
+   text-align: center;
+   letter-spacing: 0.008em;
+   padding: 5px;
+   border-radius: 4px;
+}
+.employee__bth-admin {
+   color: #9A9AB0;
+   background: #F1F1F6;
+}
+.employee__bth-details {
+   line-height: 120%;
+   letter-spacing: 0.005em;
+   color: #5541D7;
+   margin: 0 0 0 16px;
+}
+.employee__bth-admin:hover {
+   color: #000
+}
+.employee__bth-details:hover {
+   text-decoration: underline;
+}
+.employee__bth-cashier{
+   color: #3CAA91;
+   background: #D9F2EC;
+}
+.employee__bth-cashier:hover{
+   color: #1d5649;
+}
+.employee__bth-chef{
+   color: #EEAF22;
+   background: #FCE7CF;
+}
+.employee__bth-chef:hover{
+   color: #956e19;
+}
+.employee__bth-waitress{
+   color: #2A23C2;
+   background: #DBD7F4;
+}
+.employee__bth-waitress:hover{
+   color: #120e5b;
+}
+.employee__bth-dishwasher{
+   color: #2A23C2;
+   background: #FFFFFF;
+   border: 1px solid #E1E1FB;
+   border-radius: 8px;
+}
+.employee__bth-dishwasher:hover{
+   color: #120e5b;
+}
+
+@media (max-width: 992px){
+   .employee__block {
+      flex: 1 1 45%;
+}
+}
+@media (max-width: 767px){
+   .employee__block {
+      flex: 1 1 100%;
+      margin: 10px;
+   }
+   .employee__name {
+      font-size: 14px;
+      line-height: 100%;
+      white-space: normal;
+   }
+   .employee__links {
+   flex-direction: column;
+   align-items: flex-start;
+   }
+   .employee__bth-details {
+      margin: 15px 0;
+   }
+}
