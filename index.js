@@ -58,6 +58,7 @@ console.log(typeof boolean)
 alert(`Hello`);
 let name = prompt("NAME");
 let age = prompt('age?', 18);
+alert(age)
 const info = `name:${name}
 age:${age}`
 console.log(info)
@@ -76,3 +77,7 @@ const cipher = codeWord1[1] + codeWord2[1] + codeWord3[1] + codeWord4[1] + codeW
 
 console.log(cipher)
 //Создайте переменную **`cipher`** и поместите туда необходимые символы
+
+const nuber = "20"
+
+console.log(nuber[1] + nuber[0])
