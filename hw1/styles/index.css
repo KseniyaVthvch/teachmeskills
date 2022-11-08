@@ -1,0 +1,166 @@
+body,h2,p{
+	margin: 0;
+}
+body{
+	background-color:#F7F7FC ;
+}
+h2{
+	font-size: 16px;
+	margin-bottom: 11px;
+}
+button{
+	transition: all 0.3s;
+}
+button:hover{
+	scale: 1.1;
+}
+
+section.main {
+	max-width: 1264px;
+	width: 100%;
+	height: 920px;
+	margin: 0;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.text__block{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1264px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 54px;
+	padding-bottom: 32px;
+}
+.text__block>:nth-child(1){
+	display: block;
+	font-family: 'Mulish';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 120%;
+	letter-spacing: 0.005em;
+	color: #11142D;
+}
+
+.create__new-btn{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 11px 24px;
+	gap: 10px;
+	width: 139px;
+	height: 40px;
+	background: #5541D7;
+	border-radius: 8px;
+}
+.create__new-btn>span{
+	color: #FFFFFF
+}
+.shift01__container{
+	max-width: 1264px;
+	width: 100%;
+	border-radius: 8px;
+	filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.15));
+}
+.shift01__btns{
+	display: flex;
+	justify-content: flex-end;
+	background-color: #FFFFFF;
+	padding: 40px 20px 0 20px;
+}
+.shift01__btns>button{
+	border: none;
+	background-color: #FFFFFF;
+}
+.shift01{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 70px;
+	max-width:1264px ;
+	width: 100%;
+	background-color: #FFFFFF;
+}
+
+.employee__container{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 30px;
+	width: 384px;
+	height: 96px;
+	background: #FFFFFF;
+	border: 1px solid #E1E1FB;
+	border-radius: 8px;
+}
+.employee__container>button.dots{
+	width: 25px;
+	height: 25px;
+	padding: 0;
+	border: none;
+	background-color: #FFFFFF;
+	cursor: pointer;
+	border-radius: 7px;
+	transition: all 0.3s;
+}
+.employee__container>button.dots:hover{
+	background-color: #f2eded;
+}
+
+.employee__data{
+	max-width: 210px;
+	width: 100%;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	justify-content: center;
+	
+}
+
+
+.employee__wrapper{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.job__admin{
+	font-size: 12px;
+	padding: 5px;
+	background: #F1F1F6;
+	border-radius: 4px;
+	font-family: 'Mulish';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 110%;
+	text-align: center;
+	letter-spacing: 0.008em;
+	color: #9A9AB0;
+}
+
+button.job__details{
+	font-size: 14px;
+	color: #5541D7;
+	margin-left: 15px;
+	font-family: 'Mulish';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 120%;
+	letter-spacing: 0.005em;
+	border: none;
+	background-color: #FFFFFF;
+	transition: all 0.3s;
+}
+button.job__details:hover{
+	background-color: #f2eded;
+}
