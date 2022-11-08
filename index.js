@@ -49,9 +49,9 @@ const string = "морпех"
 const number = 43
 const boolean = false
 
-console.log(typeof string)
-console.log(typeof number)
-console.log(typeof boolean)
+console.log(`string ${string}`)
+console.log(`number ${number}`)
+console.log(`boolean ${boolean}`)
 
 //Task 7
 
@@ -77,7 +77,3 @@ const cipher = codeWord1[1] + codeWord2[1] + codeWord3[1] + codeWord4[1] + codeW
 
 console.log(cipher)
 //Создайте переменную **`cipher`** и поместите туда необходимые символы
-
-const nuber = "20"
-
-console.log(nuber[1] + nuber[0])
