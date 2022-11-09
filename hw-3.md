@@ -1,9 +1,15 @@
+<p align='right'>< TeachMeSkills /></p>
+<h1 align='center'>Javascript Basic</h1>
 
-/// Task 1 
+## Complete exercise
+
+### NORMAL level
+
+#### Task 1 💻
 
 Создайте переменные и присвойте им значения:
 
-
+```javascript
     'true'
     false
     17
