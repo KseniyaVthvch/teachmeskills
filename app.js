@@ -48,9 +48,10 @@ console.log(("Variable:")+('age ') +("have type:")+(typeof age))
 console.log(("Variable:")+('all ') +("have type:")+(typeof all))
 
 //7
-prompt('Name')
-prompt('Age')
+let Name = prompt('Name')
+let Age = prompt('Age')
 
+console.log("Имя: " + Name + "; Возраст: " + Age)
 //8
 let codeWord1 = "обернись";
 let codeWord2 = "неужели";
