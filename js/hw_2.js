@@ -23,7 +23,7 @@ console.log(String(count))
 console.log(count.toString())
 
 console.log(Number(userName))
-//console.log(???)
+console.log(+userName)
 
 // #### Task 4 
 
@@ -56,12 +56,10 @@ console.log("Variable: " + Object.keys({ var3 }) + " have type: " + typeof (var3
 
 // #### Task 7 💻
 
-let nameAge = prompt("Введите имя и возраст", "Сергей 25")
-alert(nameAge)
-console.log(JSON.stringify(nameAge));
+let name1 = promt("Enter ypor name")
+let age1 = promt("Enter your age")
+console.log(age1, name1)
 
-//просто нашел тут
-// https://www.cyberforum.ru/javascript-beginners/thread2646121.htmlкак правильно? (на данный момент что знаем)
 
 
 // ### ADVANCED level
