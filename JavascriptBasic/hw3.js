@@ -32,10 +32,16 @@ console.log(typeof nul);
 
 // С помощью условий выведите в консоль разработчика наибольшее число.
 
-let height = 15
-let width = 20
+const height = 15
+const width = 20
 
+
+//1 way
 console.log(Math.max(height, width));
+
+//2 way
+const res = height > width ? height : width
+console.log(res)
 
 //Task 3
 
@@ -54,11 +60,11 @@ for (let i = 1; i <= 20; i++) {
 // Нам точно нужны ключи документы и ручка, но из еды нам надо яблоко или апельсин. 
 // Для решения этой задачи нам помогут логические операторы `|| &&`.
 
-   let key = true
-   let documents = true
-   let pen = true
-   let apple = false
-   let orange = true
+   const key = true
+   const documents = true
+   const pen = true
+   const apple = false
+   const orange = true
 
 // Oтвет поместите в переменную **shouldGoToWork**
 
@@ -73,11 +79,11 @@ const shouldGoToWork = (key && documents && pen && (apple || orange))
 //     2. Если число делится без остатка на 3 выводим сообшение Buz
 //     3. Если число делится без остатка и на 3 и на 5 выводим сообшение FizBuz
 
-let n = prompt('Enter number')
+const n = prompt('Enter number')
 
-if(n%5 === 0 && n%3 != 0) {
+if(n%5 === 0 && n%3 !== 0) {
    console.log('Fiz');
-}else if (n%3 === 0 && n%5 != 0) {
+}else if (n%3 === 0 && n%5 !== 0) {
    console.log('Buz');
 }else if (n%3 === 0 && n%5 === 0) {
    console.log('FizBuz');
@@ -91,15 +97,16 @@ if(n%5 === 0 && n%3 != 0) {
 // Если меньше, то выводит сообщение - `Пей колу`. 
 // Добавить условие, что если возраст от 16-18, выводим сообщение - `Можешь выкурить сигаретку, только маме не говори`.
 
-let age = prompt('Enter age')
+const age = prompt('Enter age')
 
 if (age > 18) {
    console.log('Попей пивка');
-}else if (age < 18) {
-   console.log('Пей колу');
-}else if (age >= 16 && age <= 18) {
+}else if (age >= 16  && age <= 18) {
    console.log('Можешь выкурить сигаретку, только маме не говори');
+}else {
+   console.log('Пей колу');
 }
+
 
 //Task 7
 
@@ -114,7 +121,7 @@ if (age > 18) {
 
 // Используйте конструкцию switch
 
-let cardinalDirection = prompt('Enter which side of the world would you like to go?')
+const cardinalDirection = prompt('Enter which side of the world would you like to go?')
 
 switch(cardinalDirection) {
    case 'юг':
@@ -141,6 +148,7 @@ switch(cardinalDirection) {
 // Испрвьте эту ситацию чтобы мы смогли корректно поприветсвовать пользователя, и поприветствуйте его через **alert**
 // Привет, Полина Набережная!
 
+//!не понимаю как решить, сделала только в первом слове заглавную букву
 const name = prompt('Enter name','пОлИнА нАбЕрЕжНаЯ')
 const firstLetter = name[0].toUpperCase() + name.slice(1).toLowerCase()
 
