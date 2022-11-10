@@ -97,7 +97,7 @@ alert(`(((${userNumb} - ${a}) + ${b}) * ${c}) / ${d} = ${res}`)
 
 // TASK3
 
-const slow = "#"
+let slow = "#"
 
 for (let il = 0; il < 8; il++) {
    console.log(slow)
