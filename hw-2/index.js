@@ -53,13 +53,14 @@ const word = "слово"
 const value = Symbol()
 
 
-console.log("Variable: num have type: ", typeof (num))
-console.log("Variable: word have type: ", typeof (word))
-console.log("Variable: value have type: ", typeof (value))
+console.log("Variable: num have type: ", typeof num)
+console.log("Variable: word have type: ", typeof word)
+console.log("Variable: value have type: ", typeof value)
 
 //7
-let age = prompt("Name and Age")
-
+let Name = prompt("Name")
+let age = prompt("Age")
+console.log("Меня зовут", Name)
 console.log("Мне ", age, "лет")
 
 //8
