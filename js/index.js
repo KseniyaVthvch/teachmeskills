@@ -11,6 +11,8 @@ const minInHours = 60
 const hoursInDay = 24
 const dayInYear = 365
 
+let myAgeInSeconds = (secInMinute * minInHours * hoursInDay * dayInYear * 17 )
+
 // task 3
 let count = 42
 let userName = '42'
