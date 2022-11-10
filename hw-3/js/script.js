@@ -1,10 +1,10 @@
 // TASK 1
 
-let str = 'true'
-let bool = false
-let num = 17
-let und = undefined
-let n = null
+const str = 'true'
+const bool = false
+const num = 17
+const und = undefined
+const n = null
 console.log(typeof str)
 console.log(typeof bool)
 console.log(typeof num)
@@ -12,15 +12,17 @@ console.log(typeof und)
 console.log(typeof n)
 
 //TASK 2
-let height = 15
-let width = 20
+const height = 15
+const width = 20
 if (height < width) {
    console.log(width)
+} else {
+   console.log(height)
 }
 
 //TASK 3
 
-for (let i = 1; i < 20; i++) {
+for (let i = 1; i < 21; i++) {
    if (i % 3 === 0) {
       console.log(i)
    }
@@ -28,25 +30,24 @@ for (let i = 1; i < 20; i++) {
 
 // TASK 4
 
-let key = true
-let documents = true
-let pen = true
-let apple = false
-let orange = true
-let shouldGoToWork = (apple || orange)
+const key = true
+const documents = true
+const pen = true
+const apple = false
+const orange = true
+const shouldGoToWork = (key && documents && pen && apple && orange && (apple || orange))
 console.log(shouldGoToWork)
 
 //TASK 5
 const str1 = prompt("Enter number")
 
-if (str1 % 5 === 0) {
-   console.log('Fiz')
+if (str1 % 3 === 0 && str1 % 5 === 0) {
+   console.log('FizBuz');
 } else if (str1 % 3 === 0) {
    console.log('Buz')
-} else if (str1 % 3 === 0 && str1 % 5 === 0) {
-   console.log('FizBuz');
+} else if (str1 % 5 === 0) {
+   console.log('Fiz')
 }
-//  не понимаю почему не работает третье условие 
 
 // TASK 6
 
@@ -96,7 +97,7 @@ alert(`(((${userNumb} - ${a}) + ${b}) * ${c}) / ${d} = ${res}`)
 
 // TASK3
 
-let slow = "#"
+const slow = "#"
 
 for (let il = 0; il < 8; il++) {
    console.log(slow)
