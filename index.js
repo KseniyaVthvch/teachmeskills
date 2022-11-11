@@ -15,6 +15,7 @@ const years = 365
 
 let myAgeInSeconds = 630720000
 
+console.log(minutes*hours*days*years*myAgeInSeconds)
 //Task 3
 
 const count = 42
