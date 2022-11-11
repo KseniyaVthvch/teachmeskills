@@ -93,9 +93,15 @@ switch(sideOfTheWorld){
 // ADVANCED Task 1
 
 const nameOfUser = prompt('Enter name','дИмА пЕтРоВ')
-let nameOfUserAllRight = nameOfUser[0].toUpperCase() + nameOfUser.slice(1).toLowerCase()
 
-alert(`Привет, ${nameOfUserAllRight}!`) // Ошибка не выводит фамилию с большой буквы, на данный момент не нашел решения для исправления
+const index = nameOfUser.indexOf(" ")
+const firstName = nameOfUser.slice(0, index);
+const lastName = nameOfUser.slice(index + 1)
+
+const resFirstName = firstName[0].toUpperCase()  + firstName.slice(1).toLowerCase()
+const resLastName = lastName[0].toUpperCase()  + lastName.slice(1).toLowerCase()
+
+alert(`Привет, ${resFirstName} ${resLastName}!`)
 
 // ADVANCED Task 2
 
