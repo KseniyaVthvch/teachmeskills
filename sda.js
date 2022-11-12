@@ -32,9 +32,9 @@ let key = true
 let documents = true
 let pen = true
 let apple = false
-let orange = true  //
+let orange = true  
 
-// if(key===true && documents===true && pen===true && apple===false || orange===true) 
+console.log(key && documents && pen && (apple || orange))
 
 //Task5
 
