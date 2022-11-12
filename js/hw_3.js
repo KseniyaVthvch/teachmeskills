@@ -22,7 +22,7 @@ else { console.log(width) }
 /// Task 3
 
 for (let i = 1; i <= 20; i++) {
-	if (i % 3 === 0) { console.log(i) } else continue
+	if (i % 3 === 0) { console.log(i) }
 }
 
 /// Task 4
@@ -34,7 +34,7 @@ let apple = false
 let orange = true
 
 let shouldGoToWork = undefined
-if ((key && documents && pen && (apple || orange)) == true) {
+if ((key && documents && pen && (apple || orange))) {
 	shouldGoToWork = "Можно идти на работу";
 	console.log(shouldGoToWork)
 } else {
