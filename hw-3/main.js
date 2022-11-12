@@ -1,9 +1,9 @@
 // Задание 1
-let a1 = 'true'
-let b1 = false
-let c1 = 17
-let d1 = undefined
-let e1 = null
+const a1 = 'true'
+const b1 = false
+const c1 = 17
+const d1 = undefined
+const e1 = null
 
 console.log(typeof a1)
 console.log(typeof b1)
@@ -12,8 +12,8 @@ console.log(typeof d1)
 console.log(typeof e1)
 
 // Задание 2
-let height = 15
-let width = 20
+const height = 15
+const width = 20
 
 if (height > width) {
 	console.log(height)
@@ -24,19 +24,19 @@ if (height > width) {
 }
 
 // Задание 3
-for (i = 1; i < 21; i++) {
+for (let i = 1; i < 21; i++) {
 	if (i % 3 === 0) {
 		console.log(i)
 	}
 }
 
 // Задание 4
-let key = true
-let documents = true
-let pen = true
-let apple = false
-let orange = true
-let shouldGoToWork = 'Все взяли'
+const key = true
+const documents = true
+const pen = true
+const apple = false
+const orange = true
+const shouldGoToWork = 'Все взяли'
 	//возможно не совсем так понял задание, но какой именно ответ мы должны взять в переменную shouldGoToWork? Сделал так
 if (key && documents && pen && (apple || orange)) {
 	console.log(shouldGoToWork)
@@ -45,7 +45,7 @@ if (key && documents && pen && (apple || orange)) {
 }
 
 // Zadanie 5
-let a5 = +prompt('Vvedite chislo')
+const a5 = +prompt('Vvedite chislo')
 
 if (a5 % 5 === 0 && a5 % 3 === 0) {
 	console.log('FizBuz')
@@ -56,7 +56,7 @@ if (a5 % 5 === 0 && a5 % 3 === 0) {
 }
 
 // Zadanie 6
-let a6 = +prompt('Vvedite vash vozrast')
+const a6 = +prompt('Vvedite vash vozrast')
 
 if (a6 > 18) {
 	console.log('Bahni pivka')
@@ -67,7 +67,7 @@ if (a6 > 18) {
 }
 
 // Задание 7
-let a7 = prompt('В какую сторону света поедешь?')
+const a7 = prompt('В какую сторону света поедешь?')
 
 switch (a7) {
 	case 'юг':
@@ -89,11 +89,11 @@ switch (a7) {
 //ADVANCED level
 //Task 1
 //Намудрил тут чето, но вроде работает
-let name = 'пОлИнА нАбЕрЕжНаЯ'
-let word1 = String(name.split(" ")[0])
-let len1 = word1.length
-let word2 = String(name.split(" ")[1])
-let len2 = word2.length
+const name = 'пОлИнА нАбЕрЕжНаЯ'
+const word1 = String(name.split(" ")[0])
+const len1 = word1.length
+const word2 = String(name.split(" ")[1])
+const len2 = word2.length
 let firstName = `${word1[0].toUpperCase()}`
 let lastName = `${word2[0].toUpperCase()}`
 
@@ -104,15 +104,15 @@ for (let i = 1; i < len2; i++) {
 	lastName = lastName + word2[i].toLowerCase()
 }
 
-alert(`Привет, ${firstName} ${lastName}`!)
+alert(`Привет, ${firstName} ${lastName}!`)
 
 // Task 2
-let num1 = +prompt('Введите число')
-let minus = +prompt('Сколько отнять?')
-let plus = +prompt('Сколько прибавить?')
-let umnozh = +prompt('На сколько умножить?')
-let delenie = +prompt('На сколько разделить?')
-let res = (((num1 - minus) + plus) * umnozh) / delenie
+const num1 = +prompt('Введите число')
+const minus = +prompt('Сколько отнять?')
+const plus = +prompt('Сколько прибавить?')
+const umnozh = +prompt('На сколько умножить?')
+const delenie = +prompt('На сколько разделить?')
+const res = (((num1 - minus) + plus) * umnozh) / delenie
 
 alert(`(((${num1} - ${minus}) + ${plus}) * ${umnozh}) / ${delenie} = ${res}`)
 	
