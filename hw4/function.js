@@ -81,7 +81,7 @@ console.log(trimString("task",2,4));
    console.log(getSum2(-1, 0));
    console.log(getSum2(-1, 2));
 
-//! Task 5 (выскакиевает undefined)
+// Task 5
 
 // Напишите функцию **fooboo** которая принимает в качестве аргумента три параметра:
 
@@ -90,22 +90,24 @@ console.log(trimString("task",2,4));
 // функцию **boo** которая выводит в консоль свое имя
 
 // Если переданное булевое значение **true** запускаем функцию **foo** иначе **boo**
+function foo() {
+   console.log("foo") 
+} 
 
-function fooboo(boolean, foo, boo) {
+function boo() {
+   console.log("boo") 
+} 
+
+function fooboo(boolean, f1, f2) {
    if (boolean === true) {
-      function foo() {
-         console.log("foo") 
-      } foo()
+       f1()
    } else {
-      function boo() {
-         console.log("boo") 
-      } boo()
+       f2()
    } 
 }
 
-//! Вместе с правильным ответом в консоль вылазит undefined
-console.log(fooboo(false));
-console.log(fooboo(true));
+fooboo(false, foo, boo)
+fooboo(true, foo, boo)
 
 //ADVANCED level
 
