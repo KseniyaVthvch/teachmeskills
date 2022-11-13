@@ -142,17 +142,20 @@ switch(cardinalDirection) {
 
 //  ADVANCED level
 
-//!Task 1
+//Task 1
 
 // Пользователь решил повеселиться и ввел свое имя в таком ввиде 'пОлИнА нАбЕрЕжНаЯ'
 // Испрвьте эту ситацию чтобы мы смогли корректно поприветсвовать пользователя, и поприветствуйте его через **alert**
 // Привет, Полина Набережная!
 
-//!не понимаю как решить, сделала только в первом слове заглавную букву
 const name = prompt('Enter name','пОлИнА нАбЕрЕжНаЯ')
-const firstLetter = name[0].toUpperCase() + name.slice(1).toLowerCase()
+const index = name.indexOf(" ") //нашли пробел, чтобы потом отделить слова
+const firstName = name.slice(0,index) //отделили первое слово - имя
+const lastName = name.slice(index + 1) //отделили второе слово - фамилию
+const firstBigLetter = firstName[0].toUpperCase() + firstName.slice(1).toLowerCase()
+const secondBigLetter = lastName[0].toUpperCase() + lastName.slice(1).toLowerCase()
 
-alert(`Привет, ${firstLetter}!`)
+alert(`Привет, ${firstBigLetter} ${secondBigLetter}!`)
 
 //Task 2
 
