@@ -71,3 +71,26 @@ function fooboo(a, f1, f2) {
   }
 }
 fooboo(true, foo, boo);
+
+
+//ADVANCED level
+//Task1
+function chekTriangle(a, b, c) {
+  let result = false;
+  if (a + b >= c) {
+    result = true;
+  }
+  return result;
+}
+
+
+
+//Task 2
+function getBreaksCount(n, m) {
+  let count = 0;
+  if (n === 0 || m === 0) {
+    return count;
+  }
+  count = n * m - 1;
+  return count;
+}
