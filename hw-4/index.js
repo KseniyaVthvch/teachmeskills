@@ -46,21 +46,11 @@ console.log(trimString('green_apple', 6, 11))
 //найти сумму всех чисел между ними, включая их, и вернуть ее. Если два числа равны, верните a или b.
 
 function getSum1(a, b) {
-   if (a > b) {
-      let result1 = b
-      while (b < a)
-         b++
-      result1 = result1 + b
-      return result1
-   } else if (a < b) {
-      let result2 = a
-      while (b > a)
-         a++
-      result2 = result2 + a
-      return result2
-   } else {
-      return a
+   let result = 0;
+   for (let i = a; i <= b; i++) {
+      result = result + i;
    }
+   return result
 }
 console.log(getSum1(1, 0))
 console.log(getSum1(1, 2))
@@ -69,8 +59,6 @@ console.log(getSum1(1, 1))
 console.log(getSum1(-1, 0))
 console.log(getSum1(-1, 2))
 
-
-//  c последним не сработало. не знаю почему(((
 //     getSum(1, 0) == 1   // 1 + 0 = 1
 //     getSum(1, 2) == 3   // 1 + 2 = 3
 //     getSum(0, 1) == 1   // 0 + 1 = 1
@@ -87,20 +75,23 @@ console.log(getSum1(-1, 2))
 // + функцию **boo** которая выводит в консоль свое имя
 // > Если переданное булевое значение **true** запускаем функцию **foo** иначе **boo**
 
-function fooboo(bool) {
+function fooboo(bool, f1, f2) {
    if (bool === true) {
-      function foo() {
-         console.log('foo')
-      }
-      foo(bool)
+      f1()
    } else {
-      function boo() {
-         console.log('boo')
-      }
+      f2()
    }
-   boo(bool)
 }
-fooboo(false)
+function foo() {
+   console.log('foo')
+}
+foo()
+function boo() {
+   console.log('boo')
+}
+
+boo()
+fooboo(true, foo, boo)
 
 // ### ADVANCED level
 
@@ -153,7 +144,7 @@ const balance = prompt('Enter your bank account balance')
 function buyPhone(balance) {
    const price = (pricePhone + pricePhone * tax / 100)
    if (balance > price) {
-      const amountPhone = Math.round(balance / price)
+      const amountPhone = Math.floor(balance / price)
       const ost = balance - amountPhone * price
       console.log(`Вы можете купить ${amountPhone} телефон(-ов) и остаток вашего счета составит ${ost}`)
    } else {
