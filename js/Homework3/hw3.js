@@ -97,7 +97,7 @@ function setDirection() {
   }
   // ADVANCED level
 
-  // Task 1 не могу понять, почему 111я строка вызывает ошибку, что не так?
+  // Task 1 
 
   const yourName = prompt ("Enter name","пОлИнА нАбЕрЕжНаЯ")
   const index = yourName.indexOf(" ")
@@ -111,13 +111,13 @@ function setDirection() {
 
 // Task 2 
 
-const num1 = promt("Введите число")
-const num2 = promt("Сколько отнять")
-const num3 = promt("Сколько прибавить")
-const num4 = promt("Сколько умножить")
-const num5 = promt("На сколько поделить")
+const num1 = prompt ("Введите число");
+const num2 = prompt ("Сколько отнять");
+const num3 = prompt ("Сколько прибавить");
+const num4 = prompt ("Сколько умножить");
+const num5 = prompt ("На сколько поделить");
 const result = (((num1 - num2) + num3) * num4/num5)
-alert(((((${num1}) - ${num2}) + ${num3})*${num1})/${num5} = ${result})
+alert((((${num1} - ${num2}) + ${num3}) * ${num4} / ${num5}) = ${result})
 
 //Task 3
 let str = "#";
