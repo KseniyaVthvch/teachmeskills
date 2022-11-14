@@ -57,24 +57,26 @@ const indexFooBoo = prompt('Введите число для задачи зна
 const indexFooBooNum = Number(indexFooBoo)
 const bole = Boolean(indexFooBooNum)
 
-function foo() {
-    if(bole === true){
+
+
+function foo(bool1) {
+    if(bool1 === true){
         console.log('foo')
     }
 }
 
-function boo() {
-    if(bole === false){
+function boo(bool1) {
+    if(bool1 === false){
         console.log('boo')
     }
 }
 
-function fooboo(){
-    foo()
-    boo()
+function fooboo(bool){
+    foo(bool)
+    boo(bool)
 }
 
-fooboo()
+fooboo(bole)
 
 // ADVANCED Level
 
