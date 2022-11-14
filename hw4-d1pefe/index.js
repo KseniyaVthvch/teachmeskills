@@ -84,7 +84,7 @@ fooboo(bole)
 
 
 function triangle(v, m, n){
-    if(v + m > n || m + n > v || v + n > m){
+    if(v + m > n && m + n > v && v + n > m){
         console.log(`true`)
     } else {
         console.log(`false`)
