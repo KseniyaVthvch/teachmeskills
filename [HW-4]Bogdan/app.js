@@ -13,13 +13,13 @@
 
 //TASK 2
 
-    function Credit(bog) {
+    function credit(bog) {
     const percentage = 0.17
     const years = 5
     let result = bog * percentage * years
     return result
     }
-    let result = Credit(100)
+    let result = credit(100)
     console.log(result)
  
 //TASK 3
