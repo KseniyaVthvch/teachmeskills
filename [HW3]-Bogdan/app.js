@@ -9,7 +9,7 @@
  console.log(typeof b)
  console.log(typeof c)
  console.log(typeof d)
- console.log(typeof f)
+ console.log(typeof e)
 
 //TASK 2
  
@@ -44,19 +44,19 @@ if ((key  && documents  && pen ) && ( apple || orange )) {
 //TASK 5
 const num = prompt('Write a number')
 
-if (num % 5 === 0) {
+if (num % 3 === 0 && num % 5 === 0) {
 	console.log('Fiz')
 } else if (num % 3 === 0) {
 	console.log('Buz')
-} else if (num % 3 === 0 && num % 5 === 0) {
+} else if (num % 5 === 0) {
 	console.log('FizBuz')
 }
 
 //TASK 6
-let Age = prompt('How old are you?');
-if (Age >= 16 && Age <= 18) {
+let age = prompt('How old are you?');
+if (age >= 16 && Age <= 18) {
   console.log("Можешь выкурить сигаретку, только маме не говори")
-} else if (Age > 18) {
+} else if (age > 18) {
   console.log("Попей пивка")
 } else {
   console.log("Пей колу")
@@ -84,11 +84,11 @@ switch (userDestination) {
 
     // TASK 1
 
-    const Name = prompt("Enter name", 'пОлИнА нАбЕрЕжНаЯ')
+    const namee = prompt("Enter name", 'пОлИнА нАбЕрЕжНаЯ')
 
-    const index = Name.indexOf(" ")
-    const firstName = Name.slice(0, index);
-    const lastName = Name.slice(index + 1)
+    const index = namee.indexOf(" ")
+    const firstName = namee.slice(0, index);
+    const lastName = namee.slice(index + 1)
 
     const resFirstName = firstName[0].toUpperCase() + firstName.slice(1).toLowerCase()
     const resLastName = lastName[0].toUpperCase() + lastName.slice(1).toLowerCase()
