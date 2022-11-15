@@ -45,11 +45,11 @@ if ((key  && documents  && pen ) && ( apple || orange )) {
 const num = prompt('Write a number')
 
 if (num % 3 === 0 && num % 5 === 0) {
-	console.log('Fiz')
+	console.log('FizBuz')
 } else if (num % 3 === 0) {
 	console.log('Buz')
 } else if (num % 5 === 0) {
-	console.log('FizBuz')
+	console.log('Fiz')
 }
 
 //TASK 6
