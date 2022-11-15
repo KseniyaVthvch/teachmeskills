@@ -47,22 +47,24 @@ console.log(getSum2(-4, 3))
 console.log(getSum2(3, 3))
 
 // Task 5
-function foodoo(bool) {
+function foo () {
+	console.log("foo")
+}
+
+function doo () {
+	console.log("doo")
+}
+
+function foodoo(bool, f1, f2) {
 	if (!!bool === true) {
-		function foo () {
-			console.log("foo")
-		}
-		foo()
+		f1()
 	} else {
-		function doo (doo) {
-			console.log("doo")
-		}
-		doo()
+		f2()
 	}
 }
 	
-foodoo(1)	
-foodoo("")
+foodoo(1, foo, doo)
+foodoo("", foo, doo)
 
 // ADVANCED level
 // Task 1
