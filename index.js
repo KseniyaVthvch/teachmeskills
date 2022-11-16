@@ -50,9 +50,9 @@ const string = "морпех"
 const number = 43
 const boolean = false
 
-console.log(`string ${string}`)
-console.log(`number ${number}`)
-console.log(`boolean ${boolean}`)
+console.log(`Variable:` + string + ` have type:` + typeof string)
+console.log(`Variable:` + number + ` have type:` + typeof number)
+console.log(`Variable:` + boolean + ` have type:` + typeof boolean)
 
 //Task 7
 
