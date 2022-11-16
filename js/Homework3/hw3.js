@@ -4,11 +4,11 @@ const bool1 = false;
 const ageM = 17;
 const non = undefined;
 const test= null;
-console.log(typeof String(word))
-console.log(typeof Boolean(bool1))
-console.log(typeof Number(ageM))
+console.log(typeof word)
+console.log(typeof bool1)
+console.log(typeof ageM)
 console.log(typeof non)
-console.log(typeof null)
+console.log(typeof test)
 
 //Task 2
 let height = 15
@@ -25,16 +25,15 @@ let max = function (){
   max();
 
   //Task 3
-  const calculation = (n, maxNum) => {
-    let number = [];
+
+    
     for (let i = 1; i <= 20; i++) {
       if (i % 3 === 0) {
       console.log(i);
       }
       }
-    return number;
-  }
-  console.log(calculation(3, 20));
+
+  
 
 
 
@@ -50,7 +49,7 @@ console.log(shouldGoToWork)
    //Task 5
 
 let num = Number(prompt("Введите число",""));
-for ( ; num < 56; num++ ) {
+
     if ( num % 5 === 0 && num % 3 === 0 ){
         console.log ( num, " = FizzBuzz" )
     } else {
@@ -59,7 +58,7 @@ for ( ; num < 56; num++ ) {
         } else {
             if ( num%3 === 0 ){
                 console.log( num, " = Fizz" );
-            }
+           
         }
     }
 }
@@ -117,7 +116,7 @@ const num3 = prompt ("Сколько прибавить");
 const num4 = prompt ("Сколько умножить");
 const num5 = prompt ("На сколько поделить");
 const result = (((num1 - num2) + num3) * num4/num5)
-alert((((${num1} - ${num2}) + ${num3}) * ${num4} / ${num5}) = ${result})
+alert(`(((${num1} - ${num2}) + ${num3}) * ${num4} / ${num5}) = ${result}`)
 
 //Task 3
 let str = "#";
