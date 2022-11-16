@@ -65,22 +65,22 @@ console.log(sum2)
 
 /// Task 5
 
-const bool = "asd"
 function foo() {
-	console.log("foo");
+	console.log("foo")
 }
 function boo() {
-	console.log("boo");
+	console.log("boo")
 }
-function fooboo(bool) {
-	if (!!bool === true) {
-		foo();
-	}
-	else {
-		boo();
+function fooboo(bool, f1, f2) {
+	if (bool === true) {
+		f1()
+	} else {
+		f2()
 	}
 }
-fooboo(bool);
+
+fooboo(false, foo, boo)
+fooboo(true, foo, boo)
 
 /// Advanced level
 
