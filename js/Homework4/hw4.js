@@ -12,17 +12,13 @@ const sum=getSum(100)
 console.log("Sum",sum)
 
 //Task 2 
-function creditSum(s){
-    if (typeof s==="number" && s>=0)
-    {
-        let result=0
-        for (let i=5000; i<=s; i++){
-            result=i*17/100*5}
-            return result     
-    }
-}
-const sumCredit=creditSum(5000)
-console.log("Procint",sumCredit)
+
+ function creditSum(credit,per,year){
+    const resultCredit = credit*per*year
+    return resultCredit
+ }
+ const sumCredit = creditSum(5000,0.17,5)
+ console.log(sumCredit)
 
 //Task 3
 let str = 'Mozilla';
@@ -34,44 +30,32 @@ function trimString(str,a,b){
 }
 console.log(trimString(str,1,5));
 
-//Task 4 (getSum уже задействовано, использовала просто Sum)
-let x = +prompt("Введите число","");
-let y = Number(prompt("Введите число",""));
+//Task 4 
 
 function range(x,y){
-    let listRangeNumber = [];
-    while( x <= y ){
-        listRangeNumber.push(x);
-        x++;
+    let counter = 0
+    for (let i=x; i<=y;i++){
+        counter=counter+i;
     }
-    return listRangeNumber;
+    return counter
 }
 
-function Sum(range){
-    let listSumNumber = 0;
-    for (let k in range) {
-        listSumNumber += range[k];
-    }
-    return listSumNumber;
-}
-
-alert( "Range this numbers " + range(x,y));
-alert (Sum(range(x,y)));
+console.log(range(1,9))
 
 //Task 5
 
-let word = Boolean(prompt("Введите true or folse",""));
-fooboo (
-    function(foo) {return 'foo';},
-    function(boo) {return 'boo';}
-);
-
-function fooboo (foo,boo){
-    if (word === true){
-        console.log(function(foo){return "foo"})
+function boo(){}
+function foo(){}
+function fooboo(bool,f1,f2)
+{
+    if(bool){
+        f1()
     }
-    else(console.log(function(boo){return"boo"}))
+    else{
+        f2()
+    }
 }
+fooboo(true,function(){console.log("foo")})
 
 //ADVANCED level
 //Task 1
