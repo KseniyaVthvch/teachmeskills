@@ -77,11 +77,12 @@ fooboo(true, foo, boo);
 //Task1
 function chekTriangle(a, b, c) {
   let result = false;
-  if (a + b >= c) {
+  if ((a + b > c) && (a + c > b) && (c + b > a)) {
     result = true;
   }
   return result;
 }
+
 
 
 
