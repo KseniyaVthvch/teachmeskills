@@ -42,7 +42,7 @@ console.log(colors['ru pum pu ru rum'].red, colors['ru pum pu ru rum'].blue)
 
 //TASK5
 
-let salaries = {
+const salaries = {
     andrey: 500,
     sveta: 413,
     anton: 987,
@@ -61,7 +61,6 @@ function sumSalaries(salaries) {
 
 console.log(sumSalaries(salaries))
 
-//500+413+987+664+199=2763/5=552.6 (Почему в консоли выходит 452.6 ,в чем ошибка?)
 
 //TASK6
     const user2 = {};
@@ -70,12 +69,17 @@ console.log(sumSalaries(salaries))
     user2.name = userName;
     user2.password = userPassword;
 
-    result = confirm(`Your name is "${userName}" and password is "${userPassword}"`);
+    const confirmUserName = prompt("Confirm name");
+    const confirmUserPassword = promp("Confirm password");
+   
+    if (user2.name  === confirmUserName && user2.password === confirmUserPassword ) {
+        console.log("Welcome.")
+    } else { console.log("EROR") }
 
 
-    console.log('Добро пожаловать');
 
-    //Чего не хватает?
+
+   
 
 //Advanced level
 //Task1
