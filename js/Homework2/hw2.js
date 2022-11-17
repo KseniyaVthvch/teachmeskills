@@ -54,6 +54,10 @@ let namber3 ={
     Name:'Alexsandra'
 }
 console.log(namber3.age+namber3.Name)
+const nameYour = prompt("Введите имя");
+const ageYour = prompt("Введите возраст")
+console.log(nameYour+ageYour)
+
 
 // Task 8
 
