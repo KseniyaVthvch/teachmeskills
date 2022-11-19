@@ -53,30 +53,18 @@ console.log(getSumSec(-2, 3))
 
 //task 5
 
-const indexFooBoo = prompt('Введите число для задачи значения(0-false, 1-true)', 1)
-const indexFooBooNum = Number(indexFooBoo)
-const bole = Boolean(indexFooBooNum)
-
-
-
-function foo(bool1) {
-    if(bool1 === true){
-        console.log('foo')
-    }
+function fooboo (bool, f1, f2) {
+	if(bool) {
+		fi()
+	} else {
+		f2()
+	}
 }
 
-function boo(bool1) {
-    if(bool1 === false){
-        console.log('boo')
-    }
-}
-
-function fooboo(bool){
-    foo(bool)
-    boo(bool)
-}
-
-fooboo(bole)
+fooboo( true, 
+	function (){console.log("foo")},
+	function (){console.log("boo")}
+)
 
 // ADVANCED Level
 
