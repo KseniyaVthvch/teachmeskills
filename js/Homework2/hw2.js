@@ -55,6 +55,11 @@ let namber3 ={
 }
 console.log(namber3.age+namber3.Name)
 
+const nameYour = prompt("Введите имя");
+const ageYour = prompt("Введите возраст")
+console.log(nameYour+ageYour)
+
+
 // Task 8
 
 let codeWord1 = "обернись";
