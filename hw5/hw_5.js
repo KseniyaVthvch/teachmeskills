@@ -70,16 +70,16 @@ askLogin = prompt("Введите логин")
 askPassword = prompt("Введите пароль")
 
 const askData = {
-	login: `${askLogin}`,
-	password: `${askPassword}`,
+	login: askLogin,
+	password: askPassword,
 }
 
 confirmLogin = prompt("Подтвердите логин")
 confirmPassword = prompt("Подтвердите пароль")
 
 const confirmData = {
-	login: `${confirmLogin}`,
-	password: `${confirmPassword}`,
+	login: confirmLogin,
+	password: confirmPassword,
 }
 
 if (askData.login === confirmData.login && askData.password === confirmData.password) {
