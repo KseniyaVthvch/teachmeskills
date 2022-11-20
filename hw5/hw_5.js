@@ -5,8 +5,8 @@ const obj1 = {
 	height: 200,
 }
 
-delete size.width
-delete size.height
+delete obj1.width
+delete obj1.height
 
 console.log(obj1)
 
@@ -49,24 +49,19 @@ let salaries = {
 	andrey: 500,
 	sveta: 413,
 	anton: 987,
-	andrey: 664,
+	olga: 664,
 	alexandra: 199,
 }
-// >>>выводит в консоль не все значения<<<
-// for (let key in salaries) {
-// 	console.log(salaries[key])
-// }
 
-// function calcSal(num) {
-// 	let i = 0
-// 	for (let key in num) {
-// 		//?????????
-// 	}
-// 	return  //??????????
-// }
-
-// console.log(calcSal(num))
-
+function calcSal(obj5) {
+	let k = 0
+	for (let key in obj5) {
+		k = k + obj5[key]
+	}
+	result = k / Object.keys(obj5).length
+	return result
+}
+console.log(calcSal(salaries))
 
 
 /// Task 6
@@ -91,7 +86,7 @@ if (askData.login === confirmData.login && askData.password === confirmData.pass
 	console.log("Добро пожаловать.")
 } else { console.log("Данные не совпадают") }
 
-/// Advanced 
+/// Advanced
 /// Task 1
 
 let student1 = {
