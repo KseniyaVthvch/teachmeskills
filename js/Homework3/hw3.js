@@ -1,14 +1,26 @@
 //Task 1 
+
 let word='true';
 const bool1 = false;
 const age = 17;
+
+const word='true';
+const bool1 = false;
+const ageM = 17;
+
 const non = undefined;
 const test= null;
 console.log(typeof word)
 console.log(typeof bool1)
+
 console.log(typeof age)
 console.log(typeof non)
 console.log(typeof null)
+
+console.log(typeof ageM)
+console.log(typeof non)
+console.log(typeof test)
+
 
 //Task 2
 let height = 15
@@ -25,6 +37,7 @@ let max = function (){
   max();
 
   //Task 3
+
   const Calculation = (n, maxNum) => {
     let number = [];
     for (let i = 1; i < maxNum; i++) {
@@ -54,6 +67,33 @@ let max = function (){
 
 let num = 55;
 for ( ; num < 56; num++ ) {
+
+
+    
+    for (let i = 1; i <= 20; i++) {
+      if (i % 3 === 0) {
+      console.log(i);
+      }
+      }
+
+  
+
+
+
+   //Task 4 
+  const key = true
+  const documents = true
+  const pen = true
+  const apple = false
+  const orange = true
+  const shouldGoToWork = (key && documents && pen && (apple || orange))
+console.log(shouldGoToWork)
+
+   //Task 5
+
+let num = Number(prompt("Введите число",""));
+
+
     if ( num % 5 === 0 && num % 3 === 0 ){
         console.log ( num, " = FizzBuzz" )
     } else {
@@ -62,16 +102,26 @@ for ( ; num < 56; num++ ) {
         } else {
             if ( num%3 === 0 ){
                 console.log( num, " = Fizz" );
+
             } else {
                 console.log( num );
             }
+
+           
+
         }
     }
 }
 //Task 6
+
 const Age =30
 if (Age>18){console.log(`Попей пивка`)}
 else if (Age>=16 && Age<=18){console.log(`Можешь выкурить сигаретку, только маме не говори`)}
+
+const age =30
+if (age>18){console.log(`Попей пивка`)}
+else if (age>=16 && age<=18){console.log(`Можешь выкурить сигаретку, только маме не говори`)}
+
 else{console.log(`Пей колу`)}
 
 //Task 7
@@ -102,15 +152,23 @@ function setDirection() {
   }
   // ADVANCED level
 
+
   // Task 1 не могу понять, почему 111я строка вызывает ошибку, что не так?
 
   const yourName = prompt ("Enter name","пОлИнА нАбЕрЕжНаЯ")
   const index = yourName.indexOf("")
+
+  // Task 1 
+
+  const yourName = prompt ("Enter name","пОлИнА нАбЕрЕжНаЯ")
+  const index = yourName.indexOf(" ")
+
   const firstName = yourName.slice(0,index);
   const lastName = yourName.slice(index+1);
   const resfirstName = firstName[0].toUpperCase() + firstName.slice(1).toLowerCase();
   const reslastName = lastName[0].toUpperCase() + lastName.slice(1).toLowerCase();
   console.log(resfirstName, reslastName)
+
 
 
 
@@ -173,6 +231,17 @@ let bot = function(actions) {
 let actions = [del, add, multiply, divide];
  
 alert(bot(actions));
+
+// Task 2 
+
+const num1 = prompt ("Введите число");
+const num2 = prompt ("Сколько отнять");
+const num3 = prompt ("Сколько прибавить");
+const num4 = prompt ("Сколько умножить");
+const num5 = prompt ("На сколько поделить");
+const result = (((num1 - num2) + num3) * num4/num5)
+alert(`(((${num1} - ${num2}) + ${num3}) * ${num4} / ${num5}) = ${result}`)
+
 
 //Task 3
 let str = "#";
