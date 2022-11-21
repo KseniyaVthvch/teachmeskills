@@ -37,6 +37,8 @@ console.log(("Variable:")+('me ') +("have type:")+(typeof me))
 console.log(("Variable:")+('all ') +("have type:")+(typeof all))
 
 // Task 7
+
+
 let namber1 ={
     age:23,
     Name:'Andrey'
@@ -54,6 +56,7 @@ let namber3 ={
     Name:'Alexsandra'
 }
 console.log(namber3.age+namber3.Name)
+
 const nameYour = prompt("Введите имя");
 const ageYour = prompt("Введите возраст")
 console.log(nameYour+ageYour)
