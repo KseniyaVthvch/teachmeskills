@@ -71,12 +71,12 @@ const colors = {
 console.log(colors['ru pum pu ru rum'].red);
 console.log(colors['ru pum pu ru rum'].blue);
 
-//! Task 5 
+// Task 5 
 
 //Дан обьект. Вычислите среднюю зарплату сотрудников и результат поместите в соответствующую переменную
 
     let salaries = {
-        andrey: 500,     //одинаковые имена у ключей, так и должно быть?
+        roma: 500,
         sveta: 413,
         anton: 987,
         andrey: 664,
@@ -85,20 +85,37 @@ console.log(colors['ru pum pu ru rum'].blue);
 
 let sum = 0
 for (let k in salaries) {
-   sum = sum + salaries[k]
+   sum += salaries[k]
 }
 
-const res = sum/5
+const res = sum/Object.keys(salaries).length
 
 console.log(res);
 
-//! Task 6 
+// Task 6 
 
 // Создать валидатор, запросить у пользователя логин и пароль для регистрации. Затем данные записать в обьект.
 // Потом попросить пользователя подтвердить данные. Если верно введен логин и пароль, вывести сообщение **Добро пожалоВать**.
 
+   const login = prompt("Enter login")
+   const password = prompt("Enter password")
+   const askVal = {
+      login : login,
+      password : password,
+   }
 
+const confLogin = prompt("Confirm login")
+const confPassword = prompt("Confirm password")
+const askConf = {
+   confLogin : confLogin,
+   confPassword : confPassword,
+}
 
+if (askVal.login === askConf.confLogin && askVal.password === askConf.confPassword) {
+   console.log("Добро пожалоВать");
+} else {
+   console.log("try again");
+}
 
 // ADVANCED level
 
@@ -116,7 +133,7 @@ console.log(res);
         age: 27,
     }
 
-console.log(JSON.student1 === JSON.student2);
+console.log(JSON.stringify(student1) === JSON.stringify(student2));
 
 // Task 2 
 
