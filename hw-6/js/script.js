@@ -50,7 +50,7 @@ console.log(newBinary)
 //ADVANCED level
 
 //TASK 1
-const palindrom = ["дед"]
+const palindrom = ["дед", ",бабка", "конь", "как"]
 
 function getPal(p) {
    for (let i = 0; i < p.length; i++) {
@@ -74,14 +74,16 @@ const matrix = [
 
 function getArr(c) {
    let res = 0;
-   //let res1;
+   let count = 0;
+   let res1;
    for (let i = 0; i < c.length; i++) {
+      count += c[i].length
       for (let j = 0; j < c[i].length; j++) {
          res += c[i][j]
-         //res1 = res / [j].length// и тут я стала, не знаю как записать, чтоб функция выбрала количество значений
+         res1 = res / count
       }
    }
-   return res
+   return res1
 }
 console.log(getArr(matrix))
 
@@ -90,26 +92,19 @@ console.log(getArr(matrix))
 
 // TASK 3
 const mixedNumbers = [-14, 24, -89, 43, 0, -1, 412, 4]
-const mixedPl = [
-   function getMixed1(obj) {
-      for (let i = 0; i < obj.length; i++) {
-         if (obj[i] >= 0) {
-            console.log(obj[i])
-         }
-      }
+const mixedPl = []
+for (let i = 0; i < mixedNumbers.length; i++) {
+   if (mixedNumbers[i] >= 0) {
+      mixedPl.push(mixedNumbers[i])
    }
-]
-mixedPl[0](mixedNumbers)
+}
+console.log(mixedPl)
 
-const mixedNeg = [
-   function getMixed2(arr) {
-      for (let j = 0; j < arr.length; j++) {
-         if (arr[j] < 0) {
-            console.log(arr[j])
-         }
-      }
+const mixedNeg = []
+for (let j = 0; j < mixedNumbers.length; j++) {
+   if (mixedNumbers[j] < 0) {
+      mixedNeg.push(mixedNumbers[j])
    }
-]
-mixedNeg[0](mixedNumbers)
+}
+console.log(mixedNeg)
 
-// Возможно не так поняла условие с созданием массивов
