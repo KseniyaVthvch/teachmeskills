@@ -85,7 +85,7 @@ function getStr(str) {
 let resultCheck = getStr(str)
 console.log(resultCheck)
 console.log(arrStr.length)
-if (resultCheck = arrStr.length) {
+if (resultCheck === arrStr.length) {
 	console.log("палиндром")
 } else { console.log("не палиндром") }
 
