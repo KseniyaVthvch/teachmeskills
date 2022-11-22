@@ -88,15 +88,18 @@ const matrix = [
         [9092, 22, 45, 90000],
     ]
 let avarage = 0
-
+let counter = 0
 
 for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
         avarage += matrix[i][j]
+        counter += 1
     }
 }
 
-console.log(avarage)
+let res = avarage / counter
+
+console.log(res)
 
 // Task 3
 const mixedNumbers = [-14, 24, -89, 43, 0 , -1, 412, 4]
