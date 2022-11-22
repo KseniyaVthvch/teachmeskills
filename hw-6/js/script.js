@@ -75,15 +75,13 @@ const matrix = [
 function getArr(c) {
    let res = 0;
    let count = 0;
-   let res1;
    for (let i = 0; i < c.length; i++) {
       count += c[i].length
       for (let j = 0; j < c[i].length; j++) {
          res += c[i][j]
-         res1 = res / count
       }
    }
-   return res1
+   return res / count
 }
 console.log(getArr(matrix))
 
