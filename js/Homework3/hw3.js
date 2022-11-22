@@ -1,8 +1,15 @@
+
 //Task 1 
 
 let word='true';
 const bool1 = false;
 const age = 17;
+
+
+//Task 1 let word='true';
+const bool1 = false;
+const age = 17;
+
 
 const word='true';
 const bool1 = false;
@@ -13,6 +20,12 @@ const test= null;
 console.log(typeof word)
 console.log(typeof bool1)
 
+
+console.log(typeof age)
+console.log(typeof non)
+console.log(typeof null)
+
+
 console.log(typeof age)
 console.log(typeof non)
 console.log(typeof null)
@@ -20,6 +33,7 @@ console.log(typeof null)
 console.log(typeof ageM)
 console.log(typeof non)
 console.log(typeof test)
+ 
 
 
 //Task 2
@@ -37,6 +51,36 @@ let max = function (){
   max();
 
   //Task 3
+  const Calculation = (n, maxNum) => {
+    let number = [];
+    for (let i = 1; i < maxNum; i++) {
+      if (i % n === 0) {
+        number.push(i);
+      }
+    }
+    return number;
+  }
+  console.log(Calculation(3, 20));
+
+   //Task 4 
+   let key = true
+   let documents = true
+   let pen = true
+   let apple = false
+   let orange = true
+   let shouldGoToWork = "ready"
+   if(key===true && documents === true && pen === true && apple === false || orange === true){
+    console.log(shouldGoToWork);
+   }
+   else {
+    console.log( "no ready");
+}
+
+   //Task 5
+
+let num = 55;
+for ( ; num < 56; num++ ) {
+
 
   const Calculation = (n, maxNum) => {
     let number = [];
@@ -103,15 +147,27 @@ let num = Number(prompt("Введите число",""));
             if ( num%3 === 0 ){
                 console.log( num, " = Fizz" );
 
+
             } else {
                 console.log( num );
             }
 
 
+
+            } else {
+                console.log( num );
+            }
+
         }
     }
 }
 //Task 6
+
+
+const Age =30
+if (Age>18){console.log(`Попей пивка`)}
+else if (Age>=16 && Age<=18){console.log(`Можешь выкурить сигаретку, только маме не говори`)}
+
 
 const Age =30
 if (Age>18){console.log(`Попей пивка`)}
