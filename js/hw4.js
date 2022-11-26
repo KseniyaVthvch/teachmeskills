@@ -76,31 +76,81 @@
 // }
 // console.log(chocolateBar(5, 4))
 
-// Task 3
-let myAccount = Number(prompt("введите баланс банковского счета:"))
-const tax = 0.15
-const phonePrice = 800
-const accessoriesPrice = 50
+// // Task 3
+// let myAccount = Number(prompt("введите баланс банковского счета:"))
+// const tax = 0.15
+// const phonePrice = 800
+// const accessoriesPrice = 50
 
-function taxSum() {
-   totalTax = (phonePrice + accessoriesPrice) * tax
-   return totalTax
-}
+// function taxSum() {
+//    totalTax = (phonePrice + accessoriesPrice) * tax
+//    return totalTax
+// }
 
-function resultPrice() {
-   totalPrice = taxSum() + (phonePrice + accessoriesPrice)
-   return totalPrice
-}
+// function resultPrice() {
+//    totalPrice = taxSum() + (phonePrice + accessoriesPrice)
+//    return totalPrice
+// }
 
-function stringFormatig(str){
-   return `${str}$`
-}
+// function stringFormatig(str){
+//    return `${str}$`
+// }
 
-console.log(stringFormatig(resultPrice()))
+// console.log(stringFormatig(resultPrice()))
  
-let shoppingCount = 0
-while(myAccount > resultPrice()){
-   myAccount -= resultPrice()
-   shoppingCount++
+// let shoppingCount = 0
+// while(myAccount > resultPrice()){
+//    myAccount -= resultPrice()
+//    shoppingCount++
+// }
+// console.log(shoppingCount)
+
+
+// вариант 2 
+//task 3
+class PhoneShop {
+   constructor(myMoney) {
+       this.myBankAccount = myMoney;
+       this.tax = 0.15;
+       this.accessoriesPrice = [15.99, 35, 47, 1, 27.8];
+       this.mobilePrice = [141, 99.99, 121.1, 220.4, 100.01];
+   }
+
+   randomThing(arr) {
+       return arr[Math.floor(Math.random() * arr.length)]
+   }
+
+   resultFormatting(str) {
+       return `${String(str).match(/.*\..{1,2}/)}$`
+   }
+
+   buyPhones() {
+       let CAN_BUY = true;
+       let buyCount = 0;
+       while (CAN_BUY) {
+           if (this.myBankAccount > 0) {
+               let buyPrice;
+               let priceAfterTax;
+
+               buyPrice = this.randomThing(this.accessoriesPrice) + this.randomThing(this.mobilePrice)
+               priceAfterTax = buyPrice * this.tax + buyPrice
+               console.log(`\nTotal price: ${this.resultFormatting(priceAfterTax)}.`)
+
+               if (priceAfterTax > this.myBankAccount) {
+                   let credit = priceAfterTax - this.myBankAccount + 0.1
+                   console.log(`[-] Total price is very big. I can\'t buy this phone. Give me ${this.resultFormatting(credit)}.`)
+                   CAN_BUY = false
+               } else {
+                   buyCount++;
+                   console.log(`[+] I can buy it =).\nTotal count of all my shopping: ${buyCount}`)
+                   this.myBankAccount -= priceAfterTax
+                   console.log(`My balance: ${this.resultFormatting(this.myBankAccount)}`)
+               }
+           }
+       }
+   }
 }
-console.log(shoppingCount)
+
+
+let shop = new PhoneShop(1000)
+shop.buyPhones()
