@@ -62,32 +62,17 @@ console.log(str1)
 
 /// Task1
 
-// через if else
-
-// const str = prompt("Введите слово").toLowerCase()
-// const revStr = str.split('').reverse().join("")
-// console.log(revStr)
-// if (str === revStr) {
-// 	console.log("палиндром")
-// } else { console.log("не палиндром") }
-
-const str = prompt("Введите слово").toLowerCase()
-const arrStr = str.split('')
-function getStr(str) {
-	let result = 0
-	for (let i = 0; i < arrStr.length; i++) {
-		if (arrStr[i] === arrStr[arrStr.length - 1 - i]) {
-			result = result + i
-		} else { }
+function checkWord(word) {
+	if (word.toLowerCase() === word.toLowerCase().split("").reverse().join("")) {
+		return `${word} палиндром`
+	} else {
+		return `${word} не палиндром`;
 	}
-	return result
 }
-let resultCheck = getStr(str)
-console.log(resultCheck)
-console.log(arrStr.length)
-if (resultCheck === arrStr.length) {
-	console.log("палиндром")
-} else { console.log("не палиндром") }
+
+console.log(checkWord("потоп"));
+console.log(checkWord("слово"));
+
 
 
 /// Task 2
