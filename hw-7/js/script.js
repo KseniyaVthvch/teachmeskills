@@ -53,9 +53,8 @@ console.log(fiboSumFirst)
 function calcSum(acc, item) {
    return acc + item
 }
-console.log(fibonaci.reduce(calcSum))
-// во втором способе не совсем понимаю как задать для acc нулевое значение
-//(хотя и без него он посчитал сумму правильно,наверно потому что массив начинается с 0)
+console.log(fibonaci.reduce(calcSum, 0))
+
 
 
 //TASK 5
@@ -99,8 +98,8 @@ const stud5 = new Student(2000, 'a', 'Veronika')
 
 const student = [stud1, stud2, stud3, stud4, stud5]
 console.log(student)
-const studCreditSum = student.reduce((acc, item) => {
-   return acc + item.getCred()
+const studCreditSum = student.reduce((acc, items) => {
+   return acc + items.getCred()
 
 }, 0)
 console.log(studCreditSum)
@@ -130,9 +129,6 @@ console.log(studCreditSum)
 let showStr = (str) => str.replace(/[aeiou]/gi, '')
 console.log(showStr('This website is for losers LOL!'));
 
-// этот вариант нашла в интернете и понимаю как это работает
-// только вопрос по синтаксису, в теории которую прочитала по replace  аргумент, который передается
-// в скобках записывается без [], но тут если их убрать, код перестает работать 
 
 //TASK 4
 let str1 = "1 2 3 4 5";
