@@ -1,80 +1,126 @@
-//Task 1 
+// Task 1 🖥
 
-const x = 20
-const y = 58
-const z = 42
+const fibonacci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
 
-console.log(x + y + z)
+// //1
+fibonacci.forEach ((alem) => alem)
 
-//Task 2
+console.log(fibonacci)
 
-const minutes = 60
-const hours = 60
-const days = 24
-const years = 365
+//2
+function myFn(alem) {
+    console.log(alem)
+}
 
-let myAgeInSeconds = 630720000
+fibonacci.forEach(myFn)
 
-console.log(minutes*hours*days*years*myAgeInSeconds)
-//Task 3
+// Task 2 🖥
 
-const count = 42
-const userName = '42'
+    const users = ['Darya', 'Masha', 'Denis', 'Vitaliy', 'Polina', 'Anton']
 
-console.log(typeof String(count))
-console.log(typeof Number(userName))
+ //1
 
-//Task 4
+function myFn(alem, index) {
+    return `member${index +1} : ${alem}`
+}
 
-let a = 1
-let b = 2
-let c = "белых медведей"
+console.log(users.map(myFn))
 
-console.log(a + String(b)+ c)
+ //2
 
-//Task 5 
+const member = users.map((alem,index) => `member${index + 1} : ${alem}`)
 
-let aa = "доступ"
-let bb = "морпех"
-let ss = "наледь"
-let xx = "попрек"
-let zz = "рубило"
+console.log(member)
 
-let lengthWords = aa.length + bb.length + ss.length + xx.length + zz.length
+// Task 3 🖥
 
-console.log(lengthWords)
+    const numbers = [7, -4, 32, -90, 54, 32, -21]
 
-//Task 6 
+//1
 
-const string = "морпех"
-const number = 43
-const boolean = false
+const filt = numbers.filter((alem) => {
+    return alem >= 0
+})
 
-console.log(`Variable:` + string + ` have type:` + typeof string)
-console.log(`Variable:` + number + ` have type:` + typeof number)
-console.log(`Variable:` + boolean + ` have type:` + typeof boolean)
+console.log(filt)
 
-//Task 7
+//2
 
-alert(`Hello`);
-let name = prompt("NAME");
-let age = prompt('age?', 18);
-alert(age)
-const info = `name:${name}
-age:${age}`
-console.log(info)
+function myFunc(alem) {
+    return alem >= 0
+}
 
-//ADVANCED level
+console.log(numbers.filter(myFunc))
 
-//В данном послании скрыт шифр! Чтобы его разгадать нам нужно соединить все вторые символы слов!
+// Task 4 🖥
 
-let codeWord1 = "обернись";
-let codeWord2 = "неужели";
-let codeWord3 = "огурцы";
-let codeWord4 = "липкие";
-let codeWord5 = "?!";
+const fibonaccci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
 
-const cipher = codeWord1[1] + codeWord2[1] + codeWord3[1] + codeWord4[1] + codeWord5[1]
+//1 
 
-console.log(cipher)
-//Создайте переменную **`cipher`** и поместите туда необходимые символы
+const reduc =  fibonaccci.reduce((acc,alem) => {
+    return acc + alem
+}, 0)
+
+console.log(reduc)
+
+//2
+
+function reduc2(acc, alem) {
+   return acc + alem
+} 
+
+console.log(fibonaccci.reduce(reduc2))
+
+// Task 5 🖥
+
+    const numbers2 = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5]
+
+//1
+
+const honest = numbers2.find((alem) => {
+    return alem % 2 === 0
+})
+
+console.log(honest)
+
+//2
+
+function honest2(alem) {
+    return alem % 2 === 0
+}
+
+console.log(numbers2.find(honest2))
+
+// ADVANCED level
+
+// Task 1 👨‍🏫
+
+function Student(salary, rate , name) {
+    this.salary = salary
+    this.rate = rate
+    this.name = name
+
+    this.checkRate = function() {
+        let credit = 0
+        if(this.rate === `A`) {
+            return credit = salary * 12
+        }else if(this.rate === `B`) {
+            return credit = salary * 9
+        }else if(this.rate === `C`) {
+            return credit = salary * 6
+        }else if(this.rate === `D`) {
+            return credit = 0
+}   }   }
+const stud1 = new Student(1000, `A`, `Darya`)
+const stud2 = new Student(1000, `B`, `Masha`)
+const stud3 = new Student(1000, `C`, `Denis`)
+const stud4 = new Student(1000, `D`, `Vitaliy`)
+const stud5 = new Student(1000, `A`, `Polina`)
+
+const students = [stud1, stud2, stud3, stud4, stud5]
+
+console.log(students.reduce((acc,alem) => {
+    return acc + alem.checkRate()
+},0))
+
