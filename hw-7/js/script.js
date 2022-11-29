@@ -81,49 +81,48 @@ function Student(salary, rate, name) {
    this.name = name
    this.getCred = function () {
       if (rate == 'a') {
-         let rateA = salary * 12
-         console.log(alert(`Сумма вашего кредита составит: ${rateA}`))
+         return salary * 12
       } else if (rate == 'b') {
-         let rateB = salary * 9
-         console.log(alert(`Сумма вашего кредита составит: ${rateB}`))
+         return salary * 9
       } else if (rate == 'c') {
-         let rateC = salary * 6
-         console.log(alert(`Сумма вашего кредита составит: ${rateC}`))
+         return salary * 6
       } else if (rate == 'd') {
-         console.log(alert("Mы не можем дать кредит"))
+         return salary * 0
       }
    }
 }
+const stud1 = new Student(1200, 'b', 'Alexandra')
+const stud2 = new Student(1300, 'a', 'Polina')
+const stud3 = new Student(200, 'c', 'Bogdan')
+const stud4 = new Student(50, 'd', 'Daniil')
+const stud5 = new Student(2000, 'a', 'Veronika')
 
-const stud1 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Alexandra')
-stud1.getCred()
-console.log(stud1)
-const stud2 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Polina')
-stud2.getCred()
-console.log(stud2)
-const stud3 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Bogdan')
-stud3.getCred()
-console.log(stud3)
-const stud4 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Daniil')
-stud4.getCred()
-console.log(stud4)
-const stud5 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Veronika')
-stud5.getCred()
-console.log(stud5)
 const student = [stud1, stud2, stud3, stud4, stud5]
 console.log(student)
 const studCreditSum = student.reduce((acc, item) => {
-   // return acc + т.е. здесь как записать результат выполнения функции getCred
+   return acc + item.getCred()
+
 }, 0)
 console.log(studCreditSum)
 
 
-// Задумка выполнения задания была следующая:
-//  каждый из студетнов сам вводит сумму з/п и рейтинг, на основе которого потом выводится сумма возможного кредита,
-// затем создается массив, на основе которого нужно посчитать общую сумму возможного кредита для группы,
-// понимаю , что это можно сделать через reduce, но зависла и не знаю как записать результат выполнения функции getCred
-//  в качестве item для функции studCreditSum
-// наворотила тут конкретно, но не хотелось привязываться к фиксированным salary, rate
+// const stud1 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Alexandra')
+// const stud2 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Polina')
+// const stud3 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Bogdan')
+// const stud4 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Daniil')
+// const stud5 = new Student(prompt('Введите вашу заработную плату'), prompt('Введите ваш кредитный рейтинг'), 'Veronika')
+
+// const student = [stud1, stud2, stud3, stud4, stud5]
+// console.log(student)
+// const studCreditSum = student.reduce((acc, item) => {
+//    return acc + item.getCred()
+// }, 0)
+// console.log(studCreditSum)
+
+
+// Хотела изначально сделать задание след. образом:
+//  каждый из студентов сам вводит сумму з/п и рейтинг, на основе которого потом выводится сумма возможного кредита,
+// но при подсчете общей суммы  выводит в консоль NaN
 
 
 // TASK 2
