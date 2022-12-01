@@ -62,3 +62,5 @@ const numbers4 = numbers3.find((number) => {
     return number % 2 === 0;
   })
   console.log(numbers4)
+
+  //TASK1
