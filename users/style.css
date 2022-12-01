@@ -1,10 +1,24 @@
+input, button {
+    all: unset;
+}
+
+button {
+    background-color: rgb(229, 231, 235);
+    margin-right: 10px;
+    padding: 4px 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 body {
     background: rgb(229, 231, 235);
     font-family: 'Montserrat', sans-serif;
 }
 
 .root {
-    width: 700px;
+    width: 600px;
     margin: 0 auto;
     border-style: solid;
     border-color: #e5e7eb;
@@ -20,7 +34,7 @@ body {
 }
 .item {
     display: grid;
-    grid-template-columns: 5fr auto auto;
+    grid-template-columns: auto 75px 110px;
     grid-template-rows: 1fr 1fr;
     grid-gap: 10px 30px;
     padding: 1rem 1.5rem;
@@ -49,4 +63,38 @@ body {
     justify-content: center;
     font-weight: 500;
     padding: 4px 6px;
+}
+
+
+
+.inputWrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    padding: 0.4rem 1.5rem;
+}
+
+label {
+    text-transform: capitalize;
+}
+
+input[type="text"] {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border: 1px solid rgb(209, 213, 219);
+    border-radius: 4px;
+    padding: 8px 12px;
+    max-width: 100%;
+}
+
+.button {
+    background-color: green;
+    color: white;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
 }
