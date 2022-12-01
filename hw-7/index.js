@@ -135,8 +135,13 @@ console.log(student2.getCredit())
 console.log(student3.getCredit())
 console.log(student4.getCredit())
 console.log(student5.getCredit())
-let sum = students.reduce((acc, item) => { acc + item.getCredit() }, 0)
-console.log(sum)
+
+const studentsArr = arr => {
+   const res = arr.map(item => item.getCredit()).reduce((sum, current) => sum + current);
+   return `Общая сумма кредитов, которую можно выдать группе составляет: ${res} USD`;
+}
+console.log(studentsArr(students));
+
 // общую сумму не получилось посчитать. не понимаю, почему
 
 // Task 2 👨‍🏫 Тролли атакуют наш раздел с комментариями!!!
@@ -145,13 +150,22 @@ console.log(sum)
 // Например, строка «This website is for losers LOL!» станет "Ths wbst s fr lsrs LL!".
 // Примечание: для этой задачи y не считается гласной.
 
-let str = 'This website is for losers LOL!'
-str = str.split('')
-const newStr = str.filter(item => {
-   return item !== 'a', 'o', 'e', 'u', 'i'
-})
-console.log(newStr)
-// не работает
+const getStr = str => {
+   const vowels = ['A', 'E', 'I', 'O', 'U', 'a', 'e', 'i', 'o', 'u']
+   console.log(vowels[0] + 'a')
+   let newStr = ''
+   for (let i = 0; i < str.length; i++) {
+      if (vowels.includes(str[i]) === false) {
+         newStr += str[i]
+      }
+   }
+   return newStr
+}
+
+console.log(getStr('This website is for losers LOL!'))
+
+let vowels2 = (str) => str.replace(/[aeiouy]/gi, '')
+console.log(vowels2('This website is for losers LOL!'));
 
 // Task 3 👨‍🏫 Нет истории, нет теории
 // В приведенных ниже примерах показано, как написать функцию:
@@ -160,9 +174,44 @@ console.log(newStr)
 //     accum("cwAt") -> "C-Ww-Aaa-Tttt"
 // Параметр - это строка, которая включает только буквы от a..z и A..Z.
 
+const accum = str => {
+   let res = []
+   for (let i = 0; i < str.length; i++) {
+      let current = []
+      for (let j = 0; j < i; j++) {
+         current.push(str[i].toLowerCase())
+      }
+      res.push(str[i].toUpperCase() + current.join(''))
+   }
+   return res.join('-')
+}
+
+console.log(accum("abcd"))
+console.log(accum("RqaEzty"))
+console.log(accum("cwAt"))
+
 // Task 4 👨‍🏫 Самый высокий и самый низкий
 // В этом небольшом задании вам дается строка чисел, разделенных пробелами, и вы должны возвращать наибольшее и наименьшее число.
 //     highAndLow("1 2 3 4 5"); // return "5 1"
 //     highAndLow("1 2 -3 4 5"); // return "5 -3"
 //     highAndLow("1 9 3 4 -5"); // return "9 -5"
 // Строка вывода должна состоять из двух чисел, разделенных одним пробелом, при этом наибольшее число должно быть первым.
+// 1 способ
+const highAndLow1 = str => {
+   return `${Math.max.apply(null, str.split(' '))} ${Math.min.apply(null, str.split(' '))}`
+}
+
+console.log(highAndLow1("1 2 3 4 5"))
+console.log(highAndLow1("1 2 -3 4 5"))
+console.log(highAndLow1("1 9 3 4 -5"))
+
+// 2 способ
+const highAndLow2 = str => {
+   const res = str.split(' ').sort((a, b) => b - a)
+   return `${res[0]} ${res[res.length - 1]}`
+}
+
+console.log(highAndLow2("1 2 3 4 5"))
+console.log(highAndLow2("1 2 -3 4 5"))
+console.log(highAndLow2("1 9 3 4 -5"))
+
