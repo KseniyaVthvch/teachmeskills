@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'Open_Sans';
+  src: url("./font/OpenSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+:root {
+  --lightgreen: #C3E5AE;
+  --white: #FFFFFF;
+}
+
+
+body {
+  background-color: var(--white);
+  margin: 20px 0;
+  font-family: "Open_Sans";
+  font-size: 16px;
+}
+
+
+.container {
+  margin: 0 auto;
+  max-width: 1264px;
+
+}
+
+
+#root {
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  color: rgb(40, 90, 60)
+}
+
+.panel {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px -10px;
+  padding-bottom: 30px;
+}
+
+.conroll-pannel_padding {
+  margin-right: 15px;
+}
+
+
+.text-holder {
+  flex: 1 1 auto;
+  border: 1px solid #8e8e8e;
+  border-radius: 5px;
+  padding: 0.375rem .75rem;
+  outline: none;
+}
+
+input:focus {
+  border: 1px solid var(--lightgreen);
+}
+
+
+.button {
+  background: var(--lightgreen);
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px;
+  color: rgb(40, 90, 60)
+}
+
+.selection-panel_info {
+  display: flex;
+  align-items: center
+}
+
+.selection-panel_info h2 {
+  display: inline-flex;
+  padding-right: 15px;
+}
+
+.button:hover {
+  transition: all 0.7s;
+  opacity: 0.7;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.list-item {
+  padding: 30px;
+  width: 75%;
+  display: flex;
+}
+
+.checkbox {
+  margin-right: 20px;
+  transform: scale(2);
+  filter: hue-rotate(625deg) grayscale(60%) brightness(120%);
+}
+
+.checked {
+  border-radius: 10px;
+  background-color: #f1ead061;
+}
