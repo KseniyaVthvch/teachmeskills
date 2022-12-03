@@ -1,5 +1,6 @@
 const root = document.getElementById('root')
 
+
 const blocks = [
    {
       id: 0,
@@ -12,10 +13,13 @@ const blocks = [
       textTODO: 'Todo text',
    },
 ]
+
+
 const buttonOne = document.createElement('button')
 buttonOne.classList.add('button__one')
 buttonOne.innerText = 'Delete all'
 root.appendChild(buttonOne)
+
 
 // Думаю это не очень хорошая реализация, потому что если мне нужно,
 // чтоб пункт был сразу с checked  он создает две строки с input,
@@ -35,8 +39,6 @@ inputTitleAddToDo.forEach(elem => {
    inputTitle.classList.add('text__todo')
    root.appendChild(inputTitle)
 })
-
-
 
 const buttonTwo = document.createElement('button')
 buttonTwo.classList.add('button__two')
@@ -68,13 +70,11 @@ const renderBlocks = ((elem) => {
       deleteButtonClickHandler(blockOne)
    })
 
-
    const isChecked = document.createElement('input')
    isChecked.classList.add('check')
    isChecked.type = 'checkbox'
    isChecked.checked = checkBox
    blockOne.appendChild(isChecked)
-
 
    isChecked.addEventListener('click', (e) => {
       if (e.currentTarget.checked === true) {
@@ -90,6 +90,7 @@ const renderBlocks = ((elem) => {
       }
    })
 
+
    const text = document.createElement('p')
    text.classList.add('text')
    text.innerText = textTODO
@@ -104,19 +105,20 @@ const renderBlocks = ((elem) => {
    buttonThree.innerText = 'X'
    rootDate.appendChild(buttonThree)
 
+
    buttonThree.addEventListener("click", () => {
       deleteButtonClickHandler(blockOne)
    })
+
 
    const dateStr = document.createElement('div')
    dateStr.classList.add('date')
    dateStr.innerText = `${date1.getDate()}.${date1.getMonth() + 1}.${date1.getFullYear()}`
    rootDate.appendChild(dateStr)
 })
+
 blocks.forEach((elem) => {
    renderBlocks(elem)
 })
-
-
 
 
