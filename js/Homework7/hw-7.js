@@ -47,7 +47,7 @@ const total=fibonaci.reduce((acc,item,index,array)=>{
 },0);
 console.log(total)
 //4.1(вторым способом ,через `function declaration` )
-function Sum() {
+function ssum() {
     let result = 0;
     for (let i = 0; i < fibonaci.length; i++) {
       result += fibonaci[i];
@@ -55,7 +55,7 @@ function Sum() {
   return result;
 }
     
-    console.log(Sum(fibonaci));
+    console.log(ssum(fibonaci));
 //Task 5
 const elements = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5]
 const res=elements.find(item=>item%2==0)
