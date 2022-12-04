@@ -1,0 +1,76 @@
+#root {
+   width: 500px;
+   margin: 0 auto;
+   border: 2px solid #000;
+   background-color: rgb(247, 243, 243);
+   border-radius: 5%;
+}
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   max-height: 150px;
+   padding: 15px 40px;
+}
+.btn_green {
+   padding: 10px 20px;
+   background-color: aqua;
+   border-radius: 5%;
+   border: 2px solid #000;
+   color: grey;
+   transition: all 1s ease;
+   cursor: pointer;
+}
+.btn_green:hover{
+   background-color: rgb(203, 244, 244);
+   color: #000;
+}
+.enter-todo {
+   padding: 10px 20px;
+   border-radius: 5%;
+   border: 2px solid #000;
+   color: grey;
+   text-align: center;
+}
+.field {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin: 15px 40px;
+   border: 2px solid #000;
+   border-radius: 5%;
+}
+.checkbox {
+   color: aqua;
+   margin: 15px;
+   padding: 15px;
+}
+.todo-text {
+   padding: 10px 100px;
+   background-color: #fff;
+   color: grey;
+}
+.buttons{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;  
+}
+.x {
+   background-color: aqua;
+   margin: 10px 0;
+   padding: 5px 10px;
+   border-radius: 15%;
+   transition: all 2s ease;
+}
+.x:hover{
+   background-color: rgb(203, 244, 244);
+   color: #000;
+}
+.date {
+   padding: 5px 20px;
+   margin: 5px;
+   background-color: #fff;
+   color: grey; 
+   font-size: 12px;
+}
