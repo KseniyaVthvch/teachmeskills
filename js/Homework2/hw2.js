@@ -37,6 +37,8 @@ console.log(("Variable:")+('me ') +("have type:")+(typeof me))
 console.log(("Variable:")+('all ') +("have type:")+(typeof all))
 
 // Task 7
+
+
 let namber1 ={
     age:23,
     Name:'Andrey'
