@@ -60,3 +60,32 @@ for (let key in salaries) {
 }
 const result = sum / 5
 console.log(result)
+
+//ADVANCED level
+//1
+
+let student1 = {
+   name: 'Polina',
+   age: 27,
+}
+
+let student2 = {
+   name: 'Polina',
+   age: 27,
+}
+console.log(JSON.stringify(student1) === JSON.stringify(student2))
+
+//2
+const animals = {
+   cat: {
+      name: 'Енчик',
+      age: 3,
+   },
+   dog: {
+      name: 'Орео',
+      age: 2,
+   }
+}
+console.log(animals?.cat)
+console.log(animals?.dog)
+console.log(animals?.bird)
