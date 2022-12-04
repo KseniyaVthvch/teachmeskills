@@ -7,30 +7,59 @@ title.textContent = "Users"
 const users = [
     {
         id: 0,
-        jobTitle: "Frontend Developer",
-        time: "part-time",
-        domain: "Engineering",
-        type: "Remote"
+        position: "Frontend Developer",
+        employment: "part-time",
+        department: "Engineering",
+        format: "Remote"
     },
     {
         id: 1,
-        jobTitle: "UX/UI Designer",
-        time: "full-time",
-        domain: "Design",
-        type: "Remote"
+        position: "UX/UI Designer",
+        employment: "full-time",
+        department: "Design",
+        format: "Remote"
     },
     {
         id: 2,
-        jobTitle: "Backend Developer",
-        time: "part-time",
-        domain: "Engineering",
-        type: "Office"
+        position: "Backend Developer",
+        employment: "part-time",
+        department: "Engineering",
+        format: "Office"
     }
 ]
 root.appendChild(title)
 
-users.forEach((elem) => {
-    const {id, jobTitle, time, domain, type} = elem
+const deleteButtonClickHandler = (currentElem) => {
+    console.log(currentElem)
+    root.removeChild(currentElem)
+}
+
+const editBtnClickHandler = (bth, ...args) => {
+    // используем ...args, чтобы функция могла обрабатываеть любое количество элементов
+    args.forEach(node => {
+        // проверяем, является ли элемент массива NodeElement
+        if(node.nodeType === 1) {
+            const input = document.createElement("input")
+            input.value = node.textContent
+            input.type = "text"
+
+            if(node.lastChild.nodeName === "INPUT") {
+                bth.textContent = "edit"
+                const inputValue = node.lastChild.value
+                node.removeChild(node.lastChild)
+                console.log(inputValue)
+                node.textContent = inputValue
+            } else {
+                bth.textContent = "save"
+                node.textContent = ""
+                node.appendChild(input)
+            }
+        }
+    })
+}
+
+const renderUserElement = (elem) => {
+    const {id, position, department, format, employment} = elem
 
     const item = document.createElement("div")
     item.classList.add("item")
@@ -38,42 +67,99 @@ users.forEach((elem) => {
     root.appendChild(item)
 
     const job = document.createElement("div")
-    job.innerText = jobTitle
+    job.innerText = position
     item.appendChild(job)
 
     const jobTime = document.createElement("div")
 
-    jobTime.classList.add(time === "part-time" ? "partTime" : "fullTime")
-    jobTime.innerText = time
+    jobTime.classList.add(employment === "part-time" ? "partTime" : "fullTime")
+    jobTime.innerText = employment
     item.appendChild(jobTime)
 
+    const domainElem = document.createElement("div")
+    domainElem.innerText = department
+
+    const typeElem = document.createElement("div")
+    typeElem.innerText = format
+
     const buttons = document.createElement("div")
-    item.appendChild(buttons)
 
     const editBtn = document.createElement("button")
-    const deleteBtn = document.createElement("button")
     editBtn.innerText = "edit"
+
+    editBtn.addEventListener("click", () => {
+        editBtnClickHandler(editBtn, job, domainElem, typeElem)
+    })
+
+    const deleteBtn = document.createElement("button")
     deleteBtn.innerText = "X"
+
+    deleteBtn.addEventListener("click", () =>{
+        deleteButtonClickHandler(item)
+    })
+
     buttons.appendChild(editBtn)
     buttons.appendChild(deleteBtn)
 
-    const domainElem = document.createElement("div")
-    domainElem.innerText = domain
+    item.appendChild(buttons)
     item.appendChild(domainElem)
-
-    const typeElem = document.createElement("div")
-    typeElem.innerText = type
     item.appendChild(typeElem)
+}
+
+users.forEach((elem) => {
+    renderUserElement(elem)
 })
 
-// setTimeout(()=>{
-//     const id = prompt(`enter number (max: ${users[users.length - 1].id})`)
-//     const elem = document.getElementById(id)
-//     root.removeChild(elem)
-// }, 3000)
 
+const rootForm = document.getElementById("form")
 
-// const date = Date.now()
-// console.log(`${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`)
+const formTitle = document.createElement("h3")
+formTitle.textContent = "Create new user"
+formTitle.setAttribute("class", "title")
+const formWrapper = document.createElement("div")
+formWrapper.setAttribute("class", "form")
 
+const formData = ["position", "department", "employment", "format"]
 
+const newData = {}
+
+formData.forEach(elem => {
+    const inputWrapper = document.createElement("div")
+    inputWrapper.setAttribute("class", "inputWrapper")
+
+    const label = document.createElement("label")
+    label.innerText = elem
+    label.for = elem
+
+    const inp = document.createElement("input")
+
+    inp.addEventListener("input", (e) => {
+        newData[e.target.id] = e.target.value
+    })
+
+    inp.type = "text"
+    inp.id = elem
+
+    inputWrapper.appendChild(label)
+    inputWrapper.appendChild(inp)
+
+    formWrapper.appendChild(inputWrapper)
+})
+
+const inputWrapper = document.createElement("div")
+inputWrapper.classList.add("inputWrapper")
+const btn = document.createElement("button")
+
+btn.id = "save"
+btn.classList.add("button")
+btn.textContent = "Save"
+
+btn.addEventListener("click", () => {
+    newData.id = users.length
+    renderUserElement(newData)
+})
+
+rootForm.appendChild(formTitle)
+rootForm.appendChild(formWrapper)
+inputWrapper.appendChild(btn)
+rootForm.appendChild(inputWrapper)
