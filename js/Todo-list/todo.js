@@ -61,7 +61,7 @@ add.addEventListener('blur', function() {
 		});
 	});
 		
-	const remove = document.createElement('a');
+	const remove = document.createElement('button');
    	remove.innerHTML = 'X';
 	remove.href = '';
 	li.appendChild(remove);
