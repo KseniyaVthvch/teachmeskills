@@ -1,12 +1,12 @@
 const todo = [
   {
     checked: true,
-    todoText: "test",
+    todoText: "first todo",
     date: ``,
   },
   {
     checked: false,
-    todoText: "test",
+    todoText: "second todo",
     date: ``,
   },
 ]
@@ -25,12 +25,18 @@ BtnDeleteAll.setAttribute("type", "button");
 BtnDeleteAll.setAttribute("class", "conroll-pannel_padding button")
 BtnDeleteAll.textContent = "Delete All";
 controlPanel.appendChild(BtnDeleteAll);
+BtnDeleteAll.addEventListener("click", () => {
+  root.removeChild(list);
+})
 
 const BtnDeleteLast = document.createElement("button");
 BtnDeleteLast.setAttribute("type", "button");
 BtnDeleteLast.setAttribute("class", "conroll-pannel_padding button")
 BtnDeleteLast.textContent = "Delete Last";
 controlPanel.appendChild(BtnDeleteLast);
+BtnDeleteLast.addEventListener("click", () => {
+  list.removeChild(list.children[list.children.length - 1]);
+})
 
 const inputEnterTodo = document.createElement("input");
 inputEnterTodo.setAttribute("type", "text");
@@ -43,7 +49,16 @@ BtnAdd.setAttribute("type", "button");
 BtnAdd.setAttribute("class", "conroll-pannel_padding button")
 BtnAdd.textContent = "Add";
 controlPanel.appendChild(BtnAdd);
-
+BtnAdd.addEventListener("click", () => {
+  const newItem = {
+    checked: false,
+    todoText: inputEnterTodo.value,
+    date: ``,
+  }
+  console.log(newItem);
+  renderTodoElement(newItem);
+  inputEnterTodo.value = "";
+})
 
 //second line
 const filterPanelWrapper = document.createElement("div");
@@ -89,11 +104,17 @@ filterPanelWrapper.appendChild(inputEnterSearch);
 
 
 //List of items to do
+const removeItemsClickHandler = (item) => {
+  list.removeChild(item);
+}
+
 const list = document.createElement("div");
 list.className = "list";
 root.appendChild(list);
 
-todo.forEach((element) => {
+
+
+const renderTodoElement = (element) => {
   const { checked, todoText, date } = element;
 
   const listItem = document.createElement("div");
@@ -109,16 +130,29 @@ todo.forEach((element) => {
   }
   listItem.appendChild(isChecked);
 
+  isChecked.addEventListener("click", () => {
+    if (listItem.classList.contains("checked")) {
+      listItem.classList.remove("checked");
+    }
+    else {
+      listItem.classList.add("checked");
+    }
+  })
+
   const todoTextArea = document.createElement("input");
   todoTextArea.setAttribute("type", "text");
   todoTextArea.setAttribute("placeholder", "Todo text");
   todoTextArea.setAttribute("class", "conroll-pannel_padding text-holder");
+  todoTextArea.setAttribute("value", todoText);
   listItem.appendChild(todoTextArea);
 
   const btnDel = document.createElement("button");
   btnDel.setAttribute("class", "button conroll-pannel_padding");
   btnDel.textContent = "X";
   listItem.appendChild(btnDel);
+  btnDel.addEventListener("click", () => {
+    removeItemsClickHandler(listItem);
+  })
 
   const btnDate = document.createElement("button");
   btnDate.setAttribute("class", "button conroll-pannel_padding");
@@ -126,4 +160,13 @@ todo.forEach((element) => {
   const now = today.toLocaleDateString('en-US');
   btnDate.textContent = now;
   listItem.appendChild(btnDate);
+}
+
+todo.forEach((element) => {
+  renderTodoElement(element);
 })
+
+
+
+
+

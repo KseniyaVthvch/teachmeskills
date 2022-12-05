@@ -69,7 +69,8 @@ input:focus {
   border: none;
   border-radius: 5px;
   padding: 15px 25px;
-  color: rgb(40, 90, 60)
+  color: rgb(40, 90, 60);
+  cursor: pointer;
 }
 
 .selection-panel_info {
@@ -95,9 +96,10 @@ input:focus {
 }
 
 .list-item {
-  padding: 30px;
+  padding: 25px;
   width: 75%;
   display: flex;
+  margin: 5px;
 }
 
 .checkbox {
@@ -109,4 +111,9 @@ input:focus {
 .checked {
   border-radius: 10px;
   background-color: #f1ead061;
+
+}
+
+.checked input {
+  text-decoration: line-through;
 }
