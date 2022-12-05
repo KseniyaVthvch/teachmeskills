@@ -1,127 +1,127 @@
+const root = document.getElementById(`root`)
 
 
-const fibonacci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
+const continer = document.createElement(`div`)
+continer.classList.add(`continer`)
+root.appendChild(continer)
 
-//1
 
-fibonacci.forEach ((alem) => alem)
 
-console.log(fibonacci)
+const header = document.createElement(`div`)
+header.classList.add(`header`)
+continer.appendChild(header)
 
-//2
+const buttonone = document.createElement(`a`)
+buttonone.classList.add(`btn`)
+buttonone.textContent = `Delete All`
+header.appendChild(buttonone)
 
-function myFn(alem) {
-   console.log(alem)
-}
 
-fibonacci.forEach(myFn)
+const tupeText = document.createElement(`input`)
+tupeText.value = `    Enter todo ...`
+tupeText.classList.add(`todo`)
+header.appendChild(tupeText)
 
-// Task 2 🖥
 
-   const users = ['Darya', 'Masha', 'Denis', 'Vitaliy', 'Polina', 'Anton']
+const buttontwo = document.createElement(`a`)
+buttontwo.classList.add(`btn2`)
+buttontwo.textContent = `Add`
+header.appendChild(buttontwo)
 
-//1
 
-function myFn(alem, index) {
-   return `member${index +1} : ${alem}`
-}
 
-console.log(users.map(myFn))
 
-//2
+const wraper = document.createElement(`div`)
+wraper.classList.add(`section`)
+continer.appendChild(wraper)
 
-const member = users.map((alem,index) => `member${index + 1} : ${alem}`)
 
-console.log(member)
 
-// Task 3 🖥
+const newalem1 = document.createElement(`div`)
+newalem1.classList.add(`newalem1`)
+wraper.appendChild(newalem1) 
 
-   const numbers = [7, -4, 32, -90, 54, 32, -21]
+const checkbox = document.createElement(`input`)
+checkbox.type = `checkbox`
+checkbox.classList.add(`checkbox`)
+checkbox.checked = `true`
+newalem1.appendChild(checkbox)
 
-//1
 
-const filt = numbers.filter((alem) => {
-   return alem >= 0
-})
+const newText = document.createElement(`input`)
+newText.classList.add(`newText`)
+newText.value = `              Todo text`
+newalem1.appendChild(newText)
 
-console.log(filt)
 
-//2
+const xDate = document.createElement(`div`)
+xDate.classList.add(`xDate`)
+newalem1.appendChild(xDate)
 
-function myFunc(alem) {
-   return alem >= 0
-}
+const fontX = document.createElement(`a`)
+fontX.classList.add(`fontX`)
+xDate.appendChild(fontX)
 
-console.log(numbers.filter(myFunc))
+const X = document.createElement(`p`)
+X.textContent = `X`
+X.classList.add(`X`)
+fontX.appendChild(X)
 
-// Task 4 🖥
+const date = document.createElement(`a`)
+date.classList.add(`date`)
+date.textContent = `Dale`
+xDate.appendChild(date)
 
-const fibonaccci = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
 
-//1 
 
-const reduc =  fibonaccci.reduce((acc,alem) => {
-   return acc + alem
-}, 0)
 
-console.log(reduc)
 
-//2
 
-function reduc2(acc, alem) {
-  return acc + alem
-} 
 
-console.log(fibonaccci.reduce(reduc2))
 
-// Task 5 🖥
 
-   const numbers2 = [5, 9, 13, 24, 54, 10, 13, 99, 1, 5]
 
-//1
 
-const honest = numbers2.find((alem) => {
-   return alem % 2 === 0
-})
 
-console.log(honest)
 
-//2
 
-function honest2(alem) {
-   return alem % 2 === 0
-}
+const wraper2 = document.createElement(`div`)
+wraper2.classList.add(`section`)
+continer.appendChild(wraper2)
 
-console.log(numbers2.find(honest2))
 
-// ADVANCED level
 
-// Task 1 👨‍🏫
+const newalem12 = document.createElement(`div`)
+newalem12.classList.add(`newalem1`)
+wraper.appendChild(newalem12) 
 
-function Student(salary, rate , name) {
-   this.salary = salary
-   this.rate = rate
-   this.name = name
+const checkbox2 = document.createElement(`input`)
+checkbox2.type = `checkbox`
+checkbox2.classList.add(`checkbox`)
+checkbox2.checked = `true`
+newalem12.appendChild(checkbox2)
 
-   this.checkRate = function() {
-       let credit = 0
-       if(this.rate === `A`) {
-           return credit = salary * 12
-       }else if(this.rate === `B`) {
-           return credit = salary * 9
-       }else if(this.rate === `C`) {
-           return credit = salary * 6
-       }else if(this.rate === `D`) {
-           return credit = 0
-}   }   }
-const stud1 = new Student(1000, `A`, `Darya`)
-const stud2 = new Student(1000, `B`, `Masha`)
-const stud3 = new Student(1000, `C`, `Denis`)
-const stud4 = new Student(1000, `D`, `Vitaliy`)
-const stud5 = new Student(1000, `A`, `Polina`)
 
-const students = [stud1, stud2, stud3, stud4, stud5]
+const newText2 = document.createElement(`input`)
+newText2.classList.add(`newText`)
+newText2.value = `              Todo text`
+newalem12.appendChild(newText2)
 
-console.log(students.reduce((acc,alem) => {
-   return acc + alem.checkRate()
-},0))
+
+const xDate2 = document.createElement(`div`)
+xDate2.classList.add(`xDate`)
+newalem12.appendChild(xDate2)
+
+const fontX2 = document.createElement(`a`)
+fontX2.classList.add(`fontX`)
+xDate2.appendChild(fontX2)
+
+const X2 = document.createElement(`p`)
+X2.textContent = `X`
+X2.classList.add(`X`)
+fontX2.appendChild(X2)
+
+const date2 = document.createElement(`a`)
+date2.classList.add(`date`)
+date2.textContent = `Dale`
+xDate2.appendChild(date2)
