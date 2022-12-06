@@ -3,32 +3,39 @@ const root = document.getElementById('root')
 const blocks = [
    {
       id: 0,
-      checkBox: false,
+      isChecked: false,
       textTODO: 'Todo text',
    },
    {
       id: 1,
-      checkBox: false,
+      isChecked: false,
       textTODO: 'Todo text',
    },
 ]
-const buttonOne = document.createElement('button')
-buttonOne.classList.add('button__one')
-buttonOne.innerText = 'Delete all'
-root.appendChild(buttonOne)
+const buttonDeleteAllToDo = document.createElement('button')
+buttonDeleteAllToDo.classList.add('button__one')
+buttonDeleteAllToDo.innerText = 'Delete all'
+root.appendChild(buttonDeleteAllToDo)
 
-// Думаю это не очень хорошая реализация, потому что если мне нужно,
-// чтоб пункт был сразу с checked  он создает две строки с input,
-// а также не могу понять почему при добавлении новоой карточки с делом , каждой последующей карточке
-//  присваивается id=2, а не id=3 id=4 и т.д.
-const newObj = {}
+//  Я правильно поняла, что тут нужно тоже сделать так,
+// чтоб при удалении всех карточек, из blocks они тоже удалялись
+//  или в  данном случае нет в этом смысла?
+buttonDeleteAllToDo.addEventListener("click", () => {
+   const items = document.querySelectorAll(".block-one")
+   items.forEach((item, id) => {
+      root.removeChild(item)
+      blocks.splice(id)
+      console.log(blocks)
+   })
+})
+
+
+
+
 const inputTitleAddToDo = ['textTODO']
 
 inputTitleAddToDo.forEach(elem => {
    const inputTitle = document.createElement('input')
-   inputTitle.addEventListener("input", (e) => {
-      newObj[e.target.id] = e.target.value
-   })
    inputTitle.type = 'text'
    inputTitle.id = elem
    inputTitle.placeholder = 'Enter todo...'
@@ -38,45 +45,49 @@ inputTitleAddToDo.forEach(elem => {
 
 
 
-const buttonTwo = document.createElement('button')
-buttonTwo.classList.add('button__two')
-buttonTwo.innerText = 'Add'
-buttonTwo.id = 'button__two'
-root.appendChild(buttonTwo)
+const buttonAddToDo = document.createElement('button')
+buttonAddToDo.classList.add('button__two')
+buttonAddToDo.innerText = 'Add'
+buttonAddToDo.id = 'button__two'
+root.appendChild(buttonAddToDo)
 
-buttonTwo.addEventListener("click", () => {
-   newObj.id = blocks.length
+buttonAddToDo.addEventListener("click", () => {
+   newObj = {}
+   const inputValue = document.getElementById(inputTitleAddToDo[0]).value
+   newObj.id = inputValue + blocks.length
+   newObj.isChecked = false
+   newObj.textTODO = inputValue
+   blocks.push(newObj)
+   console.log(blocks)
    renderBlocks(newObj)
 })
 
 
-const deleteButtonClickHandler = (currentElem) => {
+const deleteButtonClickHandler = (currentElem, id) => {
    console.log(currentElem)
    root.removeChild(currentElem)
+   blocks.splice(id, 1)
+   console.log(blocks)
 }
 
 
 const renderBlocks = ((elem) => {
-   const { id, checkBox, textTODO, } = elem
+   const { id, isChecked, textTODO, } = elem
    const date1 = new Date()
    const blockOne = document.createElement('div')
    blockOne.classList.add('block-one')
    blockOne.setAttribute("id", String(id))
    root.appendChild(blockOne)
 
-   buttonOne.addEventListener("click", () => {
-      deleteButtonClickHandler(blockOne)
-   })
+
+   const checkBox = document.createElement('input')
+   checkBox.classList.add('check')
+   checkBox.type = 'checkbox'
+   checkBox.checked = isChecked
+   blockOne.appendChild(checkBox)
 
 
-   const isChecked = document.createElement('input')
-   isChecked.classList.add('check')
-   isChecked.type = 'checkbox'
-   isChecked.checked = checkBox
-   blockOne.appendChild(isChecked)
-
-
-   isChecked.addEventListener('click', (e) => {
+   checkBox.addEventListener('click', (e) => {
       if (e.currentTarget.checked === true) {
          text.style.cssText = `
          text-decoration : line-through;
@@ -99,13 +110,13 @@ const renderBlocks = ((elem) => {
    rootDate.classList.add('root__date')
    blockOne.appendChild(rootDate)
 
-   const buttonThree = document.createElement('button')
-   buttonThree.classList.add('button__three')
-   buttonThree.innerText = 'X'
-   rootDate.appendChild(buttonThree)
+   const buttonDeleteOneToDo = document.createElement('button')
+   buttonDeleteOneToDo.classList.add('button__three')
+   buttonDeleteOneToDo.innerText = 'X'
+   rootDate.appendChild(buttonDeleteOneToDo)
 
-   buttonThree.addEventListener("click", () => {
-      deleteButtonClickHandler(blockOne)
+   buttonDeleteOneToDo.addEventListener("click", () => {
+      deleteButtonClickHandler(blockOne, id)
    })
 
    const dateStr = document.createElement('div')
