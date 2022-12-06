@@ -20,18 +20,30 @@ btnAdd.classList.add("button", "add")
 btnAdd.innerText = "Add"
 sectionOne.appendChild(btnAdd)
 
+btnAdd.addEventListener("click", () => {
+   const newData = {}
+   const value = inputTodo.value
+   newData.id = todo.length
+   newData.text = value
+   renderTodoElement(newData)
+})
+
 const todo = [
    {
       id: 0,
-      isChecked: true, 
+      isChecked: false, 
       text: "Todo text"
    },
    {
       id: 1,
-      isChecked: true, 
+      isChecked: false, 
       text: "Todo text"
    },
 ]
+
+const deleteAllButtonClickHandler = currentElem => {
+   root.removeChild(currentElem)
+}
 
 const renderTodoElement = elem => {
    const {id, isChecked, text} = elem
@@ -47,6 +59,16 @@ const renderTodoElement = elem => {
    inputCheckbox.checked = isChecked
    item.appendChild(inputCheckbox)
 
+   inputCheckbox.addEventListener("click", (e) => {
+      if (e.currentTarget.checked === true) {
+         textElem.style.textDecoration = "line-through",
+         item.style.backgroundColor = "rgb(190, 164, 164)"
+      } else {
+         textElem.style.textDecoration = "none"
+         item.style.backgroundColor = "rgba(221, 220, 220, 0.644)"
+      }
+   })
+
    const textElem = document.createElement("p")
    textElem.setAttribute("class", "text")
    textElem.innerText = text
@@ -61,6 +83,10 @@ const renderTodoElement = elem => {
    delBtnElem.innerText = "X"
    blockDataDelBtn.appendChild(delBtnElem)
 
+   delBtnElem.addEventListener("click", () => {
+      root.removeChild(item)
+   })
+
    const date = document.createElement("div")
    date.setAttribute("class", "date")
    const dateToDo = new Date()
@@ -68,6 +94,10 @@ const renderTodoElement = elem => {
    ${dateToDo.getDate()}.${dateToDo.getMonth() + 1}.${dateToDo.getFullYear()}
    `
    blockDataDelBtn.appendChild(date)
+
+   btnDelete.addEventListener("click", () => {
+      deleteAllButtonClickHandler(item)
+   })
 }
 
 todo.forEach(e => {
