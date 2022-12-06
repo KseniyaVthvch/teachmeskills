@@ -28,10 +28,23 @@ const todo = [
    },
    {
       id: 1,
-      isChecked: false,
+      isChecked: true,
       text: 'Todo text',
    }
 ]
+
+
+const deleteBtnClickHandler = (elem) => {
+   root.removeChild(elem)
+}
+
+
+const renderTodoElement = (elem) => {
+   const { id, isChecked, text } = elem
+}
+
+
+
 todo.forEach((elem) => {
    const { id, isChecked, text } = elem
 
@@ -43,7 +56,7 @@ todo.forEach((elem) => {
    const checkbox = document.createElement("input")
    checkbox.classList.add("echeckbox")
    checkbox.type = "checkbox"
-   checkbox.checked = (isChecked === true ? true : false)
+   checkbox.checked = isChecked
    field.appendChild(checkbox)
 
    const todoText = document.createElement("p")
@@ -60,9 +73,28 @@ todo.forEach((elem) => {
    deleteBtn.innerText = "X"
    buttons.appendChild(deleteBtn)
 
+   deleteBtn.addEventListener("click", () => {
+      deleteBtnClickHandler(field)
+   })
+
    const todoDate = document.createElement("div")
    todoDate.classList.add("date")
    const dateNow = new Date()
    todoDate.innerText = `${dateNow.getDate()} ${dateNow.getMonth() + 1} ${dateNow.getFullYear()}`
    buttons.appendChild(todoDate)
+})
+
+deleteAllBtn.addEventListener("click", () => {
+   deleteBtnClickHandler(todo)
+})
+//не понимаю, почему не удаляет весь массив
+
+const newTodo = {}
+input.addEventListener("input", (e) => {
+   newTodo[e.target.id] = e.target.value
+})
+
+addBtn.addEventListener("click", () => {
+   newTodo.id = todo.length
+   renderTodoElement(newTodo)
 })
