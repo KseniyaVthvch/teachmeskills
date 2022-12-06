@@ -1,0 +1,100 @@
+input, button {
+    all: unset;
+}
+
+button {
+    background-color: rgb(229, 231, 235);
+    margin-right: 10px;
+    padding: 4px 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+body {
+    background: rgb(229, 231, 235);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.root {
+    width: 600px;
+    margin: 0 auto;
+    border-style: solid;
+    border-color: #e5e7eb;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),0 1px 2px -1px rgb(0 0 0 / 0.1);
+    color: rgb(17, 24, 39)
+}
+
+.title {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 2px solid rgb(229, 231, 235);
+}
+.item {
+    display: grid;
+    grid-template-columns: auto 75px 110px;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px 30px;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.fullTime {
+    font-size: 12px;
+    color: rgb(22, 101, 52);
+    background-color: rgba(22, 101, 52, .1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    padding: 4px 6px;
+}
+
+.partTime {
+    font-size: 12px;
+    color: rgb(204,85,0);
+    background-color: rgba( 204,85,0, .1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    padding: 4px 6px;
+}
+
+
+
+.inputWrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+    padding: 0.4rem 1.5rem;
+}
+
+label {
+    text-transform: capitalize;
+}
+
+input[type="text"] {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border: 1px solid rgb(209, 213, 219);
+    border-radius: 4px;
+    padding: 8px 12px;
+    max-width: 100%;
+}
+
+.button {
+    background-color: green;
+    color: white;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+input[type="button"]:hover {
+    cursor: pointer;
+}
