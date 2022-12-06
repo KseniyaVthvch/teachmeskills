@@ -17,9 +17,11 @@
 // процентная ставка в год — 17%,
 // количество лет — 5.
 // Мы пишем функцию для хорошего банка, поэтому сумма кредита не увеличивается.
-credit === "number" && credit >= 0) {
-    return (credit + (credit * 0.17 * 5))
-} else { return "не число" }
+const credit = +prompt("Введите сумму кредита")
+function getCredit(credit) {
+	if (typeof credit === "number" && credit >= 0) {
+		return (credit + (credit * 0.17 * 5))
+	} else { return "не число" }
 }
 const creditTotal = getCredit(credit)
 console.log("Итоговая сумма выплат по кредиту на 5 лет: ", creditTotal)
