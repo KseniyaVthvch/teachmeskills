@@ -1,0 +1,108 @@
+* {
+   padding: 0px;
+   margin: 0px;
+}
+
+body {
+   font-family: 'Montserrat', sans-serif;
+}
+
+.root {
+   max-width: 600px;
+   margin: 0 auto;
+   margin-top: 40px;
+   padding: 30px 15px;
+   border: 3px solid black;
+   border-radius: 15px;
+   background: rgba(221, 220, 220, 0.644);
+}
+
+.sectionOne {
+   display: flex;
+   justify-content:space-around;
+}
+
+button {
+   border: 3px solid black;
+   background: rgb(90, 163, 192);
+   border-radius: 15px;
+   font-size: 20px;
+   font-weight: 600;
+   width: 167px;
+   padding: 15px;
+   color: rgba(54, 54, 54, 0.712);
+   transition: all .5s ease 0s;
+}
+
+button:hover {
+   background: rgb(70, 127, 150);
+   border-color: rgb(70, 127, 150);
+   color: rgba(214, 214, 214, 0.712);
+}
+
+button:active {
+   background: rgb(90, 163, 192);  
+   border-color: rgb(70, 127, 150);
+   color: rgba(214, 214, 214, 0.712);
+}
+
+input {
+   width: 230px;
+   border: 3px solid black;
+   border-radius: 15px;
+   outline: none;
+   text-align: center;
+   font-size: 20px;
+   font-weight: 600px;
+   color: rgba(92, 91, 91, 0.473);
+}
+
+.item {
+   border: 3px solid black;
+   margin: 20px 0px;
+   border-radius: 15px;
+   padding: 10px 15px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.checkbox {
+   width: 15px;
+   height: 15px;
+}
+
+.text {
+   width: 230px;
+   padding: 15px;
+   background-color: white;
+   text-align: center;
+   color: cadetblue;
+   font-size: 20px;
+   border-radius: 15px;
+}
+
+.blockDataDelBtn {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: space-between;
+}
+
+.delBtn {
+   width: 50px;
+   height: 40px;
+   padding: 0px;
+   margin-bottom: 15px;
+}
+
+.date {
+   background-color: white;
+   padding: 0px 12px 16px 12px;
+   text-align: center;
+   border-radius: 15px;
+   font-size: 16px;
+   font-weight: 600;
+   color: rgb(83, 83, 83);
+}
+
