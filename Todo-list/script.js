@@ -1,5 +1,6 @@
 const root = document.getElementById('root')
 
+
 const blocks = [
    {
       id: 0,
@@ -12,6 +13,7 @@ const blocks = [
       textTODO: 'Todo text',
    },
 ]
+
 const buttonDeleteAllToDo = document.createElement('button')
 buttonDeleteAllToDo.classList.add('button__one')
 buttonDeleteAllToDo.innerText = 'Delete all'
@@ -31,7 +33,6 @@ buttonDeleteAllToDo.addEventListener("click", () => {
 
 
 
-
 const inputTitleAddToDo = ['textTODO']
 
 inputTitleAddToDo.forEach(elem => {
@@ -44,12 +45,12 @@ inputTitleAddToDo.forEach(elem => {
 })
 
 
-
 const buttonAddToDo = document.createElement('button')
 buttonAddToDo.classList.add('button__two')
 buttonAddToDo.innerText = 'Add'
 buttonAddToDo.id = 'button__two'
 root.appendChild(buttonAddToDo)
+
 
 buttonAddToDo.addEventListener("click", () => {
    newObj = {}
@@ -87,6 +88,7 @@ const renderBlocks = ((elem) => {
    blockOne.appendChild(checkBox)
 
 
+
    checkBox.addEventListener('click', (e) => {
       if (e.currentTarget.checked === true) {
          text.style.cssText = `
@@ -100,6 +102,7 @@ const renderBlocks = ((elem) => {
          `
       }
    })
+
 
    const text = document.createElement('p')
    text.classList.add('text')
@@ -119,15 +122,13 @@ const renderBlocks = ((elem) => {
       deleteButtonClickHandler(blockOne, id)
    })
 
+
    const dateStr = document.createElement('div')
    dateStr.classList.add('date')
    dateStr.innerText = `${date1.getDate()}.${date1.getMonth() + 1}.${date1.getFullYear()}`
    rootDate.appendChild(dateStr)
 })
+
 blocks.forEach((elem) => {
    renderBlocks(elem)
 })
-
-
-
-
