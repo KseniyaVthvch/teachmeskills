@@ -9,14 +9,14 @@ function getSum(a) {
 getSum(100)
 
 //2
-function Credit(c) {
+function credit(c) {
    const procent = 0.17
    const years = 5
 
    const s = procent * years * c
    console.log(s)
 }
-Credit(1000)
+credit(1000)
 
 //3
 function strimString(string, w, e) {
@@ -26,16 +26,27 @@ function strimString(string, w, e) {
 strimString(`privet`, 1, 5)
 
 //4
-function getSum(a, b) {
-   let g = 0
 
-   for (let i = a; i <= b; i++) {
-      g = g + i
+function getSum(a, b) {
+   if (a === b) {
+      return a
+   } else if (a < b) {
+      let g = 0
+      for (let i = a; i <= b; i++) {
+         g = g + i
+      }
+      return g
    }
-   return g
+   else {
+      let g = 0
+      for (let i = b; i <= a; i++) {
+         g = g + i
+      }
+      return g
+   }
 }
 
-console.log(getSum(1, 0))    //не понимаю почему у меня тут получается  0
+console.log(getSum(1, 0))
 console.log(getSum(1, 2))
 console.log(getSum(0, 1))
 console.log(getSum(1, 1))
@@ -43,7 +54,6 @@ console.log(getSum(-1, 0))
 console.log(getSum(-1, 2))
 
 //5
-
 
 function fooboo(a, a1, a2) {
    if (a === true) {
