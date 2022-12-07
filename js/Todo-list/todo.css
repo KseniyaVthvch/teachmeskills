@@ -1,0 +1,92 @@
+
+
+.root {
+    width: 700px;
+    margin: 0 auto;
+    background: rgb(201, 196, 196);
+    border:1px #3b054b;
+   
+}
+h1 {
+    padding-top: 15px;
+    height: 15px;
+    color: blueviolet;
+    text-align: center;
+}
+.entertodo {
+padding-top: 15px;
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+text{
+    border-radius: 1px black; 
+}
+
+button,.save{
+    background-color: aqua;
+    border-radius: 1px black;
+}
+button:hover,button:focus,button:active{
+    background: #f1bfe1;
+}
+
+input.todo-checkbox{
+    margin-right: 25px;
+    background: aqua;
+}
+.input{
+    margin-right: 35px;
+    background: aqua;  
+}
+
+.clear{
+    margin-left: 25px;
+}
+
+.todo__text{
+    border: 0;
+    background-color: #cdcecf;
+}
+.todo{
+padding-top: 15px;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: space-around;
+flex-wrap: wrap;
+width: 700px;
+padding-bottom: 30px;
+
+}
+li{
+    list-style: none;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 3px solid #3b054b;
+}
+
+span{
+    margin-left: 35px;
+    background-color: rgb(240, 233, 136);
+}
+
+.done span {
+	text-decoration: line-through;
+	color: gray;
+}
+
+
+
+ul#checklist{
+    border: 1px #3b054b;
+}
+a {
+    margin-left: 35px;
+    background: aqua;
+    border: 1px solid black;
+}
+
+.button{
+    margin-left: 35px;
+}
