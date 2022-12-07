@@ -62,6 +62,7 @@ const ageYour = prompt("Введите возраст")
 console.log(nameYour+ageYour)
 
 
+
 // Task 8
 
 let codeWord1 = "обернись";

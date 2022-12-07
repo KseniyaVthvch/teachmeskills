@@ -12,7 +12,13 @@ const bag = {
     material:'linen',
     colorBag:'red', 
 }
+
+for (let material in bag){
+    console.log(true)
+}
+
  console.log("material" in bag)
+
 
 //Task 3
 const student = {
@@ -124,4 +130,8 @@ const animals = {
 function getName(context){
     context.bird
  }
+
  console.log(getName);
+
+ console.log(getName);
+
