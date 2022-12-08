@@ -69,6 +69,7 @@ const renderTodoElement = (elem) => {
    root.appendChild(field)
 
    const checkbox = document.createElement("input")
+
    checkbox.classList.add("checkbox")
    checkbox.type = "checkbox"
    checkbox.checked = isChecked
