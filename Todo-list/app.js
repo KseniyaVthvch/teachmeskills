@@ -14,9 +14,11 @@ const users = [
     {
         id:1,
         text: "Poncik",
-        check: true ,
+        check: false ,
     }
 ]
+
+
 
 
 const option = document.createElement("div")
@@ -84,6 +86,8 @@ const renderToDoElement = (item) => {
     toDo.setAttribute("id", String(id))
     root.appendChild(toDo)
 
+   
+
     const todoName = document.createElement("div")
     todoName.classList.add("todo__name")
     toDo.appendChild(todoName)
@@ -93,12 +97,31 @@ const renderToDoElement = (item) => {
     isCheck.type = "checkbox"
     isCheck.checked = check
     todoName.appendChild(isCheck)
+
+    isCheck.addEventListener("change", () =>{
+        if(isCheck.checked){
+            isText.style.textDecoration = "line-through"
+        }else{
+            isText.style.textDecoration = "none"
+        }
+    });
+
+   
     
     const isText = document.createElement("input")
     isText.classList.add("todo__text")
     isText.placeholder = text
     todoName.appendChild(isText)
 
+  
+
+    // isCheck.addEventListener(change,()=>{
+    //     if(isCheck.checked){
+    //         isText.style[background-color] = "#red"
+    //     }else{
+    //         isText.style[background-color] = "none"
+    //     }
+    // })
 
     const toOption = document.createElement("div")
     toOption.classList.add("todo__option")
