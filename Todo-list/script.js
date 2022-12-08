@@ -14,21 +14,21 @@ const blocks = [
    },
 ]
 
+
 const buttonDeleteAllToDo = document.createElement('button')
 buttonDeleteAllToDo.classList.add('button__one')
 buttonDeleteAllToDo.innerText = 'Delete all'
 root.appendChild(buttonDeleteAllToDo)
 
-//  Я правильно поняла, что тут нужно тоже сделать так,
-// чтоб при удалении всех карточек, из blocks они тоже удалялись
-//  или в  данном случае нет в этом смысла?
+
 buttonDeleteAllToDo.addEventListener("click", () => {
    const items = document.querySelectorAll(".block-one")
-   items.forEach((item, id) => {
+   console.log(items)
+   items.forEach((item) => {
       root.removeChild(item)
-      blocks.splice(id)
-      console.log(blocks)
    })
+   // console.log(blocks.filter(el => el.items))
+
 })
 
 
@@ -53,21 +53,25 @@ root.appendChild(buttonAddToDo)
 
 
 buttonAddToDo.addEventListener("click", () => {
-   newObj = {}
+
    const inputValue = document.getElementById(inputTitleAddToDo[0]).value
-   newObj.id = inputValue + blocks.length
-   newObj.isChecked = false
-   newObj.textTODO = inputValue
+   const newObj = {
+      id: `${inputValue} +${blocks.length} `,
+      isChecked: false,
+      textTODO: inputValue,
+   }
    blocks.push(newObj)
-   console.log(blocks)
+   localStorage.setItem('todos', JSON.stringify(blocks))
    renderBlocks(newObj)
+   console.log(blocks)
+
 })
 
 
 const deleteButtonClickHandler = (currentElem, id) => {
-   console.log(currentElem)
    root.removeChild(currentElem)
-   blocks.splice(id, 1)
+   const deleteOneBlock = blocks.indexOf()
+   blocks.splice(deleteOneBlock, 1)
    console.log(blocks)
 }
 
@@ -88,8 +92,8 @@ const renderBlocks = ((elem) => {
    blockOne.appendChild(checkBox)
 
 
-
-   checkBox.addEventListener('click', (e) => {
+   checkBox.addEventListener('change', (e) => {
+      localStorage.setItem("check", checkBox.checked);
       if (e.currentTarget.checked === true) {
          text.style.cssText = `
          text-decoration : line-through;
@@ -102,12 +106,19 @@ const renderBlocks = ((elem) => {
          `
       }
    })
-
+   const checked = JSON.parse(localStorage.getItem("check"));
+   checkBox.checked = checked
 
    const text = document.createElement('p')
    text.classList.add('text')
    text.innerText = textTODO
    blockOne.appendChild(text)
+   // if (checkBox.checked = checked) {
+   //    text.style.cssText = `
+   //       text-decoration : line-through;
+   //       background-color:rgb(255, 237, 253);
+   //       `
+   // }
 
    const rootDate = document.createElement('div')
    rootDate.classList.add('root__date')
@@ -129,6 +140,14 @@ const renderBlocks = ((elem) => {
    rootDate.appendChild(dateStr)
 })
 
-blocks.forEach((elem) => {
+
+if (localStorage.getItem("todos") === null) {
+   localStorage.setItem("todos", JSON.stringify(blocks))
+   console.log(localStorage.getItem("todos"))
+}
+const data = localStorage.getItem('todos')
+const storagedata = JSON.parse(data)
+
+storagedata.forEach((elem) => {
    renderBlocks(elem)
 })
