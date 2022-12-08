@@ -27,11 +27,15 @@ const deleteAll = document.createElement("button")
 deleteAll.classList.add("delete")
 deleteAll.textContent = "Delete All"
 option.appendChild(deleteAll)
-deleteAll.addEventListener("click", () => {
-  list.removeChild()
-})
 
-//Функционал кнопкой " Delete All" не работает ,я уже попробовал всё,и не получается. Что не так?
+const deleteAllButtonHandler = () => {
+const usersItems = document.querySelectorAll(".todo")
+usersItems.forEach((item)=>{
+    item.remove()
+})
+}
+deleteAll.addEventListener("click",deleteAllButtonHandler)
+
 
 const enterIn = document.createElement("input")
 enterIn.type = "text"
@@ -46,15 +50,15 @@ add.textContent="Add";
 option.appendChild(add);
 add.addEventListener("click", () => {
     if(enterIn.value !== ""){
-    const newUsers = {
+        const newUsers = {
         check: false,
         text: enterIn.value,
         date: ``,
+        id: users.length,
     }
 
     renderToDoElement(newUsers);
     enterIn.value = "";
-    newUsers.id = users.length
     console.log(newUsers)}
 
     else {
@@ -87,7 +91,7 @@ const renderToDoElement = (item) => {
     const isCheck = document.createElement("input")
     isCheck.classList.add("todo__check")
     isCheck.type = "checkbox"
-    isCheck.checked = (check === true ? true : false)
+    isCheck.checked = check
     todoName.appendChild(isCheck)
     
     const isText = document.createElement("input")
