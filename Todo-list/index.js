@@ -9,6 +9,15 @@ deleteAllBtn.classList.add("btn_green")
 deleteAllBtn.innerText = "Delete All"
 header.appendChild(deleteAllBtn)
 
+const deleteAllBtnClickHandler = () => {
+   const items = document.querySelectorAll(".field")
+   items.forEach((item) => {
+      item.remove()
+   })
+}
+
+deleteAllBtn.addEventListener("click", deleteAllBtnClickHandler)
+
 const input = document.createElement("input")
 input.classList.add("enter-todo")
 input.type = "text"
@@ -19,6 +28,18 @@ const addBtn = document.createElement("button")
 addBtn.classList.add("btn_green")
 addBtn.innerText = "Add"
 header.appendChild(addBtn)
+
+addBtn.addEventListener("click", () => {
+   const value = input.value
+
+   let newTodo = {
+      id: `${value}-${todo.length}-${Math.random()}`,
+      isChecked: false,
+      text: value
+   };
+   todo.push(newTodo);
+   renderTodoElement(newTodo)
+})
 
 const todo = [
    {
@@ -41,12 +62,6 @@ const deleteBtnClickHandler = (elem) => {
 
 const renderTodoElement = (elem) => {
    const { id, isChecked, text } = elem
-}
-
-
-
-todo.forEach((elem) => {
-   const { id, isChecked, text } = elem
 
    const field = document.createElement("div")
    field.classList.add("field")
@@ -54,15 +69,25 @@ todo.forEach((elem) => {
    root.appendChild(field)
 
    const checkbox = document.createElement("input")
-   checkbox.classList.add("echeckbox")
+   checkbox.classList.add("checkbox")
    checkbox.type = "checkbox"
    checkbox.checked = isChecked
    field.appendChild(checkbox)
+
+   checkbox.addEventListener("change", () => {
+      if (checkbox.checked) {
+         todoText.style.textDecoration = "line-through"
+      } else { todoText.style.textDecoration = "none" }
+   })
 
    const todoText = document.createElement("p")
    todoText.classList.add("todo-text")
    todoText.innerText = text
    field.appendChild(todoText)
+
+   if (isChecked) {
+      todoText.style.textDecoration = "line-through"
+   }
 
    const buttons = document.createElement("div")
    buttons.classList.add("buttons")
@@ -82,19 +107,8 @@ todo.forEach((elem) => {
    const dateNow = new Date()
    todoDate.innerText = `${dateNow.getDate()} ${dateNow.getMonth() + 1} ${dateNow.getFullYear()}`
    buttons.appendChild(todoDate)
-})
+}
 
-deleteAllBtn.addEventListener("click", () => {
-   deleteBtnClickHandler(todo)
-})
-//не понимаю, почему не удаляет весь массив
-
-const newTodo = {}
-input.addEventListener("input", (e) => {
-   newTodo[e.target.id] = e.target.value
-})
-
-addBtn.addEventListener("click", () => {
-   newTodo.id = todo.length
-   renderTodoElement(newTodo)
+todo.forEach((elem) => {
+   renderTodoElement(elem)
 })
