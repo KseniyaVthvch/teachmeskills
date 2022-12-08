@@ -1,0 +1,163 @@
+.root{
+    margin: 100px auto;
+    width: 900px;
+    border: none;
+    border-radius: 10px;
+    background-color:#003C56;
+    padding: 0 15px 15px 15px;
+}
+
+.container{
+    margin: 0 20px 35px 20px;
+}
+
+.title{
+    text-align: center;
+    color:#f8cb60;
+    font-size: 24px;
+}
+
+.option{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.delete{
+    background-color: #f8cb60;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    color:#1c313a;
+    font-size: 18px;
+    transition: 0.3s;
+    border: none;
+    font-weight: 500;
+
+}
+
+.delete:hover{
+    background-color: #f9a825;
+    transition: 0.4s;
+    cursor:pointer;
+}
+.add{
+    background-color: #f8cb60;
+    color:#1c313a;
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    transition: 0.3s;
+    border: none;
+
+}
+
+.add:hover{
+    background-color: #f9a825;
+    transition: 0.4s;
+    cursor:pointer;
+}
+
+.enter{
+    height: 30px;
+    width: 450px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 24px;
+    background-color: #0A4862;
+    color:#f8cb60 ;
+    
+}
+
+.enter::placeholder{
+    color:#4b636e;
+    
+}
+
+.todo{
+    height: 55px;
+    width: 310 ;
+    border: 2px solid #f8cb60;
+    border-radius: 10px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10px;
+}
+
+.date{
+    width: 70px;
+    border-radius: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color:#f8cb60; 
+}
+
+.todo__text{
+    border: none;
+    border-radius: 5px;
+    width: 400px;
+    height: 27px;
+    text-align: center;
+    color: #f8cb60;
+    background-color: #0A4862;
+    font-size: 14px;
+   
+}
+
+.todo__text::placeholder{
+    color: #f8cb60;
+}
+
+.todo__name{
+    display: flex;
+    align-items: center;
+}
+
+.todo__option{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:space-around;
+    align-items: flex-end;
+    align-items: center;
+}
+
+.btn_x{
+    width: 30px;
+    height: 30px;
+    background-color: #f8cb60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    color:#1c313a;
+    transition: 0.3s;
+    border: none;
+    margin: 10px;
+
+
+}
+
+.btn_x:hover{
+    background-color: #f9a825;
+    transition: 0.4s;
+    cursor:pointer;
+
+}
+
+.todo__check{
+    height: 20px;
+    width: 20px;
+    margin: 15px;
+   
+    
+}
+
+.todo__check::before{
+    color: #f9a825;
+}
+
+
+
