@@ -1,119 +1,211 @@
-
-
 const root = document.getElementById(`root`)
 
+const title = document.createElement(`h3`)
+title.setAttribute(`class`,`title`)
+title.textContent = `Users`
+root.appendChild(title)
 
-const continer = document.createElement(`div`)
-continer.classList.add(`continer`)
-root.appendChild(continer)
+const users = [
+    {
+        id: 0,
+        jobTitle: `Frontend Developer`,
+        time: `part-time`,
+        domain: `engineering`,
+        type: `Remote`
+    },   
+    {
+        id: 1,
+        jobTitle: `UX/UI Developer`,
+        time: `full-time`,
+        domain: `Design`,
+        type: `Remote`
+    },
+    {
+        id: 2,
+        jobTitle: `UX/UI Developer`,
+        time: `full-time`,
+        domain: `Design`,
+        type: `Remote`
+    }
+]
 
+const deleteButtonClickHandler = (currentElem) => {
+    root.removeChild(currentElem)
+}
 
+const inputKeyDownHandler = (e, alem) => {
+    if(e.key === `Enter`) {
+        alem.textContent = e.target.value
+    }
+}
 
-const header = document.createElement(`div`)
-header.classList.add(`header`)
-continer.appendChild(header)
-
-const buttonone = document.createElement(`a`)
-buttonone.classList.add(`btn`)
-buttonone.textContent = `Delete All`
-header.appendChild(buttonone)
-
-
-const tupeText = document.createElement(`input`)
-tupeText.value = `    Enter todo ...`
-tupeText.classList.add(`todo`)
-header.appendChild(tupeText)
-
-
-const buttontwo = document.createElement(`a`)
-buttontwo.classList.add(`btn2`)
-buttontwo.textContent = `Add`
-header.appendChild(buttontwo)
-
-
-
-
-const wraper = document.createElement(`div`)
-wraper.classList.add(`section`)
-continer.appendChild(wraper)
-
-
-
-const newalem1 = document.createElement(`div`)
-newalem1.classList.add(`newalem1`)
-wraper.appendChild(newalem1) 
-
-const checkbox = document.createElement(`input`)
-checkbox.type = `checkbox`
-checkbox.classList.add(`checkbox`)
-checkbox.checked = `true`
-newalem1.appendChild(checkbox)
-
-
-const newText = document.createElement(`input`)
-newText.classList.add(`newText`)
-newText.value = `              Todo text`
-newalem1.appendChild(newText)
-
-
-const xDate = document.createElement(`div`)
-xDate.classList.add(`xDate`)
-newalem1.appendChild(xDate)
-
-const fontX = document.createElement(`a`)
-fontX.classList.add(`fontX`)
-xDate.appendChild(fontX)
-
-const X = document.createElement(`p`)
-X.textContent = `X`
-X.classList.add(`X`)
-fontX.appendChild(X)
-
-const date = document.createElement(`a`)
-date.classList.add(`date`)
-date.textContent = `Dale`
-xDate.appendChild(date)
+const editBtnClickHandler = (alem) => {
+    const input = document.createElement(`input`)
+    input.type = `text`
+    input.value = alem.textContent
+    alem.textContent=``
+    input.addEventListener(`keypress`,(e)=> {
+        inputKeyDownHandler(e,alem)
+    })
+    alem.appendChild(input)
+    console.log(alem.textContent)
+}
 
 
 
-const wraper2 = document.createElement(`div`)
-wraper2.classList.add(`section`)
-continer.appendChild(wraper2)
+
+const renderUserElement = (alem) => {
+    const {id, jobTitle, time, domain, type} = alem
+
+    const item = document.createElement(`div`)
+    item.setAttribute(`id`,String(id))
+    root.appendChild(item)
+    item.classList.add(`item`)
+
+ 
+    const job = document.createElement(`div`)
+    job.innerText = jobTitle
+    item.appendChild(job)
+    job.type = `text`
+
+    const jobtime = document.createElement(`div`)
+    jobtime.classList.add(time === `part-time` ? `partTime` : `fullTime`)
+    jobtime.textContent = time
+    item.appendChild(jobtime)
+
+
+    const buttons = document.createElement(`div`)
+    item.appendChild(buttons)
+
+    const editBtn = document.createElement(`buttons`)
+    const deleteBtn = document.createElement(`buttons`)
+    buttons.appendChild(editBtn)
+    buttons.appendChild(deleteBtn)
 
 
 
-const newalem12 = document.createElement(`div`)
-newalem12.classList.add(`newalem1`)
-wraper.appendChild(newalem12) 
-
-const checkbox2 = document.createElement(`input`)
-checkbox2.type = `checkbox`
-checkbox2.classList.add(`checkbox`)
-checkbox2.checked = `true`
-newalem12.appendChild(checkbox2)
+    editBtn.addEventListener(`click`,()=> {
+        editBtnClickHandler(job)
+    })
 
 
-const newText2 = document.createElement(`input`)
-newText2.classList.add(`newText`)
-newText2.value = `              Todo text`
-newalem12.appendChild(newText2)
 
 
-const xDate2 = document.createElement(`div`)
-xDate2.classList.add(`xDate`)
-newalem12.appendChild(xDate2)
+    deleteBtn.addEventListener(`click`,(e)=> {
+        console.log(e.currentTarget)
+        deleteButtonClickHandler(item)
+    })
 
-const fontX2 = document.createElement(`a`)
-fontX2.classList.add(`fontX`)
-xDate2.appendChild(fontX2)
+    editBtn.textContent = `edit`
+    deleteBtn.textContent = `X`
+    
 
-const X2 = document.createElement(`p`)
-X2.textContent = `X`
-X2.classList.add(`X`)
-fontX2.appendChild(X2)
+    editBtn.classList.add(`button`)
+    deleteBtn.classList.add(`button`)
 
-const date2 = document.createElement(`a`)
-date2.classList.add(`date`)
-date2.textContent = `Dale`
-xDate2.appendChild(date2)
 
+    buttons.appendChild(editBtn)
+    buttons.appendChild(deleteBtn)
+
+
+    const domainElem = document.createElement(`div`)
+    domainElem.textContent = domain
+    item.appendChild(domainElem)
+
+
+    const typeElem = document.createElement(`div`)
+    typeElem.textContent = type
+    item.appendChild(typeElem)
+}
+
+users.forEach((alem) => {   ///////////3
+    renderUserElement(alem)
+}) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const rootForm = document.getElementById(`form`)
+
+const formTitle = document.createElement(`h3`)
+formTitle.classList.add(`title`)
+formTitle.textContent = `Create new user`
+
+const formWraper = document.createElement(`div`)
+formWraper.classList.add(`inputWrapper`)
+
+
+rootForm.appendChild(formTitle)
+rootForm.appendChild(formWraper)
+
+const formData = [`position`, `department`, `employment` ,`format`]
+
+const newdata = {            /// 2
+
+}
+
+
+formData.forEach(alem => {
+    const inputWrapper = document.createElement(`div`)
+    inputWrapper.classList.add(`inputWrapper`)
+
+    const label = document.createElement(`label`)
+    label.textContent = alem
+    label.for = alem
+
+    const inp = document.createElement(`input`)
+    inp.type = `text`
+    inp.id = alem
+    
+    inp.addEventListener(`input`,(e)=> {             ///// 1 
+        newdata[e.target.id] = e.target.value
+    })
+
+
+    
+    inputWrapper.appendChild(label)
+    inputWrapper.appendChild(inp)
+
+    formWraper.appendChild(inputWrapper)
+})
+
+const btn = document.createElement(`button`)
+btn.id = `save`
+btn.classList.add(`button`)
+btn.textContent = `save`
+
+btn.addEventListener(`click`, ()=> {
+    
+    newdata.id = users.length
+    console.log(newdata)
+    renderUserElement(newdata)        /////4
+})
+
+
+rootForm.appendChild(btn)
+
+
+
+
+
+
+
+
+// setTimeout (() => {
+//     const id = prompt(`Enter number (max ${users[users.length -1].id})`)
+//     const newalem = document.getElementById(id)
+//     root.removeChild(newalem)
+// },1000)
