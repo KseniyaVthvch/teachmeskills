@@ -4,6 +4,10 @@ const header = document.createElement("div")
 header.classList.add("header")
 root.appendChild(header)
 
+const setName = (data => {
+   localStorage.setItem('todos', JSON.stringify(data))
+})
+
 const deleteAllBtn = document.createElement("button")
 deleteAllBtn.classList.add("btn_green")
 deleteAllBtn.innerText = "Delete All"
@@ -11,10 +15,20 @@ header.appendChild(deleteAllBtn)
 
 const deleteAllBtnClickHandler = () => {
    const items = document.querySelectorAll(".field")
+   // todo = []
+   // setName(todo)
    items.forEach((item) => {
       item.remove()
    })
 }
+// сверху вариант, который работает. Снизу, который работает интересно(выборочно)
+
+// const deleteAllBtnClickHandler = () => {
+//    todo.forEach((elem) => {
+//       const item = document.getElementById(elem.id)
+//       root.removeChild(item)
+//    })
+// }
 
 deleteAllBtn.addEventListener("click", deleteAllBtnClickHandler)
 
@@ -38,6 +52,7 @@ addBtn.addEventListener("click", () => {
       text: value
    };
    todo.push(newTodo);
+   setName(todo)
    renderTodoElement(newTodo)
 })
 
@@ -56,6 +71,9 @@ const todo = [
 
 
 const deleteBtnClickHandler = (elem) => {
+   // const deleteOneFieldIndex = todo.map(item => item.id).indexOf(id)
+   // todo.splice(deleteOneFieldIndex, 1)
+   // setName(todo)
    root.removeChild(elem)
 }
 
@@ -79,6 +97,9 @@ const renderTodoElement = (elem) => {
       if (checkbox.checked) {
          todoText.style.textDecoration = "line-through"
       } else { todoText.style.textDecoration = "none" }
+      const currentElement = todo.find(item => item.id === id).isChecked
+      currentElement.isChecked = checkbox.checked
+      setName(todo)
    })
 
    const todoText = document.createElement("p")
@@ -109,6 +130,11 @@ const renderTodoElement = (elem) => {
    todoDate.innerText = `${dateNow.getDate()} ${dateNow.getMonth() + 1} ${dateNow.getFullYear()}`
    buttons.appendChild(todoDate)
 }
+
+if (localStorage.getItem("todos") === null) {
+   setName(todo)
+}
+// todo = JSON.parse(localStorage.getItem('todos'))
 
 todo.forEach((elem) => {
    renderTodoElement(elem)
