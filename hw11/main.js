@@ -1,7 +1,9 @@
 const root = document.getElementById("root")
 
 // Создание block1
-const todo = []
+
+let data = localStorage.getItem('todos')
+let todo = JSON.parse(data)
 
 const container = document.createElement("div")
 container.classList.add("container")
@@ -19,6 +21,9 @@ const deleteAllButtonHandler = () => {
 		console.log(item)
 		item.remove()
 	})
+	const deleteAllB = todo.map(item => item.id)
+	todo.splice(deleteAllB)
+	localStorage.setItem('todos', JSON.stringify(todo))
 }
 
 delAllBtn.addEventListener("click", deleteAllButtonHandler)
@@ -42,10 +47,9 @@ addBtn.addEventListener('click', () => {
 		text: value
 	};
 	todo.push(newtodo);
+	setName()
 	renderToDoItem(newtodo)
 	console.log(todo)
-	setName()
-	// getName()
 
 })
 if (localStorage.getItem("todos") === null) {
@@ -55,16 +59,6 @@ if (localStorage.getItem("todos") === null) {
 function setName() {
 	localStorage.setItem("todos", JSON.stringify(todo))
 }
-// function getName() {
-// 	localStorage.getItem("todos", JSON.parse(todo))
-// }
-// const data = localStorage.getItem("todos")
-// const storageData = JSON.parse(data)
-// console.log(storageData)
-
-
-
-
 
 // Подключение block1
 
@@ -101,6 +95,10 @@ const renderToDoItem = (elem) => {
 		} else {
 			todoText.style.textDecoration = "none"
 		}
+		const currentElem = todo.find(items => items.id === id)
+		currentElem.isChecked = checkbox.checked
+		localStorage.setItem('todos', JSON.stringify(todo))
+		console.log(todo)
 	})
 
 	const todoText = document.createElement("p")
@@ -119,7 +117,11 @@ const renderToDoItem = (elem) => {
 
 	deleteBtn.addEventListener("click", (e) => {
 		e.currentTarget.parentElement.remove()
-		// container.removeChild(block2)
+		const deleteOneBlock = todo.map(item => item.id)
+		console.log(deleteOneBlock)
+		todo.splice(deleteOneBlock, 1)
+		localStorage.setItem('todos', JSON.stringify(todo))
+		console.log(todo)
 	})
 
 	const todoDate = document.createElement("div")
