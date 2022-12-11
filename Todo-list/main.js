@@ -2,6 +2,9 @@ const root = document.getElementById("root")
 
 // Создание block1
 
+let data = localStorage.getItem('todos')
+let todo = JSON.parse(data)
+
 const container = document.createElement("div")
 container.classList.add("container")
 
@@ -18,6 +21,9 @@ const deleteAllButtonHandler = () => {
 		console.log(item)
 		item.remove()
 	})
+	const deleteAllB = todo.map(item => item.id)
+	todo.splice(deleteAllB)
+	localStorage.setItem('todos', JSON.stringify(todo))
 }
 
 delAllBtn.addEventListener("click", deleteAllButtonHandler)
@@ -31,17 +37,28 @@ const addBtn = document.createElement("button")
 addBtn.classList.add("add__btn")
 addBtn.innerText = "Add"
 addBtn.addEventListener('click', () => {
+	const dateNow = new Date()
+	const dateTodo = `${dateNow.getDate()}.${dateNow.getMonth() + 1}.${dateNow.getFullYear()}`
 	const value = inputTodo.value
 	let newtodo = {
 		id: `${value}-${todo.length}-${Math.random()}`,
+		date: dateTodo,
 		isChecked: false,
 		text: value
 	};
 	todo.push(newtodo);
-	console.log(value)
+	setName()
 	renderToDoItem(newtodo)
-})
+	console.log(todo)
 
+})
+if (localStorage.getItem("todos") === null) {
+	localStorage.setItem("todos", JSON.stringify(todo))
+}
+
+function setName() {
+	localStorage.setItem("todos", JSON.stringify(todo))
+}
 
 // Подключение block1
 
@@ -52,24 +69,11 @@ block1.appendChild(delAllBtn)
 block1.appendChild(inputTodo)
 block1.appendChild(addBtn)
 
-const todo = [
-	{
-		id: 0,
-		isChecked: true,
-		text: 'Todo text',
-	},
-	{
-		id: 1,
-		isChecked: false,
-		text: 'Todo text',
-	}
-]
-
 // toDeleteItem.remove()
 // parentElem.removeChild(toDeleteItem)
 
 const renderToDoItem = (elem) => {
-	const { id, isChecked, text } = elem
+	const { id, isChecked, text, date } = elem
 
 	const block2 = document.createElement("div")
 	block2.classList.add("block__2")
@@ -91,6 +95,10 @@ const renderToDoItem = (elem) => {
 		} else {
 			todoText.style.textDecoration = "none"
 		}
+		const currentElem = todo.find(items => items.id === id)
+		currentElem.isChecked = checkbox.checked
+		localStorage.setItem('todos', JSON.stringify(todo))
+		console.log(todo)
 	})
 
 	const todoText = document.createElement("p")
@@ -109,7 +117,11 @@ const renderToDoItem = (elem) => {
 
 	deleteBtn.addEventListener("click", (e) => {
 		e.currentTarget.parentElement.remove()
-		// container.removeChild(block2)
+		const deleteOneBlock = todo.map(item => item.id)
+		console.log(deleteOneBlock)
+		todo.splice(deleteOneBlock, 1)
+		localStorage.setItem('todos', JSON.stringify(todo))
+		console.log(todo)
 	})
 
 	const todoDate = document.createElement("div")
