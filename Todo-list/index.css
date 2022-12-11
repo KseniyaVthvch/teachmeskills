@@ -55,6 +55,9 @@
 }
 .input__text{
 	border-radius: 5px;
+	max-width: 100px;
+	width:100%;
+	text-align: center;
 	padding: 5px 20px;
 	background-color: white;
 }
