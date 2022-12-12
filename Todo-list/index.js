@@ -23,12 +23,15 @@ sectionOne.appendChild(btnAdd)
 btnAdd.addEventListener("click", () => {
    const newData = {}
    const value = inputTodo.value
-   newData.id = todo.length
+   newData.id = `${value}-${todo.length}`
+   newData.isChecked = false
    newData.text = value
+   todo.push(newData)
+   localStorage.setItem("todos", JSON.stringify(todo))
    renderTodoElement(newData)
 })
 
-const todo = [
+let todo = [
    {
       id: 0,
       isChecked: false, 
@@ -40,6 +43,13 @@ const todo = [
       text: "Todo text"
    },
 ]
+
+if (localStorage.getItem("todos") === null) {
+   localStorage.setItem("todos", JSON.stringify(todo))
+}
+
+const getItem = localStorage.getItem("todos")
+todo = JSON.parse(getItem)
 
 const deleteAllButtonClickHandler = currentElem => {
    root.removeChild(currentElem)
@@ -59,7 +69,7 @@ const renderTodoElement = elem => {
    inputCheckbox.checked = isChecked
    item.appendChild(inputCheckbox)
 
-   inputCheckbox.addEventListener("click", (e) => {
+   inputCheckbox.addEventListener("change", (e) => {
       if (e.currentTarget.checked === true) {
          textElem.style.textDecoration = "line-through",
          item.style.backgroundColor = "rgb(190, 164, 164)"
@@ -67,6 +77,10 @@ const renderTodoElement = elem => {
          textElem.style.textDecoration = "none"
          item.style.backgroundColor = "rgba(221, 220, 220, 0.644)"
       }
+
+      const inputChange = todo.find(item => item.id === id)
+      inputChange.isChecked = inputCheckbox.checked
+      localStorage.setItem("todos", JSON.stringify(todo))
    })
 
    const textElem = document.createElement("p")
@@ -84,7 +98,10 @@ const renderTodoElement = elem => {
    blockDataDelBtn.appendChild(delBtnElem)
 
    delBtnElem.addEventListener("click", () => {
+      const DelOneTodo = todo.filter(item => item.id).indexOf(id)
+      todo.splice(DelOneTodo, 1)
       root.removeChild(item)
+      localStorage.setItem("todos", JSON.stringify(todo))
    })
 
    const date = document.createElement("div")
@@ -95,7 +112,17 @@ const renderTodoElement = elem => {
    `
    blockDataDelBtn.appendChild(date)
 
+   if (inputCheckbox.checked === true) {
+      textElem.style.textDecoration = "line-through",
+      item.style.backgroundColor = "rgb(190, 164, 164)"
+   } else {
+      textElem.style.textDecoration = "none"
+      item.style.backgroundColor = "rgba(221, 220, 220, 0.644)"
+   }
+
    btnDelete.addEventListener("click", () => {
+      todo = []
+      localStorage.setItem("todos", JSON.stringify(todo))
       deleteAllButtonClickHandler(item)
    })
 }
