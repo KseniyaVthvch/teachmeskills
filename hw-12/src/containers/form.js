@@ -4,7 +4,6 @@ import { createInp } from "../controls/input.js"
 import { setItem } from "../utils/setLocalItem.js"
 import { labelList, checkboxList } from "../controls/elementLists.js"
 import { allCompleted } from "../controls/allComletedCounter.js"
-import { eventHandler } from "../utils/addEventListener.js"
 import { render } from "../utils/renderTodoElement.js"
 
 export let todo = []
@@ -33,40 +32,7 @@ export const todoListContent = createElem("div", {
 
 //
 
-const deleteAll = createBtn("Delete All", controlsTop)
-
-const deleteLast = createBtn("Delete Last", controlsTop)
-
-export const enterTodo = createInp("Enter todo...", controlsTop)
-
-const add = createBtn("Add", controlsTop)
-
-export const all = createElem("div", {
-    className: "todo-list__controls-item",
-}, controlsBottom)
-
-export const completed = createElem("div", {
-    className: "todo-list__controls-item",
-}, controlsBottom)
-
-const showAll = createBtn("Show All", controlsBottom)
-
-const showCompleted = createBtn("Show Completed", controlsBottom)
-
-const search = createInp("Search..", controlsBottom)
-
-allCompleted()
-
-if(localStorage.getItem("todo") === null) {
-    setItem()
-}
-
-todo = JSON.parse(localStorage.getItem("todo"))
-todo.forEach(elem => render(elem))
-
-//
-
-eventHandler(deleteAll, "click", () => {
+const deleteAll = createBtn("Delete All", controlsTop, "click", () => {
     if (labelList().length === 0) {
 		alert("Нечего удалять")
 	} else {
@@ -80,7 +46,7 @@ eventHandler(deleteAll, "click", () => {
     }
 })
 
-eventHandler(deleteLast, "click", () => {
+const deleteLast = createBtn("Delete Last", controlsTop, "click", () => {
 	if (todoListContent.children.length === 0) {
 		alert("Нечего удалять")
 	} else {
@@ -91,7 +57,9 @@ eventHandler(deleteLast, "click", () => {
     }
 })
 
-eventHandler(add, "click", () => {
+export const enterTodo = createInp("Enter todo...", controlsTop)
+
+const add = createBtn("Add", controlsTop, "click", () => {
 	if (enterTodo.value !== "") {
 		let selection = "select" + labelList().length + Math.random()
 
@@ -113,20 +81,37 @@ eventHandler(add, "click", () => {
 	}
 })
 
-eventHandler(showAll, "click", () => {
+export const all = createElem("div", {
+    className: "todo-list__controls-item",
+}, controlsBottom)
+
+export const completed = createElem("div", {
+    className: "todo-list__controls-item",
+}, controlsBottom)
+
+const showAll = createBtn("Show All", controlsBottom, "click", () => {
 	for (let item of checkboxList()) {
 		item.parentElement.style.display = "block"
 	}
 })
 
-eventHandler(showCompleted, "click", () => {
+const showCompleted = createBtn("Show Completed", controlsBottom, "click", () => {
 	for (let item of checkboxList()) {
 		if (!item.checked) item.parentElement.style.display = "none"
 	}
 })
 
-eventHandler(search, "input", (e) => {
+const search = createInp("Search..", controlsBottom, "input", (e) => {
 	for (let p of document.querySelectorAll(".todo-list__desc")) {
 		p.parentElement.style.display = !p.textContent.includes(e.target.value) ? "none" : "block"
 	}
 })
+
+allCompleted()
+
+if(localStorage.getItem("todo") === null) {
+    setItem()
+}
+
+todo = JSON.parse(localStorage.getItem("todo"))
+todo.forEach(elem => render(elem))

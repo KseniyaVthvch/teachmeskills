@@ -1,7 +1,6 @@
 import { enterTodo, todoListContent, todo } from "../containers/form.js"
 import { allCompleted } from "../controls/allComletedCounter.js"
 import { createElem } from "./createElement.js"
-import { eventHandler } from "./addEventListener.js"
 import { setItem } from "./setLocalItem.js"
 
 
@@ -20,6 +19,13 @@ export const render = elem => {
         checked: isChecked
     }, label)
 
+    checkboxInp.addEventListener("change", (e) => {
+        label.style["background-color"] = checkboxInp.checked ? "#0d1117" : "#21262d"
+        todo.find(item => item.id === e.target.id).isChecked = checkboxInp.checked
+        setItem()
+        allCompleted()
+    })
+
     label.style["background-color"] = checkboxInp.checked ? "#0d1117" : "#21262d"
 
     const dateElem = createElem("p", {
@@ -27,6 +33,7 @@ export const render = elem => {
         innerText: date
     }, label)
 
+    
     const desc = createElem("p", {
         className: "todo-list__desc",
         innerText: text
@@ -36,11 +43,7 @@ export const render = elem => {
         className: "todo-list__content-item_delete",
     }, label)
 
-    allCompleted()
-
-    enterTodo.value = ""
-
-    eventHandler(deleteElem, "click", (e) => {
+    deleteElem.addEventListener("click", (e) => {
         label.remove()
         for (let i = 0; i < todo.length; i++) {
             if (todo[i].id === e.target.parentElement.firstElementChild.id) {
@@ -52,10 +55,7 @@ export const render = elem => {
         allCompleted()
     })
 
-    eventHandler(checkboxInp, "change", (e) => {
-        label.style["background-color"] = checkboxInp.checked ? "#0d1117" : "#21262d"
-        todo.find(item => item.id === e.target.id).isChecked = checkboxInp.checked
-        setItem()
-        allCompleted()
-    })
+    allCompleted()
+
+    enterTodo.value = ""
 }
