@@ -1,13 +1,13 @@
 *{padding: 0;margin: 0;}
 
 body {
-    background-color: hsl(0deg 13% 55%);
+    background-color: rgb(45, 37, 72);
 }
 
 .continer {
     margin: 100px auto;
     width: 500px;
-    height: 400px;
+    
     background-color: rgb(187, 187, 187);
     border: 4px solid #000;
     border-radius: 20px;
@@ -18,6 +18,7 @@ body {
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .btn {
@@ -120,4 +121,51 @@ body {
 
 .classL{
     background-color: blue;
+}
+
+
+
+
+
+
+.section {
+    width: 100%;
+    height: 60px;
+    background: rgb(246, 246, 246);
+    margin:  20px 0 40px 0;
+    border: 2px solid blue;
+    display: flex;
+    justify-content: space-around;
+}
+
+.div {
+    font-size: 20px;
+    background-color: rgb(146, 146, 233);
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 5px;
+}
+
+
+.deleteBtn {
+    font-size: 20px;
+    background-color: rgb(221, 61, 61);
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 5px;
+}
+.dote {
+    font-size: 20px;
+    background-color: rgb(146, 146, 233);
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 5px;
+}
+
+.checkbox1 {
+    background-color: rgb(163, 240, 182);
+}
+.checkbox2 {
+    background-color: rgb(0, 0, 0);
+
 }
