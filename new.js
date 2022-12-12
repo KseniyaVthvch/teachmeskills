@@ -34,6 +34,7 @@ header.appendChild(buttontwo)
 buttontwo.addEventListener(`click`,()=> {
     const value = tupeText.value
     newDote = {
+        id: `${Math.random()}`,
         checkboxChecked: true,
         text: value
     }
