@@ -1,5 +1,8 @@
 import { button } from "../components/button.js"
 import { createElement } from "./createElement.js"
+import { setName } from "./setName.js"
+import { todo } from "../store.js"
+import "../app.js"
 
 const root = document.getElementById("root")
 
@@ -21,6 +24,9 @@ export const renderTodoElement = (elem) => {
       if (checkbox.checked) {
          todoText.style.textDecoration = "line-through"
       } else { todoText.style.textDecoration = "none" }
+      const currentElement = todo.find(item => item.id === id)
+      currentElement.isChecked = checkbox.checked
+      setName(todo)
    })
 
    const todoText = createElement("p", {
@@ -35,10 +41,13 @@ export const renderTodoElement = (elem) => {
       className: "buttons"
    })
 
-   const deleteBtn = button("X", "x", () => deleteBtnClickHandler(field))
+   const deleteBtn = button("X", "x", () => deleteBtnClickHandler(field, id))
 
-   const deleteBtnClickHandler = (elem) => {
+   const deleteBtnClickHandler = (elem, id) => {
       root.removeChild(elem)
+      const deleteOneFieldIndex = todo.map(item => item.id).index.Of(id)
+      todo.splice(deleteOneFieldIndex, 1)
+      setName(todo)
    }
 
    const todoDate = createElement("div", {
