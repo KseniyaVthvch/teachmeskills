@@ -42,18 +42,17 @@ export const renderToDoItem = (elem) => {
 		todoText.style.textDecoration = "line-through"
 	}
 
-	const deleteBtn = button("X", "delbtn", () => delBtnClickHandler)
-	block2.appendChild(deleteBtn)
-
-	/// Как перейти к стрелочной функции ниже (т.е eventlistener, а просто ()=> и вот дальше как обратиться
-	// вместо e.currenttart к элементу. неправильно, но запихнул в let, чтобы выше уменьшить код
-	let delBtnClickHandler = deleteBtn.addEventListener("click", (e) => {
+	let delBtnClickHandler = (e) => {
 		e.currentTarget.parentElement.remove()
 		const deleteOneBlock = todo.map(item => item.id)
 		todo.splice(deleteOneBlock, 1)
 		localStorage.setItem('todos', JSON.stringify(todo))
 		console.log(todo)
-	})
+	}
+
+	const deleteBtn = button("X", "delbtn", delBtnClickHandler)
+	block2.appendChild(deleteBtn)
+
 
 	const todoDate = document.createElement("div")
 	todoDate.classList.add("date")
