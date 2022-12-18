@@ -4,6 +4,10 @@ const root = document.getElementById("root")
 
 let data = localStorage.getItem('todos')
 let todo = JSON.parse(data)
+// let todo = []
+// if(data) {
+// 	todo = JSON.parse(data)
+// }    это есть на строке 59
 
 const container = document.createElement("div")
 container.classList.add("container")
@@ -118,8 +122,8 @@ const renderToDoItem = (elem) => {
 	deleteBtn.addEventListener("click", (e) => {
 		e.currentTarget.parentElement.remove()
 		const deleteOneBlock = todo.map(item => item.id)
-		console.log(deleteOneBlock)
-		todo.splice(deleteOneBlock, 1)
+		const deleteOneBlockIndex = deleteOneBlock.indexOf(id)
+		todo.splice(deleteOneBlockIndex, 1)
 		localStorage.setItem('todos', JSON.stringify(todo))
 		console.log(todo)
 	})
