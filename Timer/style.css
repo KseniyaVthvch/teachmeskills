@@ -1,0 +1,41 @@
+body{
+   margin: auto;
+}
+
+#timer_wrapper {
+   margin: 100px auto;
+   width: 400px;
+   height: 400px;
+   border: 3px solid grey;
+   border-radius: 50%;
+   box-shadow: 0px 0px 20px 1px rgb(158, 155, 155);
+}
+.timer_name {
+   padding: 50px 50px 30px;
+   text-align: center;
+   font-size: 40px;
+}
+.timer {
+   margin: 0px 40px 30px;
+   padding: 5px 10px;
+   font-size: 40px;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+}
+.timer_buttons {
+   display: flex;
+   justify-content: center;
+
+}
+.btn  { 
+   border: 1px solid grey;
+   margin: 20px;
+   border-radius: 15%;
+   padding: 10px 30px;
+   box-shadow: 0px 0px 5px 1px rgb(158, 155, 155);}
+
+   .btn:hover{
+transform: scale(1.2);
+cursor: pointer;
+}
