@@ -30,26 +30,32 @@ buttontwo.classList.add(`btn2`)   ///btn add
 buttontwo.textContent = `Add`
 header.appendChild(buttontwo)
 
-
 buttontwo.addEventListener(`click`,()=> {
     const value = tupeText.value
-    newDote = {
-        id: `${Math.random()}`,
+    const newArr = {
+        id: users.length,
         checkboxChecked: true,
         text: value
     }
-    addingSection(newDote)
+
+    users.push(newArr)
+    localStorage.setItem(`users`,JSON.stringify(users)) ///////////
+    
+    addingSection(newArr)
 })
 
 
-const users = [
+
+
+
+let users = [
     { 
-        id: 1,
+        id: 0,
         checkboxChecked: true,
         text: `todo text`
     },
     { 
-        id: 2 ,
+        id: 1 ,
         checkboxChecked: true,
         text: `todo text`
     }
@@ -57,14 +63,18 @@ const users = [
 
 const deleteAllBtn = (alem) => {
     continer.removeChild(alem)
+
+    users.splice(users)
+    localStorage.setItem(`users`,JSON.stringify(users))   ///////////////
 }
+	
 
 
 
 const addingSection = (alem) => {
     const {id, checkboxChecked, text} = alem
     buttonone.addEventListener(`click`,()=> {
-        deleteAllBtn(section)                         /////////
+        deleteAllBtn(section)    
     })
    
     const section = document.createElement(`div`)
@@ -80,7 +90,7 @@ const addingSection = (alem) => {
     checkbox1.checked = checkboxChecked
     section.appendChild(checkbox1)
 
-    //
+    
 
     checkbox1.addEventListener(`input`,(e)=> {
         if(checkbox1.checked){
@@ -90,8 +100,11 @@ const addingSection = (alem) => {
             section.style.textDecoration = "line-through"
         }
        
-       
-    
+       const chec = users.find(alem=>alem.id === id)
+       chec.checkboxChecked = checkbox1.checked
+       localStorage.setItem(`users`,JSON.stringify(users))    //////////////
+
+
     })
 
     const todo = document.createElement(`div`)
@@ -104,14 +117,27 @@ const addingSection = (alem) => {
     deleteBtn.classList.add(`deleteBtn`)
     section.appendChild(deleteBtn)
 
-    const deleteSection = (alem) => {
-        continer.removeChild(alem)
-    } 
 
-    deleteBtn.addEventListener(`click`,()=> {
-        deleteSection(section)
+
+    deleteBtn.addEventListener(`click`,(e)=> {
+        e.currentTarget.parentElement.remove()
+
+        const deleteOneUsersIndex = users.map(alem=> alem.id).indexOf()         /////////////////
+        users.splice(deleteOneUsersIndex,1)
+        localStorage.setItem(`users`,JSON.stringify(users))
     })
 }
+
+
+
+
+if(localStorage.getItem(`users`) === null) {
+    localStorage.setItem(`users`,JSON.stringify(users))          ////////////
+}
+users = JSON.parse(localStorage.getItem(`users`))
+
+
+
 
 users.forEach((alem)=> {
     addingSection(alem)
