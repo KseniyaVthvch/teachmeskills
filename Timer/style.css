@@ -1,0 +1,80 @@
+@font-face {
+   font-family: 'Comfortaa';
+   src: url('./Comfortaa.ttf');
+}
+body{
+   font-family: 'Comfortaa';
+}
+.container{
+   max-width: 750px;
+   margin: 0 auto;
+   margin-top:  200px;
+
+}
+.timer {
+   display: flex;
+   justify-content: space-between;
+
+}
+.timer__block {
+   width: 350px;
+   height: 200px;
+   background-color: rgb(235, 235, 235);
+   text-align: center;
+   border-radius: 20px;
+}
+.colon{
+   font-size: 150px;
+}
+.time__minutes {
+   font-size: 150px;
+}
+.title {
+   height: 35px;
+   background-color: rgb(173, 173, 173);
+   border-bottom-left-radius: 20px;
+   border-bottom-right-radius:20px;
+   font-size: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+}
+.time__seconds {
+   font-size: 150px;
+
+}
+.button{
+   display: flex;
+   justify-content: center;
+
+}
+.start {
+   margin-top: 60px;
+   width: 130px;  
+   height: 40px;
+   background-color: rgb(173, 173, 173);
+   border: none;
+   font-size: 18px;
+   border-radius: 20px;
+   margin-right: 50px;
+   font-family: 'Comfortaa';
+}
+.start:hover{
+   background-color: rgb(207, 207, 207);
+   transition: all .2s;
+}
+.stop {
+   margin-top: 60px;
+   width: 130px;  
+   height: 40px;
+   background-color: rgb(173, 173, 173);
+   border: none;
+   font-size: 18px;
+   border-radius: 20px;
+   font-family: 'Comfortaa';
+}
+.stop:hover{
+   background-color: rgb(207, 207, 207);
+   transition: all .2s;
+}
