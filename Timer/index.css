@@ -1,0 +1,49 @@
+.container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background: radial-gradient(328px at 2.9% 15%, rgb(191, 224, 251) 0%, rgb(232, 233, 251) 25.8%, rgb(252, 239, 250) 50.8%, rgb(234, 251, 251) 77.6%, rgb(240, 251, 244) 100.7%);
+}
+.buttons>button{
+	cursor: pointer;
+	margin: 30px 30px;
+	
+	background-image: linear-gradient(#464d55, #25292e);
+	border-radius: 8px;
+	border-width: 0;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, .1),0 3px 6px rgba(0, 0, 0, .05);
+	box-sizing: border-box;
+	color: #fff;
+	width: 100px;
+	height: 50px;
+	transition: all 0.3s;
+}
+.buttons>button:hover{
+	background-image: linear-gradient(#515d6c, #526f93);
+	scale: 1.1;
+}
+
+.timer{
+	display: flex;
+}
+
+.timer__block{
+	margin: 0 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 200px;
+	width: 200px;
+	border: 1px solid black;
+	border-radius: 10px;
+	background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);
+}
+.timer__block>p{
+	font-size: 70px;
+	letter-spacing: 3px;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
