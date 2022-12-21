@@ -1,0 +1,98 @@
+:root {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	background-color: #0d1117;
+}
+
+.stopwatch {
+	margin: 0 auto;
+	position: relative;
+	top: 50vh;
+	transform: translateY(-50%);
+	background-color: #161b22;
+	width: 400px;
+	height: 500px;
+	border: solid 1px #30363d;
+	border-radius: 30px;
+	padding: 15px;
+	color: #fff;
+}
+
+.stopwatch__time-wrapper {
+	height: 80%;
+	position: relative;
+}
+
+.stopwatch__time {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 40px;
+	transition: .5s;
+}
+
+.stopwatch__controls-wrapper {
+	height: 20%;
+	position: relative;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.btn {
+	height: 60px;
+	width: 100px;
+	font-size: 18px;
+	font-weight: normal;
+	border-radius: 15px;
+	color: #fff;
+	cursor: pointer;
+	letter-spacing: 1px;
+	border: solid 1px #30363d;
+	background-color: transparent;
+	transition: .5s;
+	animation: .5s animate ease;
+}
+
+.btn:hover {
+	background-color: #fff;
+	color: #30363d;
+	box-shadow: 0px 0px 10px 5px;
+}
+
+.stopwatch__time-text {
+	display: none;
+	color: #6c727a; 
+	font-size: 16px; 
+	animation: 1s animate ease; 
+	position: absolute; 
+	left: 32px; 
+	top: 45px;
+}
+
+.stopwatch__points-wrapper {
+	position: relative;
+	top: 100px;
+	height: 300px;
+	overflow-y: auto;
+}
+
+.stopwatch__point {
+	display: flex;
+	justify-content: space-between;
+	color: #6c727a; 
+	font-size: 16px; 
+}
+  
+@keyframes animate {
+	0% {
+		opacity: 0;
+	}
+	20% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 100;
+	}
+}
