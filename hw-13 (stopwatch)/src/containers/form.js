@@ -2,38 +2,49 @@ import { createElem } from "../utils/createElement.js";
 import { createBtn } from "../controls/createBtn.js";
 import { lessThenTen } from "../utils/lessThanTenFunction.js";
 
+// Arr
+
 const timeArr = [0, 0, 0, 0]
+const timeStepArr = [0, 0, 0, 0]
+
 let counter = 0
 
-const stopwatchFunc = () => {
-	if (timeArr[0] === 100) {
-		timeArr[1]++
-		timeArr[0] = 0
+// Functions
+
+const checkHours = (elem, arr, option) => {
+	if (arr[3] > 0) {
+		elem.textContent = option + `${lessThenTen(arr[3])}:${lessThenTen(arr[2])}:${lessThenTen(arr[1])}:${lessThenTen(arr[0])}`
+
+	} else {
+		elem.textContent = option +  `${lessThenTen(arr[2])}:${lessThenTen(arr[1])}:${lessThenTen(arr[0])}`
+	}
+}
+
+const stopwatchFunc = (arr, func) => {
+	arr[0]++
+	if (arr[0] === 100) {
+		arr[1]++
+		arr[0] = 0
 	}
 
-	if (timeArr[1] === 60) {
-		timeArr[2]++
-		timeArr[1] = 0
+	if (arr[1] === 60) {
+		arr[2]++
+		arr[1] = 0
 	}
 
-	if (timeArr[2] === 60) {
-		timeArr[3]++
-		timeArr[2] = 0
+	if (arr[2] === 60) {
+		arr[3]++
+		arr[2] = 0
 	} 
 
-	if (timeArr[3] > 0) {
-		time.textContent = `${lessThenTen(timeArr[3])}:${lessThenTen(timeArr[2])}:${lessThenTen(timeArr[1])}:${lessThenTen(timeArr[0])}`
-	} else {
-		time.textContent = `${lessThenTen(timeArr[2])}:${lessThenTen(timeArr[1])}:${lessThenTen(timeArr[0])}`
-	}
-
-	timeArr[0]++
-	sessionStorage.setItem("time", JSON.stringify(timeArr))
+	func
 }
 
 if(sessionStorage.getItem("time") === null) {
 	sessionStorage.setItem("time", JSON.stringify(timeArr))
 }
+
+// Create
 
 const root = document.getElementById("root")
 
@@ -69,44 +80,83 @@ const time = createElem("div", {
 	textContent: `${lessThenTen(timeArr[2])}:${lessThenTen(timeArr[1])}:${lessThenTen(timeArr[0])}`
 }, timeWrapper) 
 
+// START 
+
 const startBtn = createBtn("Start", "stopwatch__play-btn btn", controlsWrapper, "click", () => {
 
 	startBtn.hidden = true
 
-	let stopwatchId = setInterval(stopwatchFunc, 10)
+	let pointId = setInterval(() => {
+		stopwatchFunc(timeStepArr)
+	}, 10)
+	
+
+	let stopwatchId = setInterval(() => {
+		stopwatchFunc(timeArr, checkHours(time, timeArr, ""))
+		sessionStorage.setItem("time", JSON.stringify(timeArr))
+	}, 10)
+
+	// PAUSE
 
 	const pauseBtn = createBtn("Pause", "stopwatch__pause-btn btn", controlsWrapper, "click", () => {
 		clearInterval(stopwatchId)
+		clearInterval(pointId)
 		pauseBtn.hidden = true
 		intervalBtn.hidden = true
 		
+		// CONTINUE
+
 		const continueBtn = createBtn("Continue", "stopwatch__continue-btn btn", controlsWrapper, "click", (e) => {
 			stopBtn.hidden = true
 			continueBtn.hidden = true
 			pauseBtn.hidden = false
 			intervalBtn.hidden = false
 
-			stopwatchId = setInterval(stopwatchFunc, 10)
+			pointId = setInterval(() => {
+				stopwatchFunc(timeStepArr)
+			}, 10)
+			
+			stopwatchId = setInterval(() => {
+				stopwatchFunc(timeArr, checkHours(time, timeArr, ""))
+				sessionStorage.setItem("time", JSON.stringify(timeArr))
+			}, 10)
 		})
 		
+		// STOP
+
 		const stopBtn = createBtn("Stop", "stopwatch__stop-btn btn", controlsWrapper, "click", () => {
 			stopBtn.hidden = true
 			continueBtn.hidden = true
 			startBtn.hidden = false
+
 			for (let i = 0; i < timeArr.length; i++) {
 				timeArr.splice(i,1,0)
+				timeStepArr.splice(i,1,0)
 			}
+
+			for (let item of document.querySelectorAll(".stopwatch__point")) {
+				item.remove()
+			}
+			timeText.style.display = "none"
+			time.style.left = ''
+			time.style.top = ''
+			time.style.fontSize = ''
+			time.style.transform = ''
+			counter = 0
 
 			time.textContent = `${lessThenTen(timeArr[2])}:${lessThenTen(timeArr[1])}:${lessThenTen(timeArr[0])}`
 			sessionStorage.setItem("time", JSON.stringify(timeArr))
 		})
 	})
 
+	// POINT
 
 	const intervalBtn = createBtn("Point", "stopwatch__point-btn btn", controlsWrapper, "click", () => {
-		time.style.left = '100px'
+		time.style.left = '32px'
 		time.style.top = '40px'
 		time.style.fontSize = '35px'
+		time.style.transform = 'translate(0, -50%)'
+
 		timeText.style.display = "block"
 
 		const pointWrapper = createElem("div", {
@@ -116,6 +166,17 @@ const startBtn = createBtn("Start", "stopwatch__play-btn btn", controlsWrapper, 
 		const pointNum = createElem("p", {
 			textContent: lessThenTen(++counter)
 		}, pointWrapper)
+
+		const timeStep = createElem("p", {}, pointWrapper)
+		checkHours(timeStep, timeStepArr, "+ ")
+
+		const currentTime = createElem("p", {
+			textContent: `${lessThenTen(timeArr[3])}:${lessThenTen(timeArr[2])}:${lessThenTen(timeArr[1])}:${lessThenTen(timeArr[0])}`
+		}, pointWrapper)
+
+		for (let i = 0; i < timeStepArr.length; i++) {
+			timeStepArr.splice(i,1,0)
+		}
 	})
 
 })
