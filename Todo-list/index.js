@@ -29,7 +29,6 @@ const deleteAllBtnClickHandler = () => {
 //       root.removeChild(item)
 //    })
 // }
-
 deleteAllBtn.addEventListener("click", deleteAllBtnClickHandler)
 
 const input = document.createElement("input")
