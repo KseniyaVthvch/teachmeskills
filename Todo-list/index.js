@@ -15,13 +15,11 @@ header.appendChild(deleteAllBtn)
 
 const deleteAllBtnClickHandler = () => {
    const items = document.querySelectorAll(".field")
-   todo = []
-   setName(todo)
+   setName([])
    items.forEach((item) => {
       item.remove()
    })
 }
-
 
 deleteAllBtn.addEventListener("click", deleteAllBtnClickHandler)
 
@@ -49,7 +47,7 @@ addBtn.addEventListener("click", () => {
    renderTodoElement(newTodo)
 })
 
-let todo = [
+const todo = [
    {
       id: 0,
       isChecked: true,
@@ -127,6 +125,7 @@ const renderTodoElement = (elem) => {
 if (localStorage.getItem("todos") === null) {
    setName(todo)
 }
+
 todo = JSON.parse(localStorage.getItem('todos'))
 
 todo.forEach((elem) => {

@@ -1,5 +1,4 @@
 import { setName } from "./utils/setName.js"
-
 export let todo = [
    {
       id: 0,
@@ -11,6 +10,7 @@ export let todo = [
       isChecked: true,
       text: 'Todo text',
    }
+
 ]
 
 if (localStorage.getItem('todos') === null) {

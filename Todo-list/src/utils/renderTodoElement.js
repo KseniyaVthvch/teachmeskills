@@ -46,6 +46,7 @@ export const renderTodoElement = (elem) => {
    const deleteBtnClickHandler = (elem, id) => {
       root.removeChild(elem)
       const deleteOneFieldIndex = todo.map(item => item.id).indexOf(id)
+
       todo.splice(deleteOneFieldIndex, 1)
       setName(todo)
    }
