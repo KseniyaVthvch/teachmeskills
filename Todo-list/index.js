@@ -15,14 +15,20 @@ header.appendChild(deleteAllBtn)
 
 const deleteAllBtnClickHandler = () => {
    const items = document.querySelectorAll(".field")
-   todo = []
-   setName(todo)
+   // todo = []
+   // setName(todo)
    items.forEach((item) => {
       item.remove()
    })
 }
+// сверху вариант, который работает. Снизу, который работает интересно(выборочно)
 
-
+// const deleteAllBtnClickHandler = () => {
+//    todo.forEach((elem) => {
+//       const item = document.getElementById(elem.id)
+//       root.removeChild(item)
+//    })
+// }
 deleteAllBtn.addEventListener("click", deleteAllBtnClickHandler)
 
 const input = document.createElement("input")
@@ -49,7 +55,7 @@ addBtn.addEventListener("click", () => {
    renderTodoElement(newTodo)
 })
 
-let todo = [
+const todo = [
    {
       id: 0,
       isChecked: true,
@@ -63,11 +69,11 @@ let todo = [
 ]
 
 
-const deleteBtnClickHandler = (elem, id) => {
+const deleteBtnClickHandler = (elem) => {
+   // const deleteOneFieldIndex = todo.map(item => item.id).indexOf(id)
+   // todo.splice(deleteOneFieldIndex, 1)
+   // setName(todo)
    root.removeChild(elem)
-   const deleteOneFieldIndex = todo.map(item => item.id).indexOf(id)
-   todo.splice(deleteOneFieldIndex, 1)
-   setName(todo)
 }
 
 
@@ -90,7 +96,7 @@ const renderTodoElement = (elem) => {
       if (checkbox.checked) {
          todoText.style.textDecoration = "line-through"
       } else { todoText.style.textDecoration = "none" }
-      const currentElement = todo.find(item => item.id === id)
+      const currentElement = todo.find(item => item.id === id).isChecked
       currentElement.isChecked = checkbox.checked
       setName(todo)
    })
@@ -114,7 +120,7 @@ const renderTodoElement = (elem) => {
    buttons.appendChild(deleteBtn)
 
    deleteBtn.addEventListener("click", () => {
-      deleteBtnClickHandler(field, id)
+      deleteBtnClickHandler(field)
    })
 
    const todoDate = document.createElement("div")
@@ -127,7 +133,7 @@ const renderTodoElement = (elem) => {
 if (localStorage.getItem("todos") === null) {
    setName(todo)
 }
-todo = JSON.parse(localStorage.getItem('todos'))
+// todo = JSON.parse(localStorage.getItem('todos'))
 
 todo.forEach((elem) => {
    renderTodoElement(elem)
