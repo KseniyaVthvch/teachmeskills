@@ -12,9 +12,7 @@ const header = createElement("div", {
 
 const deleteAllBtnClickHandler = () => {
    const items = document.querySelectorAll(".field")
-   todo = []
-   console.log(todo)
-   setName(todo)
+   setName([])
    items.forEach((item) => {
       item.remove()
    })
@@ -34,9 +32,7 @@ const input = createElement("input", {
 })
 header.appendChild(input)
 
-const addBtn = button("Add", "btn_green", () => renderTodoElement())
-
-addBtn.addEventListener("click", () => {
+const btnAdd = () => {
    const value = input.value
 
    let newTodo = {
@@ -47,13 +43,11 @@ addBtn.addEventListener("click", () => {
    todo.push(newTodo);
    setName(todo)
    renderTodoElement(newTodo)
-})
-header.appendChild(addBtn)
-
-if (localStorage.getItem('todos') === null) {
-   console.log(todo)
-   setName(todo)
 }
+
+const addBtn = button("Add", "btn_green", btnAdd, () => renderTodoElement())
+
+header.appendChild(addBtn)
 
 todo.forEach((elem) => {
    renderTodoElement(elem)

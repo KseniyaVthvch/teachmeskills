@@ -11,7 +11,7 @@ export const renderTodoElement = (elem) => {
 
    const field = createElement("div", {
       className: "field",
-      "id": String(id)
+      id: String(id)
    })
 
    const checkbox = createElement("input", {
@@ -45,7 +45,7 @@ export const renderTodoElement = (elem) => {
 
    const deleteBtnClickHandler = (elem, id) => {
       root.removeChild(elem)
-      const deleteOneFieldIndex = todo.map(item => item.id).index.Of(id)
+      const deleteOneFieldIndex = todo.map(item => item.id).indexOf(id)
       todo.splice(deleteOneFieldIndex, 1)
       setName(todo)
    }

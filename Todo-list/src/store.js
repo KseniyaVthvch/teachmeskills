@@ -1,3 +1,5 @@
+import { setName } from "./utils/setName.js"
+
 export let todo = [
    {
       id: 0,
@@ -10,3 +12,9 @@ export let todo = [
       text: 'Todo text',
    }
 ]
+
+if (localStorage.getItem('todos') === null) {
+   setName(todo)
+}
+
+todo = JSON.parse(localStorage.getItem('todos'))
