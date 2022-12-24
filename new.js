@@ -1,93 +1,88 @@
+import { createElement } from "./utils/createElement.js"
+import { button } from "./components/button.js"
+import { users } from "./array.js"
+// import "./utils/createElement.js"
+
 const root = document.getElementById(`root`)
 
 
 
-const continer = document.createElement(`div`)
-continer.classList.add(`continer`)
+const continer = createElement(`div`, {
+    className: `continer`,
+})
 root.appendChild(continer)          
 
 
-
-const header = document.createElement(`div`)
-header.classList.add(`header`)
+const header = createElement(`div`, {
+    className: `header`,
+})
 continer.appendChild(header)
 
-const buttonone = document.createElement(`a`)
-buttonone.classList.add(`btn`)
-buttonone.textContent = `Delete All`
+
+
+// const buttonone = document.createElement(`a`)deleteAllBtn(section)
+// buttonone.classList.add(`btn`)
+// buttonone.textContent = `Delete All` ///btn add All
+const buttonone = button(`Delete All`, `btn`, ()=> deleteAllBtn(section))//не подключается функция
+const deleteAllBtn = (alem) => {
+    continer.removeChild(alem)
+    users = []
+    // users.splice(users)
+    localStorage.setItem(`users`,JSON.stringify(users))     
+    
+}
 header.appendChild(buttonone)
 
 
 
-
-const tupeText = document.createElement(`input`)
-tupeText.value = `    Enter todo ...`
-tupeText.classList.add(`todo`)
+const tupeText = createElement(`input`, {
+    value:`    Enter todo ...`,
+    className: `todo`
+})
 header.appendChild(tupeText)
 
-const buttontwo = document.createElement(`a`)
-buttontwo.classList.add(`btn2`)   ///btn add
-buttontwo.textContent = `Add`
+
+
+const buttontwo = button(`Add`, `btn`,()=>wraper())
+    const wraper = () => {
+
+        const value = tupeText.value
+        const newArr = {
+            id: users.length,
+            checkboxChecked: true,
+            text: value
+        }
+        
+        users.push(newArr) 
+        localStorage.setItem(`users`,JSON.stringify(users)) 
+        
+        addingSection(newArr)
+    }
 header.appendChild(buttontwo)
 
-buttontwo.addEventListener(`click`,()=> {
-    const value = tupeText.value
-    const newArr = {
-        id: users.length,
-        checkboxChecked: true,
-        text: value
-    }
-
-    users.push(newArr)
-    localStorage.setItem(`users`,JSON.stringify(users)) ///////////
-    
-    addingSection(newArr)
-})
-
-
-
-
-
-let users = [
-    { 
-        id: 0,
-        checkboxChecked: true,
-        text: `todo text`
-    },
-    { 
-        id: 1 ,
-        checkboxChecked: true,
-        text: `todo text`
-    }
-]
-
-const deleteAllBtn = (alem) => {
-    continer.removeChild(alem)
-
-    users.splice(users)
-    localStorage.setItem(`users`,JSON.stringify(users))   ///////////////
-}
 	
-
 
 
 const addingSection = (alem) => {
     const {id, checkboxChecked, text} = alem
-    buttonone.addEventListener(`click`,()=> {
-        deleteAllBtn(section)    
-    })
-   
-    const section = document.createElement(`div`)
-    section.setAttribute(`id`,String(id))
 
+    // buttonone.addEventListener(`click`,()=> {
+    //     deleteAllBtn(section)    
+    // })
    
-    section.classList.add(`section`)
+ 
+    const section = createElement(`div`, {
+        id: String(id),
+        className:`section`
+    })
     continer.appendChild(section)
 
 
-    const checkbox1 = document.createElement(`input`)
-    checkbox1.type = `checkbox`
-    checkbox1.checked = checkboxChecked
+
+    const checkbox1 = createElement(`input`, {
+        type: `checkbox`,
+        checked: checkboxChecked
+    })
     section.appendChild(checkbox1)
 
     
@@ -100,46 +95,47 @@ const addingSection = (alem) => {
             section.style.textDecoration = "line-through"
         }
        
-       const chec = users.find(alem=>alem.id === id)
-       chec.checkboxChecked = checkbox1.checked
-       localStorage.setItem(`users`,JSON.stringify(users))    //////////////
-
-
+    //    const chec = users.find(alem=>alem.id === id)
+    //    chec.checkboxChecked = checkbox1.checked
+    //    localStorage.setItem(`users`,JSON.stringify(users))    //////////////
     })
 
-    const todo = document.createElement(`div`)
-    todo.classList.add(`div`)
-    todo.textContent = text
+
+
+    const todo = createElement(`div`, {
+        className: `div`,
+        textContent: text
+    }) 
     section.appendChild(todo)
 
-    const deleteBtn = document.createElement(`div`)
-    deleteBtn.textContent = `delete`
-    deleteBtn.classList.add(`deleteBtn`)
-    section.appendChild(deleteBtn)
 
-
-
-    deleteBtn.addEventListener(`click`,(e)=> {
-        e.currentTarget.parentElement.remove()
-
-        const deleteOneUsersIndex = users.map(alem=> alem.id).indexOf()         /////////////////
-        users.splice(deleteOneUsersIndex,1)
-        localStorage.setItem(`users`,JSON.stringify(users))
-    })
+  
+    // const deleteBtn = createElement(`div`, {
+    //     textContent:`delete`,
+    //     className: `deleteBtn`
+    // })
+    const deleteBtn = button(`delete`, `deleteBtn`, (e)=> myFn(e))
+   
+        const myFn = (e) => {
+            e.currentTarget.parentElement.remove()
+                
+            const deleteOneUsersIndex = users.map(alem=> alem.id).indexOf()         /////////////////
+            users.splice(deleteOneUsersIndex,1)
+            localStorage.setItem(`users`,JSON.stringify(users))
+        }
+ section.appendChild(deleteBtn)
 }
 
-
-
-
+    
 if(localStorage.getItem(`users`) === null) {
     localStorage.setItem(`users`,JSON.stringify(users))          ////////////
 }
 users = JSON.parse(localStorage.getItem(`users`))
 
 
-
-
 users.forEach((alem)=> {
     addingSection(alem)
   
 })
+
+
