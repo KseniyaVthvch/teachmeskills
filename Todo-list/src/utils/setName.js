@@ -1,3 +1,3 @@
-export const setName = (data => {
+export const setName = ((data) => {
    localStorage.setItem('todos', JSON.stringify(data))
 })

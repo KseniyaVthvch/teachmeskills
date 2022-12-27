@@ -15,20 +15,12 @@ header.appendChild(deleteAllBtn)
 
 const deleteAllBtnClickHandler = () => {
    const items = document.querySelectorAll(".field")
-   // todo = []
-   // setName(todo)
+   setName([])
    items.forEach((item) => {
       item.remove()
    })
 }
-// сверху вариант, который работает. Снизу, который работает интересно(выборочно)
 
-// const deleteAllBtnClickHandler = () => {
-//    todo.forEach((elem) => {
-//       const item = document.getElementById(elem.id)
-//       root.removeChild(item)
-//    })
-// }
 deleteAllBtn.addEventListener("click", deleteAllBtnClickHandler)
 
 const input = document.createElement("input")
@@ -69,11 +61,11 @@ const todo = [
 ]
 
 
-const deleteBtnClickHandler = (elem) => {
-   // const deleteOneFieldIndex = todo.map(item => item.id).indexOf(id)
-   // todo.splice(deleteOneFieldIndex, 1)
-   // setName(todo)
+const deleteBtnClickHandler = (elem, id) => {
    root.removeChild(elem)
+   const deleteOneFieldIndex = todo.map(item => item.id).indexOf(id)
+   todo.splice(deleteOneFieldIndex, 1)
+   setName(todo)
 }
 
 
@@ -96,7 +88,7 @@ const renderTodoElement = (elem) => {
       if (checkbox.checked) {
          todoText.style.textDecoration = "line-through"
       } else { todoText.style.textDecoration = "none" }
-      const currentElement = todo.find(item => item.id === id).isChecked
+      const currentElement = todo.find(item => item.id === id)
       currentElement.isChecked = checkbox.checked
       setName(todo)
    })
@@ -120,7 +112,7 @@ const renderTodoElement = (elem) => {
    buttons.appendChild(deleteBtn)
 
    deleteBtn.addEventListener("click", () => {
-      deleteBtnClickHandler(field)
+      deleteBtnClickHandler(field, id)
    })
 
    const todoDate = document.createElement("div")
@@ -133,7 +125,8 @@ const renderTodoElement = (elem) => {
 if (localStorage.getItem("todos") === null) {
    setName(todo)
 }
-// todo = JSON.parse(localStorage.getItem('todos'))
+
+todo = JSON.parse(localStorage.getItem('todos'))
 
 todo.forEach((elem) => {
    renderTodoElement(elem)
