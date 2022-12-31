@@ -30,7 +30,7 @@ const getData = (data) => {
 
 getData(post)
 
-/// Async / await
+///Async / await
 
 async function getPosts2(id) {
    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
