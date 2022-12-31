@@ -163,3 +163,10 @@ rootForm.appendChild(formTitle)
 rootForm.appendChild(formWrapper)
 inputWrapper.appendChild(btn)
 rootForm.appendChild(inputWrapper)
+
+// git fetch --all
+// git pull --all
+
+// formData
+
+const data = new FormData()
